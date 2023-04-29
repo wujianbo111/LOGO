@@ -393,6 +393,10 @@ void Osd_LoadLogoFontCP(void)
 	msWrite2ByteMask(OSD1_0A, 0x200, 0x02FF);
 	msWrite2ByteMask(OSD1_0C, 0x300, 0x03FF);
 	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(0x01), &tOSDLogoFont2, 0);
+	#elif (DisplayLogo==LOGO_CHANGHONG)
+	msWrite2ByteMask(OSD1_0A, 0x200, 0x02FF);
+	msWrite2ByteMask(OSD1_0C, 0x300, 0x03FF);
+	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(0x01), &tOSDLogoFont2, 0);
 	#else
 	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(1), &tOSDLogoFont, 0);
 	#endif
@@ -1481,6 +1485,15 @@ for(j = 0; j < 39; j++)
 			Osd_DrawCharDirect(j, i, strypbWindow[i][j]);
 		}
 	}
+	#elif (DisplayLogo==LOGO_CHANGHONG)
+	for(i = 0; i < 8; i++)
+	{
+		for(j = 0; j < 70; j++)
+		{
+			Osd_SetTextMonoColor(PalCHA[i][j] + 1, PalCHA[i][j]);
+			Osd_DrawCharDirect(j, i, strCHAWindow[i][j]);
+		}
+	}
 	#else
 	for (i = 0; i < OsdWindowHeight; i++)
 {
@@ -1609,10 +1622,13 @@ for(j = 0; j < 39; j++)
 	drvOSD_FrameColorRGB(0xFF, 0xFF, 0xFF);
 	#elif (DisplayLogo==LOGO_AISI3)
 	drvOSD_FrameColorEnable(TRUE);
-	drvOSD_FrameColorRGB(0xFF, 0xFF, 0xFF);	
+	drvOSD_FrameColorRGB(0xFF, 0xFF, 0xFF);
 	#elif (DisplayLogo==LOGO_YPBXZYH)
 	drvOSD_FrameColorEnable(TRUE);
-	drvOSD_FrameColorRGB(0x00, 0x00, 0x00);	
+	drvOSD_FrameColorRGB(0x00, 0x00, 0x00);
+	#elif (DisplayLogo==LOGO_CHANGHONG)
+	drvOSD_FrameColorEnable(TRUE);
+	drvOSD_FrameColorRGB(0x00, 0x00, 0x00);
 	#else
 	drvOSD_FrameColorEnable(FALSE);
 	#endif
