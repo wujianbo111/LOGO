@@ -397,6 +397,11 @@ void Osd_LoadLogoFontCP(void)
 	msWrite2ByteMask(OSD1_0A, 0x200, 0x02FF);
 	msWrite2ByteMask(OSD1_0C, 0x300, 0x03FF);
 	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(0x01), &tOSDLogoFont2, 0);
+	#elif (DisplayLogo==LOGO_AMAZON)
+	msWrite2ByteMask(OSD1_0A, 0x200, 0x02FF);
+	msWrite2ByteMask(OSD1_0C, 0x300, 0x03FF);
+	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(0x01), &tOSDLogoFont2, 0);
+
 	#else
 	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(1), &tOSDLogoFont, 0);
 	#endif
@@ -1494,6 +1499,15 @@ for(j = 0; j < 39; j++)
 			Osd_DrawCharDirect(j, i, strCHAWindow[i][j]);
 		}
 	}
+	#elif (DisplayLogo==LOGO_AMAZON)
+	for(i = 0; i < 13; i++)
+	{
+		for(j = 0; j < 80; j++)
+		{
+			Osd_SetTextMonoColor(PalAMA[i][j] + 1, PalAMA[i][j]);
+			Osd_DrawCharDirect(j, i, strAMAWindow[i][j]);
+		}
+	}	
 	#else
 	for (i = 0; i < OsdWindowHeight; i++)
 {
@@ -1627,6 +1641,9 @@ for(j = 0; j < 39; j++)
 	drvOSD_FrameColorEnable(TRUE);
 	drvOSD_FrameColorRGB(0x00, 0x00, 0x00);
 	#elif (DisplayLogo==LOGO_CHANGHONG)
+	drvOSD_FrameColorEnable(TRUE);
+	drvOSD_FrameColorRGB(0x00, 0x00, 0x00);
+	#elif (DisplayLogo==LOGO_AMAZON)
 	drvOSD_FrameColorEnable(TRUE);
 	drvOSD_FrameColorRGB(0x00, 0x00, 0x00);
 	#else

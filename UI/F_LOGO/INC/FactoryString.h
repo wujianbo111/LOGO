@@ -174,6 +174,10 @@
 #elif DisplayLogo==LOGO_CHANGHONG
 #define   LOGO_W		70
 #define   LOGO_H		8
+#elif DisplayLogo==LOGO_AMAZON
+#define   LOGO_W		80
+#define   LOGO_H		13
+
 #else //   EnvisionLogo
 #define   LOGO_W	39
 #define	LOGO_H		5
