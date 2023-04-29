@@ -1,11 +1,8 @@
----- YWYLBS_LOGO Matches (10 in 5 files) ----
-Osd_LoadLogoFontCP in FactoryString.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO) : 	#elif (DisplayLogo==YWYLBS_LOGO)
-DrawLogo in FactoryString.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO) : 	#if (DisplayLogo==YMH_LOGO||DisplayLogo==YWYLBS_LOGO||DisplayLogo==YWYBIRD_LOGO||DisplayLogo==YWYDGM_LOGO||DisplayLogo==YWYPOLY_LOGO||DisplayLogo==YWYMIMO_LOGO||DisplayLogo==CHANG_LOGO||DisplayLogo==YWY_LOGO||DisplayLogo==TEST_LOGO\
-DrawLogo in FactoryString.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO) : 	#elif (DisplayLogo==YWYLBS_LOGO)
-DrawLogo in FactoryString.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO) : 	#elif (DisplayLogo==YWYLBS_LOGO)
-FactoryString.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO\INC) line 156 : #elif DisplayLogo==YWYLBS_LOGO
-JRY_TESTBOARD_C_BOARD.h (H:\JRY\LOGO\TSUM_TEXT_1\MODEL) line 9 : #define DisplayLogo					YMH_LOGO//YWYBIRD_LOGO//YWYLBS_LOGO//YWYDGM_LOGO//LOGO_DUNPAI//YWYMIMO_LOGO//CHANG_LOGO//YWYPOLY_LOGO//TEST_LOGO//YWY_LOGO//LOGO_YINGYAN   
-LogoFontText.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 959 : #elif (DisplayLogo==YWYLBS_LOGO)
-LogoFontText.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 978 : #elif (DisplayLogo==YWYLBS_LOGO)
-LogoFontText.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 26044 : #elif (DisplayLogo==YWYLBS_LOGO)
-logo_define.h (H:\JRY\LOGO\TSUM_TEXT_1\CONFIG) line 79 : #define YWYLBS_LOGO						53
+---- LOGO_AISI3 Matches (7 in 4 files) ----
+Osd_LoadLogoFontCP in FactoryString.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO) : 	#elif (DisplayLogo==LOGO_AISI3)
+DrawLogo in FactoryString.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO) : 	#elif (DisplayLogo==LOGO_AISI3)
+DrawLogo in FactoryString.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO) : 	#elif (DisplayLogo==LOGO_AISI3)
+FactoryString.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO\INC) line 168 : #elif DisplayLogo==LOGO_AISI3
+LogoFontText.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 1262 : #elif (DisplayLogo==LOGO_AISI3)
+LogoFontText.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 45393 : #elif (DisplayLogo==LOGO_AISI3)
+logo_define.h (H:\JRY\LOGO\TSUM_TEXT_1\CONFIG) line 84 : #define LOGO_AISI3				61

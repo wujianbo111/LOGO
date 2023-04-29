@@ -382,6 +382,13 @@ void Osd_LoadLogoFontCP(void)
 	msWrite2ByteMask(OSD1_0A, 0x200, 0x02FF);
 	msWrite2ByteMask(OSD1_0C, 0x300, 0x03FF);
 	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(0x01), &tOSDLogoFont2, 0);
+	#elif (DisplayLogo==LOGO_AISI3)
+	msWrite2ByteMask(OSD1_0A, 0x200, 0x02FF);
+	msWrite2ByteMask(OSD1_0C, 0x300, 0x03FF);
+	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(0x01), &tOSDLogoFont2_1, 0);
+	OSD_FONT_HI_ADDR_SET_BIT8();
+	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(0x01), &tOSDLogoFont2_2, 0);
+	OSD_FONT_HI_ADDR_CLR_TO_0();
 	#else
 	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(1), &tOSDLogoFont, 0);
 	#endif
@@ -1156,7 +1163,6 @@ for (j = 0; j < 32; j++)
 				if(Palais[i][j] == 0x1C)
 					Osd_SetTextMonoColor(1, 0);
 				else Osd_SetTextMonoColor(Palais[i][j] + 1, Palais[i][j]);
-				. = -
 			}
 			else
 			{
@@ -1444,6 +1450,24 @@ for(j = 0; j < 39; j++)
 			Osd_DrawCharDirect(j, i, strEOEWindow[i][j]);
 		}
 	}
+	#elif (DisplayLogo==LOGO_AISI3)
+	for(i = 0; i < 29; i++)
+	{
+		for(j = 0; j < 35; j++)
+		{
+			Osd_SetTextMonoColor(Palais[i][j] + 1, Palais[i][j]);
+			if(straisWindow[i][j] > 0xFF)
+			{
+				OSD_TEXT_HI_ADDR_SET_BIT8();
+				Osd_DrawCharDirect(j, i, straisWindow[i][j] - 0xFF);
+				OSD_TEXT_HI_ADDR_CLR_TO_0();
+			}
+			else
+			{
+				Osd_DrawCharDirect(j, i, straisWindow[i][j]);
+			}
+		}
+	}
 	#else
 	for (i = 0; i < OsdWindowHeight; i++)
 {
@@ -1570,6 +1594,9 @@ for(j = 0; j < 39; j++)
 	#elif (DisplayLogo==LOGO_EOE)
 	drvOSD_FrameColorEnable(TRUE);
 	drvOSD_FrameColorRGB(0xFF, 0xFF, 0xFF);
+	#elif (DisplayLogo==LOGO_AISI3)
+	drvOSD_FrameColorEnable(TRUE);
+	drvOSD_FrameColorRGB(0xFF, 0xFF, 0xFF);	
 	#else
 	drvOSD_FrameColorEnable(FALSE);
 	#endif
