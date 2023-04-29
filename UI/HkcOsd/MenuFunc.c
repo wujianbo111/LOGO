@@ -4292,7 +4292,7 @@ Bool AdjustProductMode(MenuItemActionType action)
 
 Bool EnterDisplayLogo(void)
 {
-	OsdCounter = 3;
+	OsdCounter = 5;
 	mStar_SetupFreeRunMode();
 	Osd_Hide();
 	Power_TurnOnPanel();

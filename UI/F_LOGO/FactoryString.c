@@ -378,6 +378,10 @@ void Osd_LoadLogoFontCP(void)
 	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(0x01), &tOSDLogoFont2, 0);
 	OSD_WRITE_FONT_ADDRESS(LOBYTE(0x88));
 	LoadCompressColorFont( &tOSDLogoFont4, NULL, 5);
+	#elif (DisplayLogo==LOGO_EOE)
+	msWrite2ByteMask(OSD1_0A, 0x200, 0x02FF);
+	msWrite2ByteMask(OSD1_0C, 0x300, 0x03FF);
+	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(0x01), &tOSDLogoFont2, 0);
 	#else
 	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(1), &tOSDLogoFont, 0);
 	#endif
@@ -1431,6 +1435,15 @@ for(j = 0; j < 39; j++)
 		Osd_DrawCharDirect(j + 31, i, strMDAWindow[i][j]);
 	}
 	OSD_TEXT_HI_ADDR_CLR_TO_0();
+	#elif (DisplayLogo==LOGO_EOE)
+	for(i = 0; i < 15; i++)
+	{
+		for(j = 0; j < 80; j++)
+		{
+			Osd_SetTextMonoColor(PalEOE[i][j] + 1, PalEOE[i][j]);
+			Osd_DrawCharDirect(j, i, strEOEWindow[i][j]);
+		}
+	}
 	#else
 	for (i = 0; i < OsdWindowHeight; i++)
 {
@@ -1554,6 +1567,9 @@ for(j = 0; j < 39; j++)
 	#elif (DisplayLogo==YWYBIRD_LOGO)
 	drvOSD_FrameColorEnable(TRUE);
 	drvOSD_FrameColorRGB(0x00, 0x00, 0x00);
+	#elif (DisplayLogo==LOGO_EOE)
+	drvOSD_FrameColorEnable(TRUE);
+	drvOSD_FrameColorRGB(0xFF, 0xFF, 0xFF);
 	#else
 	drvOSD_FrameColorEnable(FALSE);
 	#endif

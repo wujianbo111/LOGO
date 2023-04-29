@@ -78,5 +78,8 @@
 #define YWYBIRD_LOGO				52
 #define YWYLBS_LOGO						53
 #define YMH_LOGO				54
+
+/**********************wujianbo define LOGO*************************/
+#define LOGO_EOE				60
 #endif
 

@@ -162,6 +162,9 @@
 #elif DisplayLogo==YMH_LOGO
 #define   LOGO_W		94
 #define   LOGO_H		14
+#elif DisplayLogo==LOGO_EOE
+#define   LOGO_W		80
+#define   LOGO_H		15
 #else //   EnvisionLogo
 #define   LOGO_W	39
 #define	LOGO_H		5
