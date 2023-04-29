@@ -82,5 +82,6 @@
 /**********************wujianbo define LOGO*************************/
 #define LOGO_EOE				60
 #define LOGO_AISI3				61
+#define LOGO_YPBXZYH			62
 #endif
 

@@ -1,8 +1,9 @@
----- LOGO_AISI3 Matches (7 in 4 files) ----
+---- LOGO_AISI3 Matches (8 in 5 files) ----
 Osd_LoadLogoFontCP in FactoryString.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO) : 	#elif (DisplayLogo==LOGO_AISI3)
 DrawLogo in FactoryString.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO) : 	#elif (DisplayLogo==LOGO_AISI3)
 DrawLogo in FactoryString.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO) : 	#elif (DisplayLogo==LOGO_AISI3)
 FactoryString.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO\INC) line 168 : #elif DisplayLogo==LOGO_AISI3
+JRY_TESTBOARD_C_BOARD.h (H:\JRY\LOGO\TSUM_TEXT_1\MODEL) line 9 : #define DisplayLogo						LOGO_AISI3//LOGO_EOE//YMH_LOGO//YWYBIRD_LOGO//YWYLBS_LOGO//YWYDGM_LOGO//LOGO_DUNPAI//YWYMIMO_LOGO//CHANG_LOGO//YWYPOLY_LOGO//TEST_LOGO//YWY_LOGO//LOGO_YINGYAN   
 LogoFontText.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 1262 : #elif (DisplayLogo==LOGO_AISI3)
-LogoFontText.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 45393 : #elif (DisplayLogo==LOGO_AISI3)
+LogoFontText.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 45402 : #elif (DisplayLogo==LOGO_AISI3)
 logo_define.h (H:\JRY\LOGO\TSUM_TEXT_1\CONFIG) line 84 : #define LOGO_AISI3				61

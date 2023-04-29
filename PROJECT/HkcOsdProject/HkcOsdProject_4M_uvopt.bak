@@ -7350,6 +7350,32 @@
     </File>
   </Group>
 
+  <AlienFiles>
+    <PathWithFilename>H:\JRY\LOGO\TSUM_TEXT_1\UI\HKCOSD\INC\MENUTBL.H</PathWithFilename>
+    <TopLine>4994</TopLine>
+    <CurrentLine>5014</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
   <WinLayout>
     <sActiveDebugView>Default</sActiveDebugView>
     <iActiveDebugViewLocation>1</iActiveDebugViewLocation>
@@ -8685,5 +8711,22 @@
       </Window>
     </View>
   </WinLayout>
+
+  <MDIGroups>
+    <Orientation>1</Orientation>
+    <ActiveMDIGroup>0</ActiveMDIGroup>
+    <MDIGroup>
+      <Size>100</Size>
+      <ActiveTab>0</ActiveTab>
+      <Documents>
+        <Doc>
+          <Name>..\..\UI\HKCOSD\INC\MENUTBL.H</Name>
+          <ColumnNumber>46</ColumnNumber>
+          <TopLine>4994</TopLine>
+          <CurrentLine>5014</CurrentLine>
+        </Doc>
+      </Documents>
+    </MDIGroup>
+  </MDIGroups>
 
 </ProjectOpt>

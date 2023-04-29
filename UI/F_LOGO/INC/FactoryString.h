@@ -168,6 +168,9 @@
 #elif DisplayLogo==LOGO_AISI3
 #define   LOGO_W		35
 #define   LOGO_H		29
+#elif DisplayLogo==LOGO_YPBXZYH
+#define   LOGO_W		55
+#define   LOGO_H		16
 #else //   EnvisionLogo
 #define   LOGO_W	39
 #define	LOGO_H		5
