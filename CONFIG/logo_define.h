@@ -85,5 +85,6 @@
 #define LOGO_YPBXZYH			62
 #define LOGO_CHANGHONG			63
 #define LOGO_AMAZON				64
+#define LOGO_HUANGHE			65
 #endif
 
