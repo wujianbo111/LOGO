@@ -7249,10 +7249,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>51</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>287</TopLine>
-      <CurrentLine>307</CurrentLine>
+      <TopLine>1523</TopLine>
+      <CurrentLine>1541</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\UI\F_LOGO\FactoryString.c</PathWithFileName>
       <FilenameWithoutPath>FactoryString.c</FilenameWithoutPath>
@@ -8717,13 +8717,19 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>0</ActiveTab>
+      <ActiveTab>1</ActiveTab>
       <Documents>
         <Doc>
           <Name>..\..\UI\HKCOSD\INC\MENUTBL.H</Name>
           <ColumnNumber>129</ColumnNumber>
           <TopLine>4994</TopLine>
           <CurrentLine>5000</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\UI\F_LOGO\FactoryString.c</Name>
+          <ColumnNumber>51</ColumnNumber>
+          <TopLine>1523</TopLine>
+          <CurrentLine>1541</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

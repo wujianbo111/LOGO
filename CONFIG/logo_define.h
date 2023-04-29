@@ -80,11 +80,14 @@
 #define YMH_LOGO				54
 
 /**********************wujianbo define LOGO*************************/
+/***********Mono LOGO*************/
 #define LOGO_EOE				60
 #define LOGO_AISI3				61
 #define LOGO_YPBXZYH			62
 #define LOGO_CHANGHONG			63
 #define LOGO_AMAZON				64
 #define LOGO_HUANGHE			65
+/**********4 Color LOGO***********/
+#define LOGO_MIMO				66
 #endif
 

@@ -180,6 +180,9 @@
 #elif DisplayLogo==LOGO_HUANGHE
 #define   LOGO_W		40
 #define   LOGO_H		12
+#elif DisplayLogo==LOGO_MIMO
+#define   LOGO_W		67
+#define   LOGO_H		17
 
 #else //   EnvisionLogo
 #define   LOGO_W	39

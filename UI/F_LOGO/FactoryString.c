@@ -408,6 +408,12 @@ void Osd_LoadLogoFontCP(void)
 	OSD_FONT_HI_ADDR_SET_BIT8();
 	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(0x00), &tOSDLogoFont2_2, 0);
 	OSD_FONT_HI_ADDR_CLR_TO_0();
+	#elif (DisplayLogo==LOGO_MIMO)
+	msWrite2ByteMask(OSD1_0C, 0x300, 0x03FF);
+	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(0x01), &tOSDLogoFont2, 0);
+	msWrite2ByteMask(OSD1_0A, 0xEC, 0xFF);
+	OSD_WRITE_FONT_ADDRESS(LOBYTE(0xEC));
+	LoadCompressColorFont( &tOSDLogoFont4, NULL, 10);
 	#else
 	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(1), &tOSDLogoFont, 0);
 	#endif
@@ -1532,6 +1538,22 @@ for(j = 0; j < 39; j++)
 			}
 		}
 	}
+	#elif (DisplayLogo==LOGO_MIMO)
+	for(i = 0; i < 17; i++)
+	{
+		for(j = 0; j < 67; j++)
+		{
+			if(PalMIM[i][j] >= 0x04)
+			{
+				Osd_SetTextMonoColor((PalMIM[i][j] + 1), PalMIM[i][j]);
+			}
+			else
+			{
+				Osd_Set256TextColor((PalMIM[i][j] >> 2), Color_4);
+			}
+			Osd_DrawCharDirect(j, i, strMIMWindow[i][j]);
+		}
+	}
 
 	#else
 	for (i = 0; i < OsdWindowHeight; i++)
@@ -1674,6 +1696,10 @@ for(j = 0; j < 39; j++)
 	#elif (DisplayLogo==LOGO_HUANGHE)
 	drvOSD_FrameColorEnable(TRUE);
 	drvOSD_FrameColorRGB(0xFF, 0xFF, 0xFF);
+	#elif (DisplayLogo==LOGO_MIMO)
+	drvOSD_FrameColorEnable(TRUE);
+	drvOSD_FrameColorRGB(0xFF, 0xFF, 0xFF);
+
 	#else
 	drvOSD_FrameColorEnable(FALSE);
 	#endif

@@ -1,9 +1,9 @@
----- LOGO_AMAZON Matches (8 in 5 files) ----
-Osd_LoadLogoFontCP in FactoryString.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO) : 	#elif (DisplayLogo==LOGO_AMAZON)
-DrawLogo in FactoryString.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO) : 	#elif (DisplayLogo==LOGO_AMAZON)
-DrawLogo in FactoryString.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO) : 	#elif (DisplayLogo==LOGO_AMAZON)
-FactoryString.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO\INC) line 177 : #elif DisplayLogo==LOGO_AMAZON
-JRY_TESTBOARD_C_BOARD.h (H:\JRY\LOGO\TSUM_TEXT_1\MODEL) line 9 : #define DisplayLogo						LOGO_AMAZON//LOGO_CHANGHONG//LOGO_YPBXZYH//LOGO_AISI3//LOGO_EOE//YMH_LOGO//YWYBIRD_LOGO//YWYLBS_LOGO//YWYDGM_LOGO//LOGO_DUNPAI//YWYMIMO_LOGO//CHANG_LOGO//YWYPOLY_LOGO//TEST_LOGO//YWY_LOGO//LOGO_YINGYAN   
-LogoFontText.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 1286 : #elif (DisplayLogo==LOGO_AMAZON)
-LogoFontText.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 47988 : #elif (DisplayLogo==LOGO_AMAZON)
-logo_define.h (H:\JRY\LOGO\TSUM_TEXT_1\CONFIG) line 87 : #define LOGO_AMAZON				64
+---- MIMO_LOGO Matches (8 in 4 files) ----
+Osd_LoadLogoFontCP in FactoryString.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO) : 	#elif (DisplayLogo==MIMO_LOGO)
+FactoryString.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO) line 427 : 	||DisplayLogo==LOGO_AISI||DisplayLogo==LOGO_AI||DisplayLogo==LOGO_DUNPAI||DisplayLogo==LOGO_LUFEI2||DisplayLogo==LOGO_AISI||DisplayLogo==LOGO_LUFEI||DisplayLogo==LOGO_CAOMAO||DisplayLogo==LOGO_BAIHUZI||DisplayLogo==LOGO_OCEAN||DisplayLogo==LOGO_ONEPIECE||DisplayLogo==DAHUA_LOGO||DisplayLogo==Vison_LOGO||DisplayLogo==ViewSync_LOGO||DisplayLogo==AMAZON_LOGO||DisplayLogo==LBS_LOGO||DisplayLogo==DRAGON_LOGO||DisplayLogo==POLY_LOGO||DisplayLogo==MIMO_LOGO||DisplayLogo==HUANGHE_LOGO||DisplayLogo==EOE_LOGO||DisplayLogo==CHANGHONG||DisplayLogo==AlgeriaLOGO||DisplayLogo==TOPSYNC_LOGO||DisplayLogo==MYIGLOGO||DisplayLogo==LOGO_ZEI||DisplayLogo==Element||DisplayLogo==DAHUALOGO||DisplayLogo==SANXINGLOGO||DisplayLogo==TCL_Logo)
+DrawLogo in FactoryString.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO) : 	#elif (DisplayLogo==MIMO_LOGO)
+DrawLogo in FactoryString.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO) : 	#elif (DisplayLogo==MIMO_LOGO)
+FactoryString.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO\INC) line 94 : #elif (DisplayLogo==MIMO_LOGO)
+LogoFontText.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 626 : #elif (DisplayLogo==MIMO_LOGO)
+LogoFontText.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 31114 : #elif (DisplayLogo==MIMO_LOGO)
+logo_define.h (H:\JRY\LOGO\TSUM_TEXT_1\CONFIG) line 38 : #define MIMO_LOGO					23
