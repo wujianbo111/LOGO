@@ -50042,8 +50042,8 @@ BYTE code tOSDLogoFont4[] =
 };
 
 #define MIM(x)	(x+0x01)
-#define MIF(x)	(x * 2 + 0xEC)
-  BYTE code strMIFWindow[17][68]=
+#define MIF(x)	(x * 2 + 0x100)
+  WORD code strMIFWindow[17][68]=
  {
 	 {	  MIM(0x00), MIM(0x00), MIM(0x00), MIM(0x00), MIM(0x00), MIM(0x00), MIM(0x00), MIM(0x00), 
 		  MIM(0x00), MIM(0x00), MIM(0x00), MIM(0x00), MIM(0x00), MIM(0x00), MIM(0x00), MIM(0x00), 
