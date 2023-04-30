@@ -189,6 +189,9 @@
 #elif DisplayLogo==LOGO_POLY
 #define   LOGO_W		80
 #define   LOGO_H		17
+#elif DisplayLogo==LOGO_LBS
+#define   LOGO_W		42
+#define   LOGO_H		30
 #else //   EnvisionLogo
 #define   LOGO_W	39
 #define	LOGO_H		5

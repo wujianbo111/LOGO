@@ -434,6 +434,18 @@ void Osd_LoadLogoFontCP(void)
 	OSD_FONT_HI_ADDR_SET_BIT8();
 	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(0x00), &tOSDLogoFont2_2, 0);
 	OSD_FONT_HI_ADDR_CLR_TO_0();
+	#elif (DisplayLogo==LOGO_LBS)
+	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(0x01), &tOSDLogoFont2_1, 0);
+	OSD_FONT_HI_ADDR_SET_BIT8();
+	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(0x00), &tOSDLogoFont2_2, 0);
+	msWrite2ByteMask(OSD1_0A, 0x164, 0x3FF);
+	OSD_WRITE_FONT_ADDRESS(LOBYTE(0x164));
+	LoadCompressColorFont( &tOSDLogoFont4_1, NULL, 77);
+	OSD_FONT_HI_ADDR_CLR_TO_0();
+	OSD_FONT_HI_ADDR_SET_BIT9();
+	OSD_WRITE_FONT_ADDRESS(LOBYTE(0x200));
+	LoadCompressColorFont( &tOSDLogoFont4_2, NULL, 43);
+	OSD_FONT_HI_ADDR_CLR_TO_0();
 	#else
 	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(1), &tOSDLogoFont, 0);
 	#endif
@@ -1617,6 +1629,96 @@ for(j = 0; j < 39; j++)
 			}
 		}
 	}
+	#elif (DisplayLogo==LOGO_LBS)
+	for(i = 0; i < 30; i++)
+	{
+		for(j = 0; j < 42; j++)
+		{
+			if(PalBAB[i][j] >= 0x08)
+			{
+				if(PalBAB[i][j] == 0x10)
+				{
+					Osd_SetTextMonoColor(0x0C, 0x0C);
+				}
+				else
+				{
+					Osd_SetTextMonoColor((PalBAB[i][j] + 1), PalBAB[i][j]);
+				}
+			}
+			else
+			{
+				Osd_Set256TextColor((PalBAB[i][j] >> 2), Color_4);
+			}
+			if(strBABWindow[i][j] >= 0x01 && strBABWindow[i][j] < 0x164)
+			{
+				if(strBABWindow[i][j] > 0xFF)
+				{
+					OSD_TEXT_HI_ADDR_SET_BIT8();
+					Osd_DrawCharDirect(j, i, strBABWindow[i][j] - 0x100);
+					OSD_TEXT_HI_ADDR_CLR_TO_0();
+				}
+				else
+				{
+					Osd_DrawCharDirect(j, i, strBABWindow[i][j]);
+				}
+			}
+			else
+			{
+				if(strBABWindow[i][j] > 0x1FF)
+				{
+					OSD_TEXT_HI_ADDR_SET_BIT9();
+					Osd_DrawCharDirect(j, i, strBABWindow[i][j] - 0x1FE);
+					OSD_TEXT_HI_ADDR_CLR_TO_0();
+				}
+				else
+				{
+					OSD_TEXT_HI_ADDR_SET_BIT8();
+					Osd_DrawCharDirect(j, i, strBABWindow[i][j] - 0x100);
+					OSD_TEXT_HI_ADDR_CLR_TO_0();
+				}
+			}
+		}
+	}
+	#elif (DisplayLogo==LBS_LOGO)
+	for(i = 0; i < 30; i++)
+	{
+		for(j = 0; j < 42; j++)
+		{
+			if(PalBAB[i][j] >= 0x08)
+			{
+				Osd_SetTextMonoColor((PalBAB[i][j] + 1), PalBAB[i][j]);
+			}
+			else
+			{
+				Osd_Set256TextColor((PalBAB[i][j] >> 2), Color_4);
+			}
+			if(strBABWindow[i][j] > 0xFF && strBABWindow[i][j] < 0x1DD)
+			{
+				if(strBABWindow[i][j] < 0x165)
+				{
+					OSD_TEXT_HI_ADDR_SET_BIT8();
+					Osd_DrawCharDirect(j, i, strBABWindow[i][j] - 0xFF);
+					OSD_TEXT_HI_ADDR_CLR_TO_0();
+				}
+				else
+				{
+					OSD_TEXT_HI_ADDR_SET_BIT8();
+					Osd_DrawCharDirect(j, i, strBABWindow[i][j] - 0x100);
+					OSD_TEXT_HI_ADDR_CLR_TO_0();
+				}
+			}
+			else if(strBABWindow[i][j] > 0x1DC)
+			{
+				OSD_TEXT_HI_ADDR_SET_BIT9();
+				Osd_DrawCharDirect(j, i, strBABWindow[i][j] - 0x1DD);
+				OSD_TEXT_HI_ADDR_CLR_TO_0();
+			}
+			else
+			{
+				Osd_DrawCharDirect(j, i, strBABWindow[i][j]);
+			}
+		}
+	}
 	#else
 	for (i = 0; i < OsdWindowHeight; i++)
 {
@@ -1767,6 +1869,9 @@ for(j = 0; j < 39; j++)
 	#elif (DisplayLogo==LOGO_POLY)
 	drvOSD_FrameColorEnable(TRUE);
 	drvOSD_FrameColorRGB(0xFF, 0xFF, 0xFF);
+	#elif (DisplayLogo==LOGO_LBS)
+	drvOSD_FrameColorEnable(TRUE);
+	drvOSD_FrameColorRGB(0x00, 0x00, 0x00);
 	#else
 	drvOSD_FrameColorEnable(FALSE);
 	#endif

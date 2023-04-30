@@ -7249,7 +7249,7 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>65</ColumnNumber>
+      <ColumnNumber>74</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1561</TopLine>
       <CurrentLine>1573</CurrentLine>
@@ -8727,7 +8727,7 @@
         </Doc>
         <Doc>
           <Name>..\..\UI\F_LOGO\FactoryString.c</Name>
-          <ColumnNumber>65</ColumnNumber>
+          <ColumnNumber>74</ColumnNumber>
           <TopLine>1561</TopLine>
           <CurrentLine>1573</CurrentLine>
         </Doc>
