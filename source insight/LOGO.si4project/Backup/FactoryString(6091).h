@@ -186,9 +186,6 @@
 #elif DisplayLogo==LOGO_DRAGON
 #define   LOGO_W		39
 #define   LOGO_H		23
-#elif DisplayLogo==LOGO_POLY
-#define   LOGO_W		80
-#define   LOGO_H		17
 #else //   EnvisionLogo
 #define   LOGO_W	39
 #define	LOGO_H		5

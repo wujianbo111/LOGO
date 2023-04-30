@@ -90,6 +90,5 @@
 /**********4 Color LOGO***********/
 #define LOGO_MIMO				66
 #define LOGO_DRAGON				67
-#define LOGO_POLY				68
 #endif
 

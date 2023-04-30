@@ -1,9 +1,8 @@
----- LOGO_MIMO Matches (8 in 5 files) ----
-Osd_LoadLogoFontCP in FactoryString.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO) : 	#elif (DisplayLogo==LOGO_MIMO)
-DrawLogo in FactoryString.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO) : 	#elif (DisplayLogo==LOGO_MIMO)
-DrawLogo in FactoryString.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO) : 	#elif (DisplayLogo==LOGO_MIMO)
-FactoryString.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO\INC) line 183 : #elif DisplayLogo==LOGO_MIMO
-JRY_TESTBOARD_C_BOARD.h (H:\JRY\LOGO\TSUM_TEXT_1\MODEL) line 9 : #define DisplayLogo						LOGO_DRAGON//LOGO_MIMO//LOGO_HUANGHE//LOGO_AMAZON//LOGO_CHANGHONG//LOGO_YPBXZYH//LOGO_AISI3//LOGO_EOE//YMH_LOGO//YWYBIRD_LOGO//YWYLBS_LOGO//YWYDGM_LOGO//LOGO_DUNPAI//YWYMIMO_LOGO//CHANG_LOGO//YWYPOLY_LOGO//TEST_LOGO//YWY_LOGO//LOGO_YINGYAN   
-LogoFontText.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 1300 : #elif (DisplayLogo==LOGO_MIMO)
-LogoFontText.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 49514 : #elif (DisplayLogo==LOGO_MIMO)
-logo_define.h (H:\JRY\LOGO\TSUM_TEXT_1\CONFIG) line 91 : #define LOGO_MIMO				66
+---- LOGO_POLY Matches (7 in 4 files) ----
+Osd_LoadLogoFontCP in FactoryString.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO) : 	#elif (DisplayLogo==LOGO_POLY)
+DrawLogo in FactoryString.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO) : 	#elif (DisplayLogo==LOGO_POLY)
+DrawLogo in FactoryString.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO) : 	#elif (DisplayLogo==LOGO_POLY)
+FactoryString.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\F_LOGO\INC) line 189 : #elif DisplayLogo==LOGO_POLY
+LogoFontText.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 1345 : #elif (DisplayLogo==LOGO_POLY)
+LogoFontText.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 51312 : #elif (DisplayLogo==LOGO_POLY)
+logo_define.h (H:\JRY\LOGO\TSUM_TEXT_1\CONFIG) line 93 : #define LOGO_POLY				68

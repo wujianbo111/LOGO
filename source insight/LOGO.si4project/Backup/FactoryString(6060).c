@@ -431,11 +431,6 @@ void Osd_LoadLogoFontCP(void)
 	LoadCompressColorFont( &tOSDLogoFont4_2, NULL, 33);
 	OSD_FONT_HI_ADDR_CLR_TO_0();
 	*/
-	#elif (DisplayLogo==LOGO_POLY)
-	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(0x01), &tOSDLogoFont2_1, 0);
-	OSD_FONT_HI_ADDR_SET_BIT8();
-	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(0x00), &tOSDLogoFont2_2, 0);
-	OSD_FONT_HI_ADDR_CLR_TO_0();
 	#else
 	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(1), &tOSDLogoFont, 0);
 	#endif
@@ -1610,24 +1605,6 @@ for(j = 0; j < 39; j++)
 			}
 		}
 	}
-	#elif (DisplayLogo==LOGO_POLY)
-	for(i = 0; i < 17; i++)
-	{
-		for(j = 0; j < 80; j++)
-		{
-			Osd_SetTextMonoColor((PalPOL[i][j] + 1), PalPOL[i][j]);
-			if(strPOLWindow[i][j] > 0xFF)
-			{
-				OSD_TEXT_HI_ADDR_SET_BIT8();
-				Osd_DrawCharDirect(j, i, strPOLWindow[i][j] - 0x100);
-				OSD_TEXT_HI_ADDR_CLR_TO_0();
-			}
-			else
-			{
-				Osd_DrawCharDirect(j, i, strPOLWindow[i][j]);
-			}
-		}
-	}
 	#else
 	for (i = 0; i < OsdWindowHeight; i++)
 {
@@ -1775,9 +1752,7 @@ for(j = 0; j < 39; j++)
 	#elif (DisplayLogo==LOGO_DRAGON)
 	drvOSD_FrameColorEnable(TRUE);
 	drvOSD_FrameColorRGB(0x00, 0x00, 0x00);
-	#elif (DisplayLogo==LOGO_POLY)
-	drvOSD_FrameColorEnable(TRUE);
-	drvOSD_FrameColorRGB(0xFF, 0xFF, 0xFF);
+
 	#else
 	drvOSD_FrameColorEnable(FALSE);
 	#endif
