@@ -7249,10 +7249,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>51</ColumnNumber>
+      <ColumnNumber>69</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1523</TopLine>
-      <CurrentLine>1541</CurrentLine>
+      <CurrentLine>1536</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\UI\F_LOGO\FactoryString.c</PathWithFileName>
       <FilenameWithoutPath>FactoryString.c</FilenameWithoutPath>
@@ -8727,9 +8727,9 @@
         </Doc>
         <Doc>
           <Name>..\..\UI\F_LOGO\FactoryString.c</Name>
-          <ColumnNumber>51</ColumnNumber>
+          <ColumnNumber>69</ColumnNumber>
           <TopLine>1523</TopLine>
-          <CurrentLine>1541</CurrentLine>
+          <CurrentLine>1536</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

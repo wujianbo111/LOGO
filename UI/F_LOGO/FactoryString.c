@@ -409,11 +409,12 @@ void Osd_LoadLogoFontCP(void)
 	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(0x00), &tOSDLogoFont2_2, 0);
 	OSD_FONT_HI_ADDR_CLR_TO_0();
 	#elif (DisplayLogo==LOGO_MIMO)
-	msWrite2ByteMask(OSD1_0C, 0x300, 0x03FF);
 	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(0x01), &tOSDLogoFont2, 0);
-	msWrite2ByteMask(OSD1_0A, 0xEC, 0xFF);
-	OSD_WRITE_FONT_ADDRESS(LOBYTE(0xEC));
+	msWrite2ByteMask(OSD1_0A, 0x100, 0x03FF);
+	OSD_FONT_HI_ADDR_SET_BIT8();
+	OSD_WRITE_FONT_ADDRESS(LOBYTE(0x100));
 	LoadCompressColorFont( &tOSDLogoFont4, NULL, 10);
+	OSD_FONT_HI_ADDR_CLR_TO_0();
 	#elif (DisplayLogo==LOGO_DRAGON)
 	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(0x01), &tOSDLogoFont2, 0);
 	msWrite2ByteMask(OSD1_0A, 0x100, 0x3FF);
@@ -1559,15 +1560,24 @@ for(j = 0; j < 39; j++)
 	{
 		for(j = 0; j < 67; j++)
 		{
-			if(PalMIM[i][j] >= 0x04)
+			if(PalMIF[i][j] >= 0x04)
 			{
-				Osd_SetTextMonoColor((PalMIM[i][j] + 1), PalMIM[i][j]);
+				Osd_SetTextMonoColor((PalMIF[i][j] + 1), PalMIF[i][j]);
 			}
 			else
 			{
-				Osd_Set256TextColor((PalMIM[i][j] >> 2), Color_4);
+				Osd_Set256TextColor((PalMIF[i][j] >> 2), Color_4);
 			}
-			Osd_DrawCharDirect(j, i, strMIMWindow[i][j]);
+			if(strMIFWindow[i][j] > 0xFF)
+			{
+				OSD_TEXT_HI_ADDR_SET_BIT8();
+				Osd_DrawCharDirect(j, i, strMIFWindow[i][j] - 0x100);
+				OSD_TEXT_HI_ADDR_CLR_TO_0();
+			}
+			else
+			{
+				Osd_DrawCharDirect(j, i, strMIFWindow[i][j]);
+			}
 		}
 	}
 	#elif (DisplayLogo==LOGO_DRAGON)
