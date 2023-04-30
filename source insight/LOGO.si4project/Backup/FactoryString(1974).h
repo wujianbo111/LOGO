@@ -183,9 +183,7 @@
 #elif DisplayLogo==LOGO_MIMO
 #define   LOGO_W		67
 #define   LOGO_H		17
-#elif DisplayLogo==LOGO_DRAGON
-#define   LOGO_W		39
-#define   LOGO_H		23
+
 #else //   EnvisionLogo
 #define   LOGO_W	39
 #define	LOGO_H		5

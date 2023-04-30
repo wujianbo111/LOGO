@@ -89,6 +89,5 @@
 #define LOGO_HUANGHE			65
 /**********4 Color LOGO***********/
 #define LOGO_MIMO				66
-#define LOGO_DRAGON				67
 #endif
 

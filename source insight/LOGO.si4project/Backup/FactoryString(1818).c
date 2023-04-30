@@ -414,22 +414,6 @@ void Osd_LoadLogoFontCP(void)
 	msWrite2ByteMask(OSD1_0A, 0xEC, 0xFF);
 	OSD_WRITE_FONT_ADDRESS(LOBYTE(0xEC));
 	LoadCompressColorFont( &tOSDLogoFont4, NULL, 10);
-	#elif (DisplayLogo==LOGO_DRAGON)
-	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(0x01), &tOSDLogoFont2, 0);
-	msWrite2ByteMask(OSD1_0A, 0x100, 0x3FF);
-	OSD_FONT_HI_ADDR_SET_BIT8();
-	OSD_WRITE_FONT_ADDRESS(LOBYTE(0x100));
-	LoadCompressColorFont( &tOSDLogoFont4, NULL, 82);
-	OSD_FONT_HI_ADDR_CLR_TO_0();
-	/*
-	msWrite2ByteMask(OSD1_0A, 0x9D, 0x3FF);
-	OSD_WRITE_FONT_ADDRESS(LOBYTE(0x9D));
-	LoadCompressColorFont( &tOSDLogoFont4_1, NULL, 49);
-	OSD_FONT_HI_ADDR_SET_BIT8();
-	OSD_WRITE_FONT_ADDRESS(LOBYTE(0x100));
-	LoadCompressColorFont( &tOSDLogoFont4_2, NULL, 33);
-	OSD_FONT_HI_ADDR_CLR_TO_0();
-	*/
 	#else
 	mStar_LoadCompressedFont(GET_FONT_RAM_ADDR(1), &tOSDLogoFont, 0);
 	#endif
@@ -1570,31 +1554,7 @@ for(j = 0; j < 39; j++)
 			Osd_DrawCharDirect(j, i, strMIMWindow[i][j]);
 		}
 	}
-	#elif (DisplayLogo==LOGO_DRAGON)
-	for(i = 0; i < 23; i++)
-	{
-		for(j = 0; j < 39; j++)
-		{
-			if(PalDRA[i][j] >= 0x04)
-			{
-				Osd_SetTextMonoColor((PalDRA[i][j] + 1), PalDRA[i][j]);
-			}
-			else
-			{
-				Osd_Set256TextColor((PalDRA[i][j] >> 2), Color_4);
-			}
-			if(strDRAWindow[i][j] > 0xFF)
-			{
-				OSD_TEXT_HI_ADDR_SET_BIT8();
-				Osd_DrawCharDirect(j, i, strDRAWindow[i][j] - 0x100);
-				OSD_TEXT_HI_ADDR_CLR_TO_0();
-			}
-			else
-			{
-				Osd_DrawCharDirect(j, i, strDRAWindow[i][j]);
-			}
-		}
-	}
+
 	#else
 	for (i = 0; i < OsdWindowHeight; i++)
 {
@@ -1739,9 +1699,6 @@ for(j = 0; j < 39; j++)
 	#elif (DisplayLogo==LOGO_MIMO)
 	drvOSD_FrameColorEnable(TRUE);
 	drvOSD_FrameColorRGB(0xFF, 0xFF, 0xFF);
-	#elif (DisplayLogo==LOGO_DRAGON)
-	drvOSD_FrameColorEnable(TRUE);
-	drvOSD_FrameColorRGB(0x00, 0x00, 0x00);
 
 	#else
 	drvOSD_FrameColorEnable(FALSE);
