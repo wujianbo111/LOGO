@@ -522,6 +522,15 @@ void LoadCommonFont(void)
 	OSD_WRITE_FONT_ADDRESS(MonoGuageFontStar);
 	#if CHIP_ID>=CHIP_TSUM2
 	mStar_LoadCompressedFont( GET_FONT_RAM_ADDR(MonoGuageFontStar), tMonoGauge, 0 );
+	if(MenuPageIndex == MainMenu)
+	{
+		mStar_LoadCompressedFont( GET_FONT_RAM_ADDR(_2ColorBrightnessIconStart), tMonoBrightness, 0 );//
+		mStar_LoadCompressedFont( GET_FONT_RAM_ADDR(_2ColorImageIconStart), tMonoImage, 0 );
+		mStar_LoadCompressedFont( GET_FONT_RAM_ADDR(_2ColorColorIconStart), tMonoColor, 0 );
+		mStar_LoadCompressedFont( GET_FONT_RAM_ADDR(_2ColorOSDIconStart), tMonoOSD, 0 );
+		mStar_LoadCompressedFont( GET_FONT_RAM_ADDR(_2ColorResetIconStart), tMonoReset, 0 );
+		mStar_LoadCompressedFont( GET_FONT_RAM_ADDR(_2ColorExtraIconStart), tMonoExtra, 0 );
+	}
 	#else
 	mStar_LoadCompressedFont( MonoGuageFontStar, tMonoGauge, 0 );
 	#endif

@@ -2003,10 +2003,14 @@ void DrawOsdMenu(void)
 				DrawOsdMenuItem(0, &CurrentMenu.MenuItems[0]);
 			else
 			#endif
-				for (i = 0; i < MenuItemCount; i++)
-				{
-					DrawOsdMenuItem(i, &CurrentMenu.MenuItems[i]);
-				}
+			if(MenuPageIndex == MainMenu)
+			{
+				LoadCommonFont();
+			}
+			for (i = 0; i < MenuItemCount; i++)
+			{
+				DrawOsdMenuItem(i, &CurrentMenu.MenuItems[i]);
+			}
 			if(MenuPageIndex == LogoMenu)
 				Osd_SetTransparence(0);
 			else
@@ -2137,6 +2141,17 @@ void DrawOsdMenuItemText(BYTE itemIndex, MenuItemType *menuItem)
 		if ( MenuPageIndex == MainMenu )
 		{
 			str = menuItem->DisplayText();
+			OSD_TEXT_HI_ADDR_SET_BIT8();
+			for(i = 0; i < MainMenuIconLine; i++)
+			{
+				for(j = 0; j < MainMenuIconCloumn; j++)
+				{
+					Osd_DrawCharDirect(menuItem->XPos + j, menuItem->YPos + i, str[j + (MainMenuIconCloumn + 1) * i]);
+				}
+			}
+			OSD_TEXT_HI_ADDR_CLR_TO_0();
+			#if 0
+			str = menuItem->DisplayText();
 			OSD_TEXT_HI_ADDR_SET_BIT9(); //enable bit 9
 			Osd_DrawCharDirect(menuItem->XPos, menuItem->YPos, str[0]);
 			Osd_DrawCharDirect(menuItem->XPos + 1, menuItem->YPos, str[1]);
@@ -2163,6 +2178,7 @@ void DrawOsdMenuItemText(BYTE itemIndex, MenuItemType *menuItem)
 				Osd_DrawCharDirect(4, 3 + 2 * itemIndex, MenuFrame_RightSide_1);
 				Osd_DrawCharDirect(4, 4 + 2 * itemIndex, MenuFrame_RightSide_2);
 			}
+			#endif
 		}
 		else
 		{
@@ -2510,7 +2526,14 @@ void DrawOsdMenuItemRadioGroup(BYTE itemIndex, DrawRadioGroupType *radioItem)
 						Osd_SetTextMonoColor(5, 0x0E);
 					else
 					#endif
+					if(itemIndex == MenuItemIndex)
+					{
+						Osd_Set256TextColor(SelectedForeAndBackColor, Color_2);
+					}
+					else
+					{
 						Osd_Set256TextColor( radioItem->ForeColor, radioItem->BackColor );
+					}
 				}
 				if ( MenuPageIndex == FactoryMenu
 			        #if EN_ShowInfoUnderBurinInMenu
@@ -2544,8 +2567,8 @@ void DrawOsdMenuItemRadioGroup(BYTE itemIndex, DrawRadioGroupType *radioItem)
 					else if( drawItem->Flags & dwiCenterText )
 					{
 						tmplength = *( drawItem->DisplayText() + 1 );
-						xPos = (HOT_MENU_H_SIZE - tmplength + 1) / 2;
-						//    xPos = (drawItem->XPos+CENTER_ALIGN_STARTPOS)+(CENTER_ALIGN_LEN-tmplength+1)/2;
+						//xPos = (HOT_MENU_H_SIZE - tmplength + 1) / 2;
+						xPos = drawItem->XPos + (MainMenuIconCloumn / 2) - (tmplength / 2);
 					}
 					Osd_DrawPropStr( xPos, drawItem->YPos, drawItem->DisplayText() );
 				}
@@ -3653,7 +3676,7 @@ void DrawOsdBackGround(void)
 		//»­ÄÚ²¿ÊúÏß
 		for(i = 0; i < CurrentMenu.YSize; i++)
 		{
-			if((i >= 2 && i < 6) || (i >= 8 && i < 0x0C) || (i >= 0x0E && i < 0x12))
+			if((i >= 2 && i < 7) || (i >= 9 && i < 0x0E) || (i >= 0x10 && i < 0x15))
 			{
 				Osd_DrawCharDirect(CurrentMenu.XSize / 2 - 1, i, DefineVerticalLine);
 			}
@@ -3663,136 +3686,12 @@ void DrawOsdBackGround(void)
 		{
 			if((i >= 2 && i < 10) || (i >= 13 && i < 22))
 			{
-				Osd_DrawCharDirect(i, 0x06, DefineTransverseLine1);
-				Osd_DrawCharDirect(i, 0x07, DefineTransverseLine2);
-				Osd_DrawCharDirect(i, 0x0C, DefineTransverseLine1);
-				Osd_DrawCharDirect(i, 0x0D, DefineTransverseLine2);
+				Osd_DrawCharDirect(i, 0x07, DefineTransverseLine1);
+				Osd_DrawCharDirect(i, 0x08, DefineTransverseLine2);
+				Osd_DrawCharDirect(i, 0x0E, DefineTransverseLine1);
+				Osd_DrawCharDirect(i, 0x0F, DefineTransverseLine2);
 			}
 		}
-		#if 0
-		Osd_SetTextMonoColor(0x00, 0x0E);
-		for (i = 0; i <= OsdWindowHeight - 1; i++)
-		{
-			Osd_DrawContinuesChar( 0, i, SpaceFont, OsdWindowWidth);
-		}
-		//draw Four Cornu
-		Osd_SetTextMonoColor(0x06, CPC_TranColor);
-		Osd_DrawCharDirect(0, 0, MonoFrame_LT);
-		Osd_DrawCharDirect(CurrentMenu.XSize - 1, 0, MonoFrame_RT);
-		#if OsdHelpKeyType == OsdHelpKey_Right
-		#else
-		Osd_DrawCharDirect(0, CurrentMenu.YSize - 1, MonoFrame_LD);
-		Osd_DrawCharDirect(CurrentMenu.XSize - 1, CurrentMenu.YSize - 1, MonoFrame_RD);
-		#endif
-		//draw frame
-		Osd_SetTextMonoColor(0, 2);
-		for(i = 1; i <= CurrentMenu.XSize - 2; i++)
-		{
-			Osd_DrawCharDirect(i, 0, SpaceFont);
-			Osd_DrawCharDirect(i, 1, SpaceFont);
-		}
-		Osd_DrawCharDirect(0, 1, SpaceFont);
-		Osd_DrawCharDirect(CurrentMenu.XSize - 1, 1, SpaceFont);
-		//draw Top and Bottom& left & right line
-		Osd_SetTextMonoColor(5, 2);
-		for(i = 0; i < CurrentMenu.XSize; i++)
-		{
-			Osd_DrawCharDirect(i, 2, MenuFrame_TopSide);
-		}
-		for(i = 0; i < CurrentMenu.XSize; i++)
-		{
-			Osd_DrawCharDirect(i, CurrentMenu.YSize - underBlankFontWide, MenuFrame_BottomSide);
-		}
-		Osd_SetTextMonoColor(5, 7);
-		for(i = 3; i < CurrentMenu.YSize - underBlankFontWide; i++)
-		{
-			Osd_DrawCharDirect(5, i, MenuFrame_LeftSide);
-		}
-		#if OsdHelpKeyType == OsdHelpKey_Right
-		for(i = 3; i < CurrentMenu.YSize - underBlankFontWide; i++)
-		{
-			Osd_DrawCharDirect(CurrentMenu.XSize - 5, i, MenuFrame_RightSide);
-		}
-		Osd_SetTextMonoColor(2, 2);
-		for(i = 3; i < CurrentMenu.YSize - underBlankFontWide; i++)
-		{
-			Osd_DrawCharDirect(CurrentMenu.XSize - 4, i, SpaceFont);
-			Osd_DrawCharDirect(CurrentMenu.XSize - 3, i, SpaceFont);
-			Osd_DrawCharDirect(CurrentMenu.XSize - 2, i, SpaceFont);
-			Osd_DrawCharDirect(CurrentMenu.XSize - 1, i, SpaceFont);
-		}
-		#else
-		for(i = 3; i < CurrentMenu.YSize - underBlankFontWide; i++)
-		{
-			Osd_DrawCharDirect(CurrentMenu.XSize - 1, i, MenuFrame_RightSide);
-		}
-		#endif
-		Osd_SetTextMonoColor(0, 2);
-		#if OsdHelpKeyType == OsdHelpKey_Right
-		#else
-		for(i = 1; i <= CurrentMenu.XSize - 2; i++)
-		{
-			Osd_DrawCharDirect(i, CurrentMenu.YSize - 2, SpaceFont);
-			Osd_DrawCharDirect(i, CurrentMenu.YSize - 1, SpaceFont);
-		}
-		Osd_DrawCharDirect(0, CurrentMenu.YSize - 2, SpaceFont);
-		Osd_DrawCharDirect(CurrentMenu.XSize - 1, CurrentMenu.YSize - 2, SpaceFont);
-		#endif
-		#if	OsdHelpKeyType == OsdHelpKey_Under
-		UpdataHelyKeyShowInMenu();
-		Osd_SetTextMonoColor(7, 2);
-		Osd_DrawCharDirect(13, CurrentMenu.YSize - 2, 0x11);
-		Osd_DrawCharDirect(14, CurrentMenu.YSize - 2, 0x12);
-		Osd_DrawCharDirect(16, CurrentMenu.YSize - 2, 0x13);
-		Osd_DrawCharDirect(17, CurrentMenu.YSize - 2, 0x14);
-		Osd_DrawCharDirect(18, CurrentMenu.YSize - 2, 0x15);
-		Osd_DrawCharDirect(20, CurrentMenu.YSize - 2, 0x16);
-		Osd_DrawCharDirect(21, CurrentMenu.YSize - 2, 0x17);
-		Osd_DrawCharDirect(23, CurrentMenu.YSize - 2, 0x18);
-		Osd_DrawCharDirect(24, CurrentMenu.YSize - 2, 0x19);
-		Osd_DrawCharDirect(25, CurrentMenu.YSize - 2, 0x1A);
-		#elif OsdHelpKeyType ==	 OsdHelpKey_Right
-		UpdataHelyKeyShowInMenu();
-		Osd_SetTextMonoColor(7, 2);
-		OSD_TEXT_HI_ADDR_SET_BIT8();
-		#if ModelName == MODEL_HS275HFB
-		Osd_DrawCharDirect(0x2A, CurrentMenu.YSize - 12, 0x80);
-		Osd_DrawCharDirect(0x2B, CurrentMenu.YSize - 12, 0x81);
-		Osd_DrawCharDirect(0x2A, CurrentMenu.YSize - 11, 0x82);
-		Osd_DrawCharDirect(0x2B, CurrentMenu.YSize - 11, 0x83);
-		Osd_DrawCharDirect(0x2A, CurrentMenu.YSize - 9, 0x84);
-		Osd_DrawCharDirect(0x2B, CurrentMenu.YSize - 9, 0x85);
-		Osd_DrawCharDirect(0x2A, CurrentMenu.YSize - 8, 0x86);
-		Osd_DrawCharDirect(0x2B, CurrentMenu.YSize - 8, 0x87);
-		Osd_DrawCharDirect(0x2A, CurrentMenu.YSize - 6, 0x88);
-		Osd_DrawCharDirect(0x2B, CurrentMenu.YSize - 6, 0x89);
-		Osd_DrawCharDirect(0x2A, CurrentMenu.YSize - 5, 0x8A);
-		Osd_DrawCharDirect(0x2B, CurrentMenu.YSize - 5, 0x8B);
-		Osd_DrawCharDirect(0x2A, CurrentMenu.YSize - 4, 0x8C);
-		Osd_DrawCharDirect(0x2B, CurrentMenu.YSize - 4, 0x8D);
-		Osd_DrawCharDirect(0x2A, CurrentMenu.YSize - 3, 0x8E);
-		Osd_DrawCharDirect(0x2B, CurrentMenu.YSize - 3, 0x8F);
-		#elif ModelName == MODEL_HS225HFB
-		Osd_DrawCharDirect(0x2A, CurrentMenu.YSize - 13, 0x80);
-		Osd_DrawCharDirect(0x2B, CurrentMenu.YSize - 13, 0x81);
-		Osd_DrawCharDirect(0x2A, CurrentMenu.YSize - 12, 0x82);
-		Osd_DrawCharDirect(0x2B, CurrentMenu.YSize - 12, 0x83);
-		Osd_DrawCharDirect(0x2A, CurrentMenu.YSize - 9, 0x84);
-		Osd_DrawCharDirect(0x2B, CurrentMenu.YSize - 9, 0x85);
-		Osd_DrawCharDirect(0x2A, CurrentMenu.YSize - 8, 0x86);
-		Osd_DrawCharDirect(0x2B, CurrentMenu.YSize - 8, 0x87);
-		Osd_DrawCharDirect(0x2A, CurrentMenu.YSize - 6, 0x88);
-		Osd_DrawCharDirect(0x2B, CurrentMenu.YSize - 6, 0x89);
-		Osd_DrawCharDirect(0x2A, CurrentMenu.YSize - 5, 0x8A);
-		Osd_DrawCharDirect(0x2B, CurrentMenu.YSize - 5, 0x8B);
-		Osd_DrawCharDirect(0x2A, CurrentMenu.YSize - 3, 0x8C);
-		Osd_DrawCharDirect(0x2B, CurrentMenu.YSize - 3, 0x8D);
-		Osd_DrawCharDirect(0x2A, CurrentMenu.YSize - 2, 0x8E);
-		Osd_DrawCharDirect(0x2B, CurrentMenu.YSize - 2, 0x8F);
-		#endif
-		OSD_TEXT_HI_ADDR_CLR_TO_0();
-		#endif
-		#endif
 	}
 	else if ( (MenuPageIndex >= HotKeyECOMenu && MenuPageIndex <= AutoMenu)
 	          || MenuPageIndex == InputInfoMenu

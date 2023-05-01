@@ -436,14 +436,24 @@ typedef enum
 
 
 //=================================================page3
-
+#define FONT_2COLOR_ICON_START	0x000
 #define FONT_4COLOR_ICON_START 	0x000
 #define FONT_8COLOR_ICON_START	0x045//0x2E
 
+#define _2ColorFontStart            FONT_2COLOR_ICON_START
 #define _4ColorFontStart            FONT_4COLOR_ICON_START//0x180
 #define _8ColorFontStart            FONT_8COLOR_ICON_START//0x200
 
-#define _4ColorHotIconStart      _4ColorFontStart
+#define _2ColorBrightnessIconStart      _2ColorFontStart + 19//0x13
+#define _2ColorImageIconStart           _2ColorBrightnessIconStart + 19//0x26
+#define _2ColorColorIconStart           _2ColorImageIconStart + 13//0x33
+#define _2ColorOSDIconStart             _2ColorColorIconStart + 21//0x48
+#define _2ColorResetIconStart           _2ColorOSDIconStart + 23//0x5F
+#define _2ColorExtraIconStart           _2ColorResetIconStart + 21//0x74
+
+#define _2ColorHotIconStart       _2ColorFontStart
+
+#define _4ColorHotIconStart       _4ColorFontStart
 
 #define _4ColorMainIconStart      _4ColorHotIconStart+30
 
@@ -478,7 +488,7 @@ typedef enum
 #define MAIN_MENU_V_SIZE            0x10
 #else
 #define MAIN_MENU_H_SIZE            0x18//0x29//1368 pixel
-#define MAIN_MENU_V_SIZE            0x14//0x12
+#define MAIN_MENU_V_SIZE            0x17//0x12
 #endif
 
 #define MainMenuIcon_DrawXPos		0x01
@@ -976,4 +986,9 @@ typedef struct
 #define DefineVerticalLine						0x0B
 #define DefineTransverseLine2					0x0C
 
+#define NotSelectedForeAndBackColor				0xF5
+#define SelectedForeAndBackColor				0xE5
+
+#define MainMenuIconLine						4
+#define MainMenuIconCloumn						6
 #endif

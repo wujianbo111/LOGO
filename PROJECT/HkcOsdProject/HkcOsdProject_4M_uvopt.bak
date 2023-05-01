@@ -7252,7 +7252,7 @@
       <ColumnNumber>70</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1645</TopLine>
-      <CurrentLine>1674</CurrentLine>
+      <CurrentLine>1645</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\UI\F_LOGO\FactoryString.c</PathWithFileName>
       <FilenameWithoutPath>FactoryString.c</FilenameWithoutPath>
@@ -7263,10 +7263,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>87</ColumnNumber>
+      <ColumnNumber>51</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1594</TopLine>
-      <CurrentLine>1609</CurrentLine>
+      <CurrentLine>1598</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\UI\HkcOsd\Keypad.c</PathWithFileName>
       <FilenameWithoutPath>Keypad.c</FilenameWithoutPath>
@@ -8721,7 +8721,7 @@
       <Documents>
         <Doc>
           <Name>..\..\UI\HKCOSD\INC\MENUTBL.H</Name>
-          <ColumnNumber>129</ColumnNumber>
+          <ColumnNumber>0</ColumnNumber>
           <TopLine>4994</TopLine>
           <CurrentLine>5000</CurrentLine>
         </Doc>
@@ -8729,13 +8729,13 @@
           <Name>..\..\UI\F_LOGO\FactoryString.c</Name>
           <ColumnNumber>70</ColumnNumber>
           <TopLine>1645</TopLine>
-          <CurrentLine>1674</CurrentLine>
+          <CurrentLine>1645</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\UI\HkcOsd\Keypad.c</Name>
-          <ColumnNumber>87</ColumnNumber>
+          <ColumnNumber>51</ColumnNumber>
           <TopLine>1594</TopLine>
-          <CurrentLine>1609</CurrentLine>
+          <CurrentLine>1598</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

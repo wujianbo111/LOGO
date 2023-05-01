@@ -18,84 +18,86 @@
 #define OPBAR_X_POS        16
 
 
+
+
 //---------------------------------------------------------------
 //============================================================
 RadioTextType code DrawBrightnessTextRatio[] =
 {
 	// Flags,					XPos,	YPos,	DisplayText
-	{dwiEnd | dwiRadioGroup | dwiMainTitle,		9, 		1,		MainMenu_BrightText}
+	{dwiEnd | dwiRadioGroup | dwiCenterText,		MainMenuIcon_DrawXPos + 0x02, 		MainMenuIcon_DrawYPos + 2 * MAIN_BriContrast_ITEM + 3,		MainMenu_BrightText}
 };
 DrawRadioGroupType code DrawBrightnessTextRatioGroup[] =
 {
 	//ForeColor,				BackColor,				GetValue	RadioText
-	{0x76, Color_2, NULL,		DrawBrightnessTextRatio}
+	{NotSelectedForeAndBackColor, Color_2, NULL,		DrawBrightnessTextRatio}
 };
 //----------
 RadioTextType code DrawImageTextRatio[] =
 {
 	// Flags,					XPos,	YPos,	DisplayText
-	{dwiEnd | dwiRadioGroup | dwiMainTitle,		9, 		1,		MainMenu_ImageText}
+	{dwiEnd | dwiRadioGroup | dwiCenterText,		MainMenuIcon_DrawXPos + 0x0E, 		MainMenuIcon_DrawYPos + 2 * MAIN_Picture_ITEM + 1,		MainMenu_ImageText}
 };
 DrawRadioGroupType code DrawImageTextRatioGroup[] =
 {
 	//ForeColor,				BackColor,				GetValue	RadioText
-	{0x76, Color_2, NULL,		DrawImageTextRatio}
+	{NotSelectedForeAndBackColor, Color_2, NULL,		DrawImageTextRatio}
 };
 //----------
 RadioTextType code DrawColorTextRatio[] =
 {
 	// Flags,					XPos,	YPos,	DisplayText
-	{dwiEnd | dwiRadioGroup | dwiMainTitle,		9, 		1,		MainMenu_ColorText}
+	{dwiEnd | dwiRadioGroup | dwiCenterText,		MainMenuIcon_DrawXPos + 0x02,		 MainMenuIcon_DrawYPos + 2 * MAIN_RGBColor_ITEM + 6,		MainMenu_ColorText}
 };
 DrawRadioGroupType code DrawColorTextRatioGroup[] =
 {
 	//ForeColor,				BackColor,				GetValue	RadioText
-	{0x76, Color_2, NULL,		DrawColorTextRatio}
+	{NotSelectedForeAndBackColor, Color_2, NULL,		DrawColorTextRatio}
 };
 //----------
 RadioTextType code DrawOSDTextRatio[] =
 {
 	// Flags,					XPos,	YPos,	DisplayText
-	{dwiEnd | dwiRadioGroup | dwiMainTitle,		9, 		1,		MainMenu_OSDText}
+	{dwiEnd | dwiRadioGroup | dwiCenterText,		MainMenuIcon_DrawXPos + 0x0E,		 MainMenuIcon_DrawYPos + 2 * MAIN_Osd_ITEM + 4,		MainMenu_OSDText}
 };
 DrawRadioGroupType code DrawOSDTextRatioGroup[] =
 {
 	//ForeColor,				BackColor,				GetValue	RadioText
-	{0x76, Color_2, NULL,		DrawOSDTextRatio}
+	{NotSelectedForeAndBackColor, Color_2, NULL,		DrawOSDTextRatio}
 };
 //----------
 RadioTextType code DrawResetTextRatio[] =
 {
 	// Flags,					XPos,	YPos,	DisplayText
-	{dwiEnd | dwiRadioGroup | dwiMainTitle,		9, 		1,		MainMenu_ResetText}
+	{dwiEnd | dwiRadioGroup | dwiCenterText,		MainMenuIcon_DrawXPos + 0x02, 		MainMenuIcon_DrawYPos + 2 * MAIN_Setting_ITEM + 9,		MainMenu_ResetText}
 };
 DrawRadioGroupType code DrawResetTextRatioGroup[] =
 {
 	//ForeColor,				BackColor,				GetValue	RadioText
-	{0x76, Color_2, NULL,		DrawResetTextRatio}
+	{NotSelectedForeAndBackColor, Color_2, NULL,		DrawResetTextRatio}
 };
 //----------
 RadioTextType code DrawMiscTextRatio[] =
 {
 	// Flags,					XPos,	YPos,	DisplayText
-	{dwiEnd | dwiRadioGroup | dwiMainTitle,		9, 		1,		MainMenu_MiscText}
+	{dwiEnd | dwiRadioGroup | dwiCenterText,		MainMenuIcon_DrawXPos + 0x0E, 		MainMenuIcon_DrawYPos + 2 * MAIN_Misc_ITEM + 7,		MainMenu_MiscText}
 };
 DrawRadioGroupType code DrawMiscTextRatioGroup[] =
 {
 	//ForeColor,				BackColor,				GetValue	RadioText
-	{0x76, Color_2, NULL,		DrawMiscTextRatio}
+	{NotSelectedForeAndBackColor, Color_2, NULL,		DrawMiscTextRatio}
 };
 //=========== MainMenuItems ================================
 MenuItemType code MainMenuItems[] =
 {
 // 0 Brightness
 	{
-		MainMenuIcon_DrawXPos, MainMenuIcon_DrawYPos + 2 * MAIN_BriContrast_ITEM,		// XPos, YPos;
-		7, Color_8, // ForeColor, BackColor;
-		6, Color_8, // SelForeColor, SelBackColor;
+		MainMenuIcon_DrawXPos + 0x02, MainMenuIcon_DrawYPos + 2 * MAIN_BriContrast_ITEM - 1,		// XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
 		OSD_BriContrastMenu,///NextMenuPage;
-		DWI_Nothing,//DWI_Icon,// DrawMenuItemType;
-		NULL,//BrightnessIcon, // DisplayText;
+		DWI_Icon,// DrawMenuItemType;
+		BrightnessIcon, // DisplayText;
 		NaviKeyEvent,
 		{
 			NULL, // AdjustFunction
@@ -106,17 +108,17 @@ MenuItemType code MainMenuItems[] =
 			NULL, // DrawGuageType
 			DrawBrightnessTextRatioGroup, // DrawRadioGroupType
 		},
-		MenuPage1, //Font
+		MenuPage7, //Font
 		mibSelectable  // Flags
 	},
 // 1 Image
 	{
-		MainMenuIcon_DrawXPos, MainMenuIcon_DrawYPos + 2 * MAIN_Picture_ITEM,		// XPos, YPos;
-		0x05, Color_4, // ForeColor, BackColor;
-		0x04, Color_4, // SelForeColor, SelBackColor;
+		MainMenuIcon_DrawXPos + 0x0E, MainMenuIcon_DrawYPos + 2 * MAIN_Picture_ITEM - 3,		// XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
 		PictureMenu,///NextMenuPage;
-		DWI_Nothing,//DWI_Icon,// DrawMenuItemType;
-		NULL,//ImageIcon, // DisplayText;
+		DWI_Icon,// DrawMenuItemType;
+		ImageIcon, // DisplayText;
 		NaviKeyEvent,
 		{
 			NULL, // AdjustFunction
@@ -127,7 +129,7 @@ MenuItemType code MainMenuItems[] =
 			NULL, // DrawGuageType
 			DrawImageTextRatioGroup, // DrawRadioGroupType
 		},
-		MenuPage2, //Font
+		MenuPage7, //Font
 		mibSelectable
 		#if !Enable_Func_AdjExpansion
 		| mibDVIDisable // Flags
@@ -135,12 +137,12 @@ MenuItemType code MainMenuItems[] =
 	},
 // 2 ColorTemp
 	{
-		MainMenuIcon_DrawXPos, MainMenuIcon_DrawYPos + 2 * MAIN_RGBColor_ITEM,		// XPos, YPos;
-		9, Color_8, // ForeColor, BackColor;
-		8, Color_8, // SelForeColor, SelBackColor;
+		MainMenuIcon_DrawXPos + 0x02, MainMenuIcon_DrawYPos + 2 * MAIN_RGBColor_ITEM + 2,		// XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
 		RGBColorMenu,///NextMenuPage;
-		DWI_Nothing,//DWI_Icon,// DrawMenuItemType;
-		NULL,//ColorTempIcon, // DisplayText;
+		DWI_Icon,// DrawMenuItemType;
+		ColorTempIcon, // DisplayText;
 		NaviKeyEvent,
 		{
 			NULL, // AdjustFunction
@@ -151,17 +153,17 @@ MenuItemType code MainMenuItems[] =
 			NULL, // DrawGuageType
 			DrawColorTextRatioGroup, // DrawRadioGroupType
 		},
-		MenuPage3, //Font
+		MenuPage7, //Font
 		mibSelectable  // Flags
 	},
 // 3  OSD
 	{
-		MainMenuIcon_DrawXPos, MainMenuIcon_DrawYPos + 2 * MAIN_Osd_ITEM,		// XPos, YPos;
-		11, Color_8, // ForeColor, BackColor;
-		10, Color_8, // SelForeColor, SelBackColor;
+		MainMenuIcon_DrawXPos + 0x0E, MainMenuIcon_DrawYPos + 2 * MAIN_Osd_ITEM,		// XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
 		OsdMenu,///NextMenuPage;
-		DWI_Nothing,//DWI_Icon,// DrawMenuItemType;
-		NULL,//OSDIcon, // DisplayText;
+		DWI_Icon,// DrawMenuItemType;
+		OSDIcon, // DisplayText;
 		NaviKeyEvent,
 		{
 			NULL, // AdjustFunction
@@ -172,17 +174,17 @@ MenuItemType code MainMenuItems[] =
 			NULL, // DrawGuageType
 			DrawOSDTextRatioGroup, // DrawRadioGroupType
 		},
-		MenuPage4, //Font
+		MenuPage7, //Font
 		mibSelectable  // Flags
 	},
 // 4  Reset
 	{
-		MainMenuIcon_DrawXPos, MainMenuIcon_DrawYPos + 2 * MAIN_Setting_ITEM,		// XPos, YPos;
-		0x07, Color_4, // ForeColor, BackColor;
-		0x06, Color_4, // SelForeColor, SelBackColor;
+		MainMenuIcon_DrawXPos + 0x02, MainMenuIcon_DrawYPos + 2 * MAIN_Setting_ITEM + 5,		// XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
 		SettingMenu,///NextMenuPage;
-		DWI_Nothing,//DWI_Icon,// DrawMenuItemType;
-		NULL,//ResetIcon, // DisplayText;
+		DWI_Icon,// DrawMenuItemType;
+		ResetIcon, // DisplayText;
 		NaviKeyEvent,
 		{
 			NULL, // AdjustFunction
@@ -193,17 +195,17 @@ MenuItemType code MainMenuItems[] =
 			NULL, // DrawGuageType
 			DrawResetTextRatioGroup, // DrawRadioGroupType
 		},
-		MenuPage5, //Font
+		MenuPage7, //Font
 		mibSelectable  // Flags
 	},
 // 5  Misc
 	{
-		MainMenuIcon_DrawXPos, MainMenuIcon_DrawYPos + 2 * MAIN_Misc_ITEM,		// XPos, YPos;
-		0x09, Color_4, // ForeColor, BackColor;
-		0x08, Color_4, // SelForeColor, SelBackColor;
+		MainMenuIcon_DrawXPos + 0x0E, MainMenuIcon_DrawYPos + 2 * MAIN_Misc_ITEM + 3,		// XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
 		OSD_MiscMenu,///NextMenuPage;
-		DWI_Nothing,//DWI_Icon,// DrawMenuItemType;
-		NULL,//MiscIcon, // DisplayText;
+		DWI_Icon,// DrawMenuItemType;
+		MiscIcon, // DisplayText;
 		NaviKeyEvent,
 		{
 			NULL, // AdjustFunction
@@ -214,15 +216,15 @@ MenuItemType code MainMenuItems[] =
 			NULL, // DrawGuageType
 			DrawMiscTextRatioGroup, // DrawRadioGroupType
 		},
-		MenuPage6, //Font
+		MenuPage7, //Font
 		mibSelectable  // Flags
 	},
 
 // 11 Factory,
 	{
-		1, 0, // XPos, YPos;
-		0x0E, 0x02, // ForeColor, BackColor;
-		CPC_ColorF, 0x02, // SelForeColor, SelBackColor;
+		1, 1, // XPos, YPos;
+		0x0F, 0x05, // ForeColor, BackColor;
+		0x0E, 0x05, // SelForeColor, SelBackColor;
 		FactoryMenu,//NextMenuPage;
 		DWI_Text, // DrawMenuItemType;
 		Main_FText, // DisplayText;

@@ -1,55 +1,11 @@
----- MainMenu Matches (54 in 7 files) ----
-AlignControl in DDC2Bi.c (H:\JRY\LOGO\TSUM_TEXT_1\KERNEL\SYSTEM) : 		if((MenuPageIndex >= MainMenu && MenuPageIndex <= InputInfoMenu)
-AlignControl in DDC2Bi.c (H:\JRY\LOGO\TSUM_TEXT_1\KERNEL\SYSTEM) : 					if(MenuPageIndex >= MainMenu && MenuPageIndex <= ExitMenu)
-Global.h (H:\JRY\LOGO\TSUM_TEXT_1\KERNEL\SYSTEM\INC\AOC2011) line 1062 : // for MainMenu str
-ExecuteKeyEvent in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 							MenuPageIndex = MainMenu;
-ExecuteKeyEvent in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 					if( MenuPageIndex == MainMenu )
-ExecuteKeyEvent in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 					if( MenuPageIndex == MainMenu )
-ExecuteKeyEvent in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 				if ((PrevPage == RootMenu && MenuPageIndex == MainMenu))
-ExecuteKeyEvent in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 				if( MenuPageIndex == MainMenu )
-ExecuteKeyEvent in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 						MenuPageIndex = MainMenu;
-ExecuteKeyEvent in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 							MenuPageIndex = MainMenu;
-DrawOsdMenu in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 		        && !( MenuPageIndex == MainMenu && PrevPage != RootMenu && PrevPage != LanguageMenu))
-DrawOsdMenu in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 			if ((MenuPageIndex == MainMenu) && PrevPage == RootMenu && !(FactoryModeFlag))
-DrawOsdMenuItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 	if( MenuPageIndex == MainMenu && itemIndex == MenuItemIndex )
-DrawOsdMenuItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 	else if( MenuPageIndex > MainMenu && MenuPageIndex < ExitMenu)
-DrawOsdMenuItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 		if(PrevPage == MainMenu)
-DrawOsdMenuItemText in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 		if(MenuPageIndex == MainMenu &&  MenuItemIndex == MAIN_MAX_ITEM && !FactoryModeFlag) // F item
-DrawOsdMenuItemText in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 		if ( MenuPageIndex == MainMenu )
-DrawOsdMenuItemValue in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 	        || (valueItem->DrawRadioGroup && MenuPageIndex > MainMenu)) //||(valueItem->DrawRadioGroup&&MenuPageIndex==FactoryMenu))
-DrawOsdMenuItemRadioGroup in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 				else if(MenuPageIndex == MainMenu && (drawItem->Flags & dwiMainTitle))
-GetMenuItemIndex in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 	if( MenuPageIndex == MainMenu )
-GetMenuItemIndex in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 		else if( menuPageIndex == MainMenu && UserPrefColorTemp == CTEMP_SRGB )
-GetMenuItemIndex in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 		else if( menuPageIndex == MainMenu && UserPrefECOMode != ECO_Standard
-DrawOsdBackGround in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 	if ( MenuPageIndex == MainMenu )
-menudef.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 53 : 	MainMenu, 	        // 7
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 979 : 		ExpansionMenu,//MainMenu,///NextMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 2351 : 		MainMenu,//NextMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 2372 : 		MainMenu,//NextMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 2393 : 		MainMenu,//NextMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 3773 : 	MainMenu,///NextMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 3795 : 	MainMenu,///NextMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 3821 : 	MainMenu,///NextMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 3847 : 	MainMenu,///NextMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 3873 : 	MainMenu,///NextMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 3901 : 	MainMenu,///NextMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4376 : 	//7 MainMenu
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4390 : 		MainMenu,// PrevMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4400 : 		MainMenu,// PrevMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4410 : 		MainMenu,// PrevMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4420 : 		MainMenu,// PrevMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4430 : 		MainMenu,// PrevMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4440 : 		MainMenu,// PrevMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4452 : 		MainMenu,// PrevMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4585 : 		PictureMenu, // MainMenu,// PrevMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4728 : 		SettingMenu, // MainMenu,// PrevMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4741 : 		OSD_MiscMenu, // MainMenu,// PrevMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4754 : 		OSD_MiscMenu, // MainMenu,// PrevMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4765 : 		OSD_MiscMenu, // MainMenu,// PrevMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4777 : 		OSD_MiscMenu, // MainMenu,// PrevMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4791 : 		OSD_MiscMenu, // MainMenu,// PrevMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4804 : 		OSD_MiscMenu, // MainMenu,// PrevMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 5007 : 		MainMenu,// PrevMenuPage;
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 5017 : 		MainMenu,// PrevMenuPage;
-MenuTblDef.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 627 : 		MainMenu, //NextMenuPage;
-Osd_Show in msOSDFunction.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 	if((MenuPageIndex == AutoMenu || MenuPageIndex == MainMenu) && UserPrefDcrMode)
+---- dwiRadioGroup Matches (10 in 3 files) ----
+DrawOsdMenuItemRadioGroup in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 				if( drawItem->Flags & dwiRadioGroup )
+menudef.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 816 : #define dwiRadioGroup   0x04
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 27 : 	{dwiEnd | dwiRadioGroup | dwiCenterText,		MainMenuIcon_DrawXPos + 0x02, 		MainMenuIcon_DrawYPos + 2 * MAIN_BriContrast_ITEM + 3,		MainMenu_BrightText}
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 38 : 	{dwiEnd | dwiRadioGroup | dwiCenterText,		MainMenuIcon_DrawXPos + 0x0E, 		MainMenuIcon_DrawYPos + 2 * MAIN_Picture_ITEM + 1,		MainMenu_ImageText}
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 49 : 	{dwiEnd | dwiRadioGroup | dwiCenterText,		MainMenuIcon_DrawXPos + 0x02,		 MainMenuIcon_DrawYPos + 2 * MAIN_RGBColor_ITEM + 6,		MainMenu_ColorText}
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 60 : 	{dwiEnd | dwiRadioGroup | dwiCenterText,		MainMenuIcon_DrawXPos + 0x0E,		 MainMenuIcon_DrawYPos + 2 * MAIN_Osd_ITEM + 4,		MainMenu_OSDText}
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 71 : 	{dwiEnd | dwiRadioGroup | dwiCenterText,		MainMenuIcon_DrawXPos + 0x02, 		MainMenuIcon_DrawYPos + 2 * MAIN_Setting_ITEM + 9,		MainMenu_ResetText}
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 82 : 	{dwiEnd | dwiRadioGroup | dwiCenterText,		MainMenuIcon_DrawXPos + 0x0E, 		MainMenuIcon_DrawYPos + 2 * MAIN_Misc_ITEM + 7,		MainMenu_MiscText}
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 3961 : 	{dwiRadioGroup | dwiCenterText | dwiEnd, 8, 3,     ECOModeValue},
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4013 : 	{dwiRadioGroup | dwiEnd,	20, 4,  	DDCCIValueText},

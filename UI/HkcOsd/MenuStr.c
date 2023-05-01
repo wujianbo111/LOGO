@@ -10,9 +10,89 @@
 #include "menuTextProp.h"
 #endif
 
+#define Icon2Color_AddrShift   1
 #define Icon4Color_AddrShift   2
 #define Icon8Color_AddrShift   3
 
+#define BrM(x)	(_2ColorBrightnessIconStart + x * Icon2Color_AddrShift)
+ BYTE code strBrightnessIcon[4][7]=
+{
+	{	 BrM(0x00), BrM(0x01), BrM(0x02), BrM(0x03), BrM(0x04), BrM(0x00), 
+	 0},
+	{	 BrM(0x05), BrM(0x06), BrM(0x07), BrM(0x08), BrM(0x09), BrM(0x00), 
+	 0},
+	{	 BrM(0x0A), BrM(0x0B), BrM(0x0C), BrM(0x0D), BrM(0x0E), BrM(0x00), 
+	 0},
+	{	 BrM(0x00), BrM(0x0F), BrM(0x10), BrM(0x11), BrM(0x12), BrM(0x00), 
+	 0}
+};
+
+#define ImM(x)	(_2ColorImageIconStart + x * Icon2Color_AddrShift)
+ BYTE code strImageIcon[4][7]=
+{
+	{	 ImM(0x00), ImM(0x01), ImM(0x01), ImM(0x01), ImM(0x01), ImM(0x02), 
+	 0},
+	{	 ImM(0x03), ImM(0x04), ImM(0x04), ImM(0x04), ImM(0x05), ImM(0x06), 
+	 0},
+	{	 ImM(0x03), ImM(0x04), ImM(0x04), ImM(0x07), ImM(0x08), ImM(0x09), 
+	 0},
+	{	 ImM(0x0A), ImM(0x0B), ImM(0x0B), ImM(0x0B), ImM(0x0C), ImM(0x04), 
+	 0}
+};
+
+#define CoM(x)	(_2ColorColorIconStart + x * Icon2Color_AddrShift)
+ BYTE code strColorTempIcon[4][7]=
+{
+	{	 CoM(0x00), CoM(0x01), CoM(0x02), CoM(0x03), CoM(0x04), CoM(0x00), 
+	 0},
+	{	 CoM(0x05), CoM(0x06), CoM(0x07), CoM(0x08), CoM(0x09), CoM(0x0A), 
+	 0},
+	{	 CoM(0x0B), CoM(0x0C), CoM(0x0D), CoM(0x0E), CoM(0x0F), CoM(0x10), 
+	 0},
+	{	 CoM(0x00), CoM(0x11), CoM(0x12), CoM(0x13), CoM(0x14), CoM(0x00), 
+	 0}
+};
+
+#define OSM(x)	(_2ColorOSDIconStart + x * Icon2Color_AddrShift)
+ BYTE code strOSDIcon[4][7]=
+{
+	{	 OSM(0x00), OSM(0x01), OSM(0x02), OSM(0x03), OSM(0x04), OSM(0x05), 
+	 0},
+	{	 OSM(0x06), OSM(0x07), OSM(0x08), OSM(0x09), OSM(0x0A), OSM(0x0B), 
+	 0},
+	{	 OSM(0x0C), OSM(0x0D), OSM(0x0E), OSM(0x0F), OSM(0x10), OSM(0x11), 
+	 0},
+	{	 OSM(0x12), OSM(0x13), OSM(0x14), OSM(0x15), OSM(0x16), OSM(0x05), 
+	 0}
+};
+
+#define ReM(x)	(_2ColorResetIconStart + x * Icon2Color_AddrShift)
+ BYTE code strResetIcon[4][7]=
+{
+	{	 ReM(0x00), ReM(0x01), ReM(0x02), ReM(0x03), ReM(0x04), ReM(0x00), 
+	 0},
+	{	 ReM(0x05), ReM(0x06), ReM(0x07), ReM(0x08), ReM(0x09), ReM(0x0A), 
+	 0},
+	{	 ReM(0x0B), ReM(0x0C), ReM(0x0D), ReM(0x0E), ReM(0x0F), ReM(0x10), 
+	 0},
+	{	 ReM(0x00), ReM(0x11), ReM(0x12), ReM(0x13), ReM(0x14), ReM(0x00), 
+	 0}
+};
+
+#define ExM(x)	(_2ColorExtraIconStart + x * Icon2Color_AddrShift)
+ BYTE code strMiscIcon[4][7]=
+{
+	{	 ExM(0x00), ExM(0x01), ExM(0x02), ExM(0x03), ExM(0x04), ExM(0x00), 
+	 0},
+	{	 ExM(0x05), ExM(0x06), ExM(0x07), ExM(0x08), ExM(0x09), ExM(0x0A), 
+	 0},
+	{	 ExM(0x0B), ExM(0x0C), ExM(0x0D), ExM(0x0E), ExM(0x0F), ExM(0x10), 
+	 0},
+	{	 ExM(0x11), ExM(0x12), ExM(0x13), ExM(0x14), ExM(0x15), ExM(0x00), 
+	 0}
+};
+
+#if 0
 BYTE code strBrightnessIcon[7] =
 {
 	_8ColorMainIconStart + 0 * Icon8Color_AddrShift,
@@ -77,6 +157,7 @@ BYTE code strMiscIcon[7] =
 	_4ColorMainIconStart + 17 * Icon4Color_AddrShift,
 	'\0'
 };
+#endif
 
 BYTE* BrightnessIcon(void)
 {
