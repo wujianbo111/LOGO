@@ -88,26 +88,20 @@ BYTE Key_GetKeypadStatus( void )
 	if (abs(u8Temp - ADCKEY_A0_VALUE)  <= KEY_TOL)
 	{
 		u8Keypad &= ~ADCKEY_A0;
-		#if ENABLE_DEBUG
 		printMsg("------------KEY_MENU-------------");
-		#endif
 	}
 	#if (ADCKEY_A1_VALUE!=0xFF)
 	if (abs(u8Temp - ADCKEY_A1_VALUE)  <= KEY_TOL)
 	{
 		u8Keypad &= ~ADCKEY_A1;
-		#if ENABLE_DEBUG
 		printMsg("-----------KEY_NOTHING-----------");
-		#endif
 	}
 	#endif
 	#if (ADCKEY_A2_VALUE!=0xFF)
 	if (abs(u8Temp - ADCKEY_A2_VALUE)  <= KEY_TOL)
 	{
 		u8Keypad &= ~ADCKEY_A2;
-		#if ENABLE_DEBUG
 		printMsg("----------KEY_NOTHING-----------");
-		#endif
 	}
 	#endif
 	retry_Key = 5;
@@ -125,26 +119,20 @@ BYTE Key_GetKeypadStatus( void )
 	if (abs(u8Temp - ADCKEY_B0_VALUE)  <= KEY_TOL)
 	{
 		u8Keypad &= ~ADCKEY_B0;
-		#if ENABLE_DEBUG
 		printMsg("----------KEY_PLUS--------------");
-		#endif
 	}
 	#if (ADCKEY_B1_VALUE!=0xFF)
 	if (abs(u8Temp - ADCKEY_B1_VALUE)  <= KEY_TOL)
 	{
 		u8Keypad &= ~ADCKEY_B1;
-		#if ENABLE_DEBUG
 		printMsg("---------KEY_MINUS--------------");
-		#endif
 	}
 	#endif
 	#if (ADCKEY_B2_VALUE!=0xFF)
 	if (abs(u8Temp - ADCKEY_B2_VALUE)  <= KEY_TOL)
 	{
 		u8Keypad &= ~ADCKEY_B2;
-		#if ENABLE_DEBUG
 		printMsg("----------KEY_EXIT-------------");
-		#endif
 	}
 	#endif
 	//POWER_KEY

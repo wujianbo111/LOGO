@@ -973,7 +973,6 @@ Bool ExecuteKeyEvent(MenuItemActionType menuAction)
 					#if 1
 					BYTE xdata TempIndex = 0;	//111223 Modify
 					#endif
-					#if 0
 					if( MenuPageIndex == MainMenu )
 					{
 						Osd_SetTextMonoColor(0x00, 0x06);
@@ -985,7 +984,6 @@ Bool ExecuteKeyEvent(MenuItemActionType menuAction)
 						}
 						tempValue = PrevMenuItemIndex;
 					}
-					#endif
 					#if Hot_Corss_FY_ColorSelect
 					if(MenuPageIndex == HotCorssMenu)
 					{
@@ -1018,14 +1016,12 @@ Bool ExecuteKeyEvent(MenuItemActionType menuAction)
 					}
 					#endif
 					DrawOsdMenuItem(MenuItemIndex, &CurrentMenuItem);
-					#if 0
 					if( MenuPageIndex == MainMenu )
 					{
 						DrawOsdSubMenu( NextMenuPage );
 						if( MenuItemIndex == MAIN_Misc_ITEM)
 							DrawTimingInfo();
 					}
-					#endif
 					#if Hot_Corss_FY_ColorSelect || Hot_Corss_FND_Select
 					if(MenuPageIndex == HotCorssMenu)
 					{
@@ -1200,10 +1196,8 @@ Bool ExecuteKeyEvent(MenuItemActionType menuAction)
 					CurrentMenu.ExecFunction();
 				#endif
 				DrawOsdMenu();
-				#if 0
 				if( MenuPageIndex == MainMenu )
 					DrawOsdSubMenu( NextMenuPage );
-				#endif
 				#if DDCCI_ENABLE && DDCCCIMenu_Enable
 				if (MenuPageIndex == DdcciInfoMenu)
 					Delay1ms(200);
@@ -3626,50 +3620,6 @@ void DrawOsdBackGround(void)
 	BYTE i;
 	if ( MenuPageIndex == MainMenu )
 	{
-		//画背景
-		Osd_SetTextMonoColor(DefineBlack, DefineBlack);
-		for(i = 0; i <= OsdWindowHeight - 1; i++)
-		{
-			Osd_DrawContinuesChar(0, i, SpaceFont, OsdWindowWidth);
-		}
-		//画四个角
-		Osd_SetTextMonoColor(DefineRed, DefineBlack);
-		Osd_DrawCharDirect(0, 0, DefineTopLeftCorner);
-		Osd_DrawCharDirect(CurrentMenu.XSize - 1, 0, DefineTopRightCorner);
-		Osd_DrawCharDirect(0, CurrentMenu.YSize - 1, DefineBottomLeftCorner);
-		Osd_DrawCharDirect(CurrentMenu.XSize - 1, CurrentMenu.YSize - 1, DefineBottonRightCorner);
-		//画顶部横线、底部横线
-		for(i = 1; i <= CurrentMenu.XSize - 2; i++)
-		{
-			Osd_DrawCharDirect(i, 0, DefineTop);
-			Osd_DrawCharDirect(i, CurrentMenu.YSize - 1, DefineBottom);
-		}
-		//画左边横线、右边横线
-		for(i = 1; i <= CurrentMenu.YSize - 2; i++)
-		{
-			Osd_DrawCharDirect(0, i, DefineLeft);
-			Osd_DrawCharDirect(CurrentMenu.XSize - 1, i, DefineRight);
-		}
-		//画内部竖线
-		for(i = 0; i < CurrentMenu.YSize; i++)
-		{
-			if((i >= 2 && i < 6) || (i >= 8 && i < 0x0C) || (i >= 0x0E && i < 0x12))
-			{
-				Osd_DrawCharDirect(CurrentMenu.XSize / 2 - 1, i, DefineVerticalLine);
-			}
-		}
-		//画内部横线
-		for(i = 0; i < CurrentMenu.XSize; i++)
-		{
-			if((i >= 2 && i < 10) || (i >= 13 && i < 22))
-			{
-				Osd_DrawCharDirect(i, 0x06, DefineTransverseLine1);
-				Osd_DrawCharDirect(i, 0x07, DefineTransverseLine2);
-				Osd_DrawCharDirect(i, 0x0C, DefineTransverseLine1);
-				Osd_DrawCharDirect(i, 0x0D, DefineTransverseLine2);
-			}
-		}
-		#if 0
 		Osd_SetTextMonoColor(0x00, 0x0E);
 		for (i = 0; i <= OsdWindowHeight - 1; i++)
 		{
@@ -3791,7 +3741,6 @@ void DrawOsdBackGround(void)
 		Osd_DrawCharDirect(0x2B, CurrentMenu.YSize - 2, 0x8F);
 		#endif
 		OSD_TEXT_HI_ADDR_CLR_TO_0();
-		#endif
 		#endif
 	}
 	else if ( (MenuPageIndex >= HotKeyECOMenu && MenuPageIndex <= AutoMenu)

@@ -266,7 +266,5 @@
 #define ADCKEY_B1       KEY_MINUS
 #define ADCKEY_B2       KEY_EXIT
 ///////////////////////////////////////////////////////////////
-/********************wujianbo define*************************/
-#define	OsdHelpKeyType		OsdHelpKey_Off
 #endif
 

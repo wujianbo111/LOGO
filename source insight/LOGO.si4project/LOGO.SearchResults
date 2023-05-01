@@ -1,5 +1,55 @@
----- Key_ScanKeypad Matches (4 in 4 files) ----
-Keypad.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) line 1418 : BOOL Key_ScanKeypad(void)
-Keypad.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 6 : extern BOOL Key_ScanKeypad(void);
-Menu_OsdHandler in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 		Key_ScanKeypad();
-msPM_GetPMStatus in Ms_PM.c (H:\JRY\LOGO\TSUM_TEXT_1\KERNEL\SCALER) : 		Key_ScanKeypad();
+---- MainMenu Matches (54 in 7 files) ----
+AlignControl in DDC2Bi.c (H:\JRY\LOGO\TSUM_TEXT_1\KERNEL\SYSTEM) : 		if((MenuPageIndex >= MainMenu && MenuPageIndex <= InputInfoMenu)
+AlignControl in DDC2Bi.c (H:\JRY\LOGO\TSUM_TEXT_1\KERNEL\SYSTEM) : 					if(MenuPageIndex >= MainMenu && MenuPageIndex <= ExitMenu)
+Global.h (H:\JRY\LOGO\TSUM_TEXT_1\KERNEL\SYSTEM\INC\AOC2011) line 1062 : // for MainMenu str
+ExecuteKeyEvent in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 							MenuPageIndex = MainMenu;
+ExecuteKeyEvent in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 					if( MenuPageIndex == MainMenu )
+ExecuteKeyEvent in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 					if( MenuPageIndex == MainMenu )
+ExecuteKeyEvent in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 				if ((PrevPage == RootMenu && MenuPageIndex == MainMenu))
+ExecuteKeyEvent in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 				if( MenuPageIndex == MainMenu )
+ExecuteKeyEvent in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 						MenuPageIndex = MainMenu;
+ExecuteKeyEvent in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 							MenuPageIndex = MainMenu;
+DrawOsdMenu in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 		        && !( MenuPageIndex == MainMenu && PrevPage != RootMenu && PrevPage != LanguageMenu))
+DrawOsdMenu in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 			if ((MenuPageIndex == MainMenu) && PrevPage == RootMenu && !(FactoryModeFlag))
+DrawOsdMenuItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 	if( MenuPageIndex == MainMenu && itemIndex == MenuItemIndex )
+DrawOsdMenuItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 	else if( MenuPageIndex > MainMenu && MenuPageIndex < ExitMenu)
+DrawOsdMenuItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 		if(PrevPage == MainMenu)
+DrawOsdMenuItemText in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 		if(MenuPageIndex == MainMenu &&  MenuItemIndex == MAIN_MAX_ITEM && !FactoryModeFlag) // F item
+DrawOsdMenuItemText in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 		if ( MenuPageIndex == MainMenu )
+DrawOsdMenuItemValue in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 	        || (valueItem->DrawRadioGroup && MenuPageIndex > MainMenu)) //||(valueItem->DrawRadioGroup&&MenuPageIndex==FactoryMenu))
+DrawOsdMenuItemRadioGroup in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 				else if(MenuPageIndex == MainMenu && (drawItem->Flags & dwiMainTitle))
+GetMenuItemIndex in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 	if( MenuPageIndex == MainMenu )
+GetMenuItemIndex in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 		else if( menuPageIndex == MainMenu && UserPrefColorTemp == CTEMP_SRGB )
+GetMenuItemIndex in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 		else if( menuPageIndex == MainMenu && UserPrefECOMode != ECO_Standard
+DrawOsdBackGround in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 	if ( MenuPageIndex == MainMenu )
+menudef.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 53 : 	MainMenu, 	        // 7
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 979 : 		ExpansionMenu,//MainMenu,///NextMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 2351 : 		MainMenu,//NextMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 2372 : 		MainMenu,//NextMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 2393 : 		MainMenu,//NextMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 3773 : 	MainMenu,///NextMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 3795 : 	MainMenu,///NextMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 3821 : 	MainMenu,///NextMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 3847 : 	MainMenu,///NextMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 3873 : 	MainMenu,///NextMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 3901 : 	MainMenu,///NextMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4376 : 	//7 MainMenu
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4390 : 		MainMenu,// PrevMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4400 : 		MainMenu,// PrevMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4410 : 		MainMenu,// PrevMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4420 : 		MainMenu,// PrevMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4430 : 		MainMenu,// PrevMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4440 : 		MainMenu,// PrevMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4452 : 		MainMenu,// PrevMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4585 : 		PictureMenu, // MainMenu,// PrevMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4728 : 		SettingMenu, // MainMenu,// PrevMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4741 : 		OSD_MiscMenu, // MainMenu,// PrevMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4754 : 		OSD_MiscMenu, // MainMenu,// PrevMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4765 : 		OSD_MiscMenu, // MainMenu,// PrevMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4777 : 		OSD_MiscMenu, // MainMenu,// PrevMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4791 : 		OSD_MiscMenu, // MainMenu,// PrevMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4804 : 		OSD_MiscMenu, // MainMenu,// PrevMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 5007 : 		MainMenu,// PrevMenuPage;
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 5017 : 		MainMenu,// PrevMenuPage;
+MenuTblDef.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 627 : 		MainMenu, //NextMenuPage;
+Osd_Show in msOSDFunction.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 	if((MenuPageIndex == AutoMenu || MenuPageIndex == MainMenu) && UserPrefDcrMode)

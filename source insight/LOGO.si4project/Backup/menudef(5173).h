@@ -477,8 +477,8 @@ typedef enum
 #define MAIN_MENU_H_SIZE            0x2D//1368 pixel
 #define MAIN_MENU_V_SIZE            0x10
 #else
-#define MAIN_MENU_H_SIZE            0x18//0x29//1368 pixel
-#define MAIN_MENU_V_SIZE            0x14//0x12
+#define MAIN_MENU_H_SIZE            0x29//1368 pixel
+#define MAIN_MENU_V_SIZE            0x12
 #endif
 
 #define MainMenuIcon_DrawXPos		0x01
@@ -951,29 +951,4 @@ typedef struct
 	MenuFontType *Fonts;
 	BYTE Flags;
 } MenuPageType;
-
-
-
-
-
-
-
-
-
-/***************wujianbo define******************/
-#define DefineBlack								0x05
-#define DefineRed								0x0F
-
-#define DefineTopLeftCorner						0x02
-#define DefineTopRightCorner					0x03
-#define DefineBottomLeftCorner					0x04
-#define DefineBottonRightCorner					0x05
-#define DefineTop								0x06
-#define DefineBottom							0x07
-#define DefineLeft								0x08
-#define DefineRight								0x09
-#define DefineTransverseLine1					0x0A
-#define DefineVerticalLine						0x0B
-#define DefineTransverseLine2					0x0C
-
 #endif
