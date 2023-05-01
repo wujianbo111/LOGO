@@ -67,15 +67,15 @@ xdata BYTE KeypadButton = BTN_Nothing;
 #define ADCKEY_B2       KEY_NOTHING
 *******************************************************/
 
-
+#if (ModelName==JRY_TESTBOARD_C_BOARD)
 BYTE Key_GetKeypadStatus( void )
 {
 	BYTE u8Keypad = 0xFF;
 	BYTE u8Temp = 0;
 	BYTE u8Temp1 = 0;
 	BYTE retry_Key = 5;
-	u8Temp = KEYPAD_ADC_A  & SARADC_MASK; //  SAR0
-	while(retry_Key && (u8Temp < (SARADC_MASK - 5)))
+	u8Temp = KEYPAD_ADC_A  & SARADC_MASK; //  SAR0  //读取ADC A组按键值
+	while(retry_Key && (u8Temp < (SARADC_MASK - 5))) //延迟消抖
 	{
 		u8Temp = KEYPAD_ADC_A  & SARADC_MASK; //  SAR0
 		Delay1ms(15);
@@ -86,18 +86,27 @@ BYTE Key_GetKeypadStatus( void )
 	}
 	// u8Temp = KEYPAD_ADC_A  & SARADC_MASK;
 	if (abs(u8Temp - ADCKEY_A0_VALUE)  <= KEY_TOL)
+	{
 		u8Keypad &= ~ADCKEY_A0;
+		printMsg("------------KEY_MENU-------------");
+	}
 	#if (ADCKEY_A1_VALUE!=0xFF)
 	if (abs(u8Temp - ADCKEY_A1_VALUE)  <= KEY_TOL)
+	{
 		u8Keypad &= ~ADCKEY_A1;
+		printMsg("-----------KEY_NOTHING-----------");
+	}
 	#endif
 	#if (ADCKEY_A2_VALUE!=0xFF)
 	if (abs(u8Temp - ADCKEY_A2_VALUE)  <= KEY_TOL)
+	{
 		u8Keypad &= ~ADCKEY_A2;
+		printMsg("----------KEY_NOTHING-----------");
+	}
 	#endif
 	retry_Key = 5;
-	u8Temp = KEYPAD_ADC_B  & SARADC_MASK; //  SAR0
-	while(retry_Key && (u8Temp < (SARADC_MASK - 5)))
+	u8Temp = KEYPAD_ADC_B  & SARADC_MASK; //  SAR0  //读取ADC B组按键值
+	while(retry_Key && (u8Temp < (SARADC_MASK - 5))) //延迟消抖
 	{
 		u8Temp = KEYPAD_ADC_B  & SARADC_MASK; //  SAR1
 		Delay1ms(15);
@@ -108,14 +117,23 @@ BYTE Key_GetKeypadStatus( void )
 	}
 	//u8Temp1 = KEYPAD_ADC_B  & SARADC_MASK;
 	if (abs(u8Temp - ADCKEY_B0_VALUE)  <= KEY_TOL)
+	{
 		u8Keypad &= ~ADCKEY_B0;
+		printMsg("----------KEY_PLUS--------------");
+	}
 	#if (ADCKEY_B1_VALUE!=0xFF)
 	if (abs(u8Temp - ADCKEY_B1_VALUE)  <= KEY_TOL)
+	{
 		u8Keypad &= ~ADCKEY_B1;
+		printMsg("---------KEY_MINUS--------------");
+	}
 	#endif
 	#if (ADCKEY_B2_VALUE!=0xFF)
 	if (abs(u8Temp - ADCKEY_B2_VALUE)  <= KEY_TOL)
+	{
 		u8Keypad &= ~ADCKEY_B2;
+		printMsg("----------KEY_EXIT-------------");
+	}
 	#endif
 	//POWER_KEY
 	#if GPIO_POWER_KEY

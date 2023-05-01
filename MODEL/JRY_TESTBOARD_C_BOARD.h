@@ -249,9 +249,9 @@
 #define Pro_MaxVol_P				0x23F
 ///////////////////////////////////////////////////////////////
 
-#define ADCKEY_A0_VALUE     0x6F
-#define ADCKEY_A1_VALUE     0x9B//0x68
-#define ADCKEY_A2_VALUE     0xA0
+#define ADCKEY_A0_VALUE     0x70//0x6F
+#define ADCKEY_A1_VALUE     0x47//0x9B//0x68
+#define ADCKEY_A2_VALUE     0x00//0xA0
 
 #define ADCKEY_B0_VALUE     0x00
 #define ADCKEY_B1_VALUE     0x47//0x68
