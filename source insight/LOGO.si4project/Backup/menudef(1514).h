@@ -663,7 +663,6 @@ typedef enum
 
 typedef enum
 {
-	Setting_ResetIcon_ITEM,
 	#if AboutDSUBFunc_Enable
 	Setting_AUTOCONFIG_ITEM,
 	Setting_AUTOCOLOR_ITEM,
@@ -677,7 +676,6 @@ typedef enum
 
 typedef enum
 {
-	Misc_ExtraIcon_ITEM,
 	#if (INPUT_TYPE!=INPUT_1A) && (INPUT_TYPE!=INPUT_1H)
 	Misc_InputSource_ITEM,
 	#endif

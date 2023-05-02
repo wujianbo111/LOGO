@@ -1338,12 +1338,12 @@ DrawGuageType code DrawLowBlueLightMenu_LowBlueLightGuage[] =
 RadioTextType code DrawLowBlueLightMenuText[] =
 {
 	// Flags,            XPos,  YPos,   DisplayText
-	{dwiCenterArrowAlign | dwiEnd, SUB_TEXT_XPOS + 11, ( SUB_TEXT_YPOS + IconShift * Misc_LowBlueLigth_Item + 1),     LowBlueLightStatusText},
+	{dwiCenterArrowAlign | dwiEnd, SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * Misc_LowBlueLigth_Item),     LowBlueLightStatusText},
 };
 DrawRadioGroupType code DrawLowBlueLightMenuIconRatioText[] =
 {
 	//ForeColor,    BackColor,  GetValue    RadioText
-	{NotSelectedForeAndBackColor,   Color_2, NULL, DrawLowBlueLightMenuText}
+	{CP_SelectItem,   Color_2, NULL, DrawLowBlueLightMenuText}
 };
 
 #endif
@@ -1735,18 +1735,6 @@ DrawRadioGroupType code DrawLanguageIconRatioText[] =
 };
 #endif
 
-//------------------------SettingMenu------------------------------
-//----------
-RadioTextType code DrawResetTextRatio1[] =
-{
-	// Flags,					XPos,	YPos,	DisplayText
-	{dwiEnd | dwiRadioGroup | dwiCenterText,		(MAIN_MENU_H_SIZE / 2) - (MainMenuIconCloumn / 2 + 1), MainMenuIcon_DrawYPos + 2 * MAIN_Setting_ITEM - 5,		MainMenu_ResetText}
-};
-DrawRadioGroupType code DrawResetTextRatioGroup1[] =
-{
-	//ForeColor,				BackColor,				GetValue	RadioText
-	{NotSelectedForeAndBackColor, Color_2, NULL,		DrawResetTextRatio1}
-};
 #if OsdAdjustHVPos_Enable
 //--------------------OsdHPositionNumber--------------------------
 NumberType code OsdHPositionNumber[] =
@@ -2486,34 +2474,12 @@ DrawNumberType code DrawOffTimerNumber[] =
 
 MenuItemType code SettingMenuItems[] =
 {
-// 0  Reset
-	{
-		(MAIN_MENU_H_SIZE / 2) - (MainMenuIconCloumn / 2 + 1), MainMenuIcon_DrawYPos + 2 * MAIN_Setting_ITEM - 9,		// XPos, YPos;
-		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
-		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
-		SettingMenu,///NextMenuPage;
-		DWI_Icon,// DrawMenuItemType;
-		ResetIcon, // DisplayText;
-		NaviKeyEvent,
-		{
-			NULL, // AdjustFunction
-			NULL, // ExecFunction
-		},
-		{
-			NULL, // DrawNumberType
-			NULL, // DrawGuageType
-			DrawResetTextRatioGroup1, // DrawRadioGroupType
-		},
-		NULL, //Font
-		0  // Flags
-	},
-
 	#if AboutDSUBFunc_Enable
-// 1  AutoConfig
+// 0  AutoConfig
 	{
-		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * Setting_AUTOCONFIG_ITEM + 2), // XPos, YPos;
-		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
-		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * Setting_AUTOCONFIG_ITEM), // XPos, YPos;
+		CP_UnselectItem, Color_2, // ForeColor, BackColor;
+		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
 		MainMenu,//NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		AutoConfigText,// DisplayText;
@@ -2530,11 +2496,11 @@ MenuItemType code SettingMenuItems[] =
 		NULL, //Font
 		mibSelectable | mibDVIDisable // Flags
 	},
-// 2  Auto Color
+
 	{
-		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * Setting_AUTOCOLOR_ITEM + 2), // XPos, YPos;
-		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
-		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * Setting_AUTOCOLOR_ITEM), // XPos, YPos;
+		CP_UnselectItem, Color_2, // ForeColor, BackColor;
+		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
 		MainMenu,//NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		SubAutoColorText,// DisplayText;
@@ -2552,11 +2518,10 @@ MenuItemType code SettingMenuItems[] =
 		mibSelectable | mibDVIDisable // Flags
 	},
 	#endif
-// 3 Reset
 	{
-		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * Setting_RESTR_ITEM + 2), // XPos, YPos;
-		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
-		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * Setting_RESTR_ITEM), // XPos, YPos;
+		CP_UnselectItem, Color_2, // ForeColor, BackColor;
+		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
 		MainMenu,//NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		ResetText,// DisplayText;
@@ -2574,11 +2539,11 @@ MenuItemType code SettingMenuItems[] =
 		mibSelectable // Flags
 	},
 	#ifdef OffPower
-	// 5 OffTimer
+	// 2 OffTimer
 	{
-		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * Setting_OffPower_ITEM), // XPos, YPos;
-		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
-		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * Setting_OffPower_ITEM), // XPos, YPos;
+		CP_UnselectItem, Color_2, // ForeColor, BackColor;
+		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
 		OffTimerMenu,//NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		OffTimerText, // DisplayText;
@@ -2628,17 +2593,6 @@ MenuItemType code OffTimerMenuItems[] =
 
 
 //=========== MiscMenuItems ================================
-//----------
-RadioTextType code DrawMiscTextRatio1[] =
-{
-	// Flags,					XPos,	YPos,	DisplayText
-	{dwiEnd | dwiRadioGroup | dwiCenterText,		(MAIN_MENU_H_SIZE / 2) - (MainMenuIconCloumn / 2 + 1), MainMenuIcon_DrawYPos + 2 * MAIN_Misc_ITEM - 7,		MainMenu_MiscText}
-};
-DrawRadioGroupType code DrawMiscTextRatioGroup1[] =
-{
-	//ForeColor,				BackColor,				GetValue	RadioText
-	{NotSelectedForeAndBackColor, Color_2, NULL,		DrawMiscTextRatio1}
-};
 //--------------------InputSelectText--------------------------
 #if (INPUT_TYPE!=INPUT_1A) && (INPUT_TYPE!=INPUT_1H)
 RadioTextType code DrawInputSelect[] =
@@ -2647,13 +2601,13 @@ RadioTextType code DrawInputSelect[] =
 	// Flags,            XPos,  YPos,   DisplayText
 	{dwiCenterArrowAlign | dwiEnd, SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * Misc_InputSource_ITEM),     InputTypeRationText},
 	#else
-	{dwiCenterArrowAlign | dwiEnd, SUB_TEXT_XPOS + 11, ( SUB_TEXT_YPOS + IconShift * Misc_InputSource_ITEM + 1),     InputSourceText},
+	{dwiCenterArrowAlign | dwiEnd, SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * Misc_InputSource_ITEM),     InputSourceText},
 	#endif
 };
 DrawRadioGroupType code DrawInputSelectIconRatioText[] =
 {
 	//ForeColor,    BackColor,  GetValue    RadioText
-	{NotSelectedForeAndBackColor,   Color_2, NULL, DrawInputSelect}
+	{CP_UnselectItem,   Color_2, NULL, DrawInputSelect}
 };
 #endif
 #if AudioFunc
@@ -2663,12 +2617,12 @@ DrawRadioGroupType code DrawInputSelectIconRatioText[] =
 RadioTextType code DrawMute[] =
 {
 	// Flags,            XPos,  YPos,   DisplayText
-	{dwiCenterArrowAlign | dwiEnd, SUB_TEXT_XPOS + 11, ( SUB_TEXT_YPOS + IconShift * Misc_Mute_ITEM + 1),  MuteValueText},
+	{dwiCenterArrowAlign | dwiEnd, SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * Misc_Mute_ITEM ),  MuteValueText},
 };
 DrawRadioGroupType code DrawMuteRatioText[] =
 {
 	//ForeColor,    BackColor,  GetValue    RadioText
-	{NotSelectedForeAndBackColor,   Color_2, NULL, DrawMute}
+	{CP_UnselectItem,   Color_2, NULL, DrawMute}
 };
 #endif
 
@@ -2676,23 +2630,23 @@ DrawRadioGroupType code DrawMuteRatioText[] =
 NumberType code VolumeNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{dwiEnd,        NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * Misc_Volume_ITEM + 1), GetVolumeValue},
+	{dwiEnd,        NumXposion, ( SUB_TEXT_YPOS + IconShift * Misc_Volume_ITEM), GetVolumeValue},
 };
 DrawNumberType code DrawVolumeNumber[] =
 {
 	// F ForeColor, BackColor,  GetValue
-	NotSelectedForeAndBackColor, NotSelectedForeAndBackColor,     VolumeNumber
+	CP_ExecItem, CP_ExecItem,     VolumeNumber
 };
 //--------------------VolumeIconGuge--------------------------
 GaugeType code VolumeGuage[] =
 {
 	// Flags    XPos,   YPos,   GetValue
-	{dwiEnd,   GaugeXPosition - 11, ( SUB_TEXT_YPOS + IconShift * Misc_Volume_ITEM + 2),      GetVolumeValue},
+	{dwiEnd,   GaugeXPosition, ( SUB_TEXT_YPOS + IconShift * Misc_Volume_ITEM),      GetVolumeValue},
 };
 DrawGuageType code DrawVolumeGuage[] =
 {
 	//  ForeColor,  BackColor,  Length,,    GetValue
-	NotSelectedForeAndBackColor, Color_2,  9,  VolumeGuage
+	CP_ExecItem, Color_2,  9,  VolumeGuage
 };
 #endif
 //--------------------ddcci Text--------------------------
@@ -2754,28 +2708,8 @@ DrawGuageType code DrawSharpnessMenu_SharpnessGuage[] =
 
 MenuItemType code MiscMenuItems[] =
 {
-// 0  Misc_Icon
-	{
-		(MAIN_MENU_H_SIZE / 2) - (MainMenuIconCloumn / 2 + 1), MainMenuIcon_DrawYPos + 2 * MAIN_Misc_ITEM - 11,		// XPos, YPos;
-		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
-		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
-		OSD_MiscMenu,///NextMenuPage;
-		DWI_Icon,// DrawMenuItemType;
-		MiscIcon, // DisplayText;
-		NaviKeyEvent,
-		{
-			NULL, // AdjustFunction
-			NULL, // ExecFunction
-		},
-		{
-			NULL, // DrawNumberType
-			NULL, // DrawGuageType
-			DrawMiscTextRatioGroup1, // DrawRadioGroupType
-		},
-		MenuPage7, //Font
-		0  // Flags
-	},
 	#if HKC_INPUTSELECT_MODE
+// 0 InputSelect
 	{
 		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * Misc_InputSource_ITEM), // XPos, YPos;
 		CP_UnselectItem, Color_2, // ForeColor, BackColor;
@@ -2796,13 +2730,14 @@ MenuItemType code MiscMenuItems[] =
 		NULL, //Font
 		mibSelectable // Flags
 	},
+
 	#else
 	#if (INPUT_TYPE!=INPUT_1A) && (INPUT_TYPE!=INPUT_1H)
-	// 1 InputSelect
+	// 0 InputSelect
 	{
-		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * Misc_InputSource_ITEM + 2), // XPos, YPos;
-		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
-		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * Misc_InputSource_ITEM), // XPos, YPos;
+		CP_UnselectItem, Color_2, // ForeColor, BackColor;
+		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
 		InputSelectMenu,//NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		InputSelectText, // DisplayText;
@@ -2823,11 +2758,12 @@ MenuItemType code MiscMenuItems[] =
 	#endif
 	#if AudioFunc
 	#if EANBLE_MUTE_ON_OFF
-	// 2 Mute
+
+	// 0 Mute
 	{
-		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * Misc_Mute_ITEM + 2), // XPos, YPos;
-		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
-		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * Misc_Mute_ITEM), // XPos, YPos;
+		CP_UnselectItem, Color_2, // ForeColor, BackColor;
+		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
 		MuteMenu, //NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		MuteText,// DisplayText;
@@ -2848,11 +2784,11 @@ MenuItemType code MiscMenuItems[] =
 		#endif
 	},
 	#endif
-	// 3 Volume
+	// 0 Volume
 	{
-		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * Misc_Volume_ITEM + 2), // XPos, YPos;
-		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
-		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * Misc_Volume_ITEM), // XPos, YPos;
+		CP_UnselectItem, Color_2, // ForeColor, BackColor;
+		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
 		VolumeMenu, //NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		VolumeText,// DisplayText;
@@ -2895,7 +2831,9 @@ MenuItemType code MiscMenuItems[] =
 		NULL, // Fonts
 		mibSelectable 						// Flags
 	},
+
 	#endif
+
 	#if  DDCCI_ENABLE && DDCCCIMenu_Enable
 	// DDCCI
 	{
@@ -2919,9 +2857,10 @@ MenuItemType code MiscMenuItems[] =
 		mibSelectable// Flags
 	},
 	#endif
+
 	#if PresetMode_Enable
 	#if ENABLE_RTE
-//  Overdrive
+// 4 Overdrive
 	{
 		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * Misc_Overdrive_ITEM), // XPos, YPos;
 		CP_UnselectItem, Color_2, // ForeColor, BackColor;
@@ -2944,6 +2883,7 @@ MenuItemType code MiscMenuItems[] =
 	},
 	#endif
 	#endif
+
 	#if (LowBlueLightType==LowBlueLight_Misc_Guage)
 
 	{
@@ -2967,11 +2907,10 @@ MenuItemType code MiscMenuItems[] =
 		mibSelectable // Flags
 	},
 	#elif   (LowBlueLightType==LowBlueLight_Misc_Group)
-	// 4 LowBlueLight
 	{
-		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * Misc_LowBlueLigth_Item + 2), // XPos, YPos;
-		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
-		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * Misc_LowBlueLigth_Item), // XPos, YPos;
+		CP_UnselectItem, Color_2, // ForeColor, BackColor;
+		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
 		LowBlueLightMenu,//NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		LowBlueLightText, // DisplayText;
@@ -2989,6 +2928,8 @@ MenuItemType code MiscMenuItems[] =
 		mibSelectable // Flags
 	},
 	#endif
+
+
 	#if FreeSyncMenu_Enable
 	// DDCCI
 	{
@@ -4622,7 +4563,7 @@ MenuPageType code tblMenus[] =
 		SettingMenuItems, // MenuItems;
 		sizeof(SettingMenuItems) / sizeof(MenuItemType), // MenuItemCount;
 		NULL,   // ExecFunction;
-		MenuPage5,   // Fonts
+		NULL,   // Fonts
 		mpbStay//   Flags;
 	},
 	//13  OSD_MiscMenu
@@ -4632,7 +4573,7 @@ MenuPageType code tblMenus[] =
 		MiscMenuItems, // MenuItems;
 		sizeof(MiscMenuItems) / sizeof(MenuItemType), // MenuItemCount;
 		NULL,   // ExecFunction;
-		MenuPage6,   // Fonts
+		NULL,   // Fonts
 		mpbStay//   Flags;
 	},
 
