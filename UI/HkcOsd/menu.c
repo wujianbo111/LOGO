@@ -2038,7 +2038,7 @@ void DrawOsdMenu(void)
 				}
 			}
 			#endif
-			if(MenuPageIndex >= MainMenu && MenuPageIndex <= OSD_BriContrastMenu)
+			if(MenuPageIndex >= MainMenu && MenuPageIndex <= PictureMenu)
 			{
 				DrawOsdBackGround();
 				LoadCommonFont();
@@ -2156,7 +2156,7 @@ void DrawOsdMenuItemText(BYTE itemIndex, MenuItemType *menuItem)
 			return ;
 		#endif
 		//printData("DWI_Icon[%d]",itemIndex);
-		if ( MenuPageIndex >= MainMenu && MenuPageIndex <= OSD_BriContrastMenu)
+		if ( MenuPageIndex >= MainMenu && MenuPageIndex <= PictureMenu)
 		{
 			str = menuItem->DisplayText();
 			OSD_TEXT_HI_ADDR_SET_BIT8();
@@ -2630,7 +2630,7 @@ void DrawOsdSubMenuItem( BYTE itemIndex, MenuItemType *menuItem )
 	#else
 	if( menuItem->Flags & mibDVIDisable && ( SrcInputType == Input_Digital || SrcInputType == Input_Digital2 || SrcInputType == Input_Displayport ) ) //121128 Modify
 	#endif
-		Osd_Set256TextColor( CP_DisableItem, Color_2 );
+		Osd_Set256TextColor( SelectedForeAndBackColor, Color_2 );
 	#if FreeSyncMenu_Enable
 	else if( menuItem->Flags & mibFreeSyncDisable  && (SrcInputType != Input_HDMI) )
 		Osd_Set256TextColor( CP_DisableItem, Color_2 );
@@ -2662,7 +2662,7 @@ void DrawOsdSubMenuItem( BYTE itemIndex, MenuItemType *menuItem )
 	//else if( menuItem->Flags & mibExpansionDisable && INPUT_IS_NATIVE_TIMING())
 	#else
 	else if( menuItem->Flags & mibExpansionDisable && !ExpansionFlag )
-		Osd_Set256TextColor( CP_DisableItem, Color_2 );
+		Osd_Set256TextColor( SelectedForeAndBackColor, Color_2 );
 	#endif
 	#endif
 	#if  LowBlueLightType == LowBlueLight_SharpFunc
@@ -3258,29 +3258,9 @@ BYTE GetMenuItemIndex(BYTE menuPageIndex)
 	//二级菜单退出至主菜单时所对应的ITEM
 	if( MenuPageIndex == MainMenu )
 	{
-		if( menuPageIndex == OSD_BriContrastMenu )
+		if(menuPageIndex >= OSD_BriContrastMenu && menuPageIndex <= OSD_MiscMenu)
 		{
-			return MAIN_BriContrast_ITEM;
-		}
-		else if( menuPageIndex == PictureMenu )
-		{
-			return MAIN_Picture_ITEM;
-		}
-		else if( menuPageIndex == RGBColorMenu )
-		{
-			return MAIN_RGBColor_ITEM;
-		}
-		else if( menuPageIndex == OsdMenu )
-		{
-			return MAIN_Osd_ITEM;
-		}
-		else if( menuPageIndex == SettingMenu )
-		{
-			return MAIN_Setting_ITEM;
-		}
-		else if( menuPageIndex == OSD_MiscMenu )
-		{
-			return MAIN_Misc_ITEM;
+			return menuPageIndex - 8;
 		}
 		else if( menuPageIndex == LanguageMenu )
 		{
@@ -3348,6 +3328,7 @@ BYTE GetMenuItemIndex(BYTE menuPageIndex)
 		{
 			return BriContrast_CONTRAST_ITEM;
 		}
+		return BriContrast_BRIGHTNESS_ITEM;
 	}
 	else if( MenuPageIndex == PictureMenu )
 	{
@@ -3669,7 +3650,7 @@ BYTE GetMenuItemIndex(BYTE menuPageIndex)
 void DrawOsdBackGround(void)
 {
 	BYTE i;
-	if ( MenuPageIndex >= MainMenu && MenuPageIndex <= OSD_BriContrastMenu)
+	if ( MenuPageIndex >= MainMenu && MenuPageIndex <= PictureMenu)
 	{
 		//画背景
 		Osd_SetTextMonoColor(DefineBlack, DefineBlack);

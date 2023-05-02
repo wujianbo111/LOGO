@@ -1,11 +1,13 @@
----- dwiRadioGroup Matches (10 in 3 files) ----
-DrawOsdMenuItemRadioGroup in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 				if( drawItem->Flags & dwiRadioGroup )
-menudef.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 816 : #define dwiRadioGroup   0x04
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 27 : 	{dwiEnd | dwiRadioGroup | dwiCenterText,		MainMenuIcon_DrawXPos + 0x02, 		MainMenuIcon_DrawYPos + 2 * MAIN_BriContrast_ITEM + 3,		MainMenu_BrightText}
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 38 : 	{dwiEnd | dwiRadioGroup | dwiCenterText,		MainMenuIcon_DrawXPos + 0x0E, 		MainMenuIcon_DrawYPos + 2 * MAIN_Picture_ITEM + 1,		MainMenu_ImageText}
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 49 : 	{dwiEnd | dwiRadioGroup | dwiCenterText,		MainMenuIcon_DrawXPos + 0x02,		 MainMenuIcon_DrawYPos + 2 * MAIN_RGBColor_ITEM + 6,		MainMenu_ColorText}
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 60 : 	{dwiEnd | dwiRadioGroup | dwiCenterText,		MainMenuIcon_DrawXPos + 0x0E,		 MainMenuIcon_DrawYPos + 2 * MAIN_Osd_ITEM + 4,		MainMenu_OSDText}
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 71 : 	{dwiEnd | dwiRadioGroup | dwiCenterText,		MainMenuIcon_DrawXPos + 0x02, 		MainMenuIcon_DrawYPos + 2 * MAIN_Setting_ITEM + 9,		MainMenu_ResetText}
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 82 : 	{dwiEnd | dwiRadioGroup | dwiCenterText,		MainMenuIcon_DrawXPos + 0x0E, 		MainMenuIcon_DrawYPos + 2 * MAIN_Misc_ITEM + 7,		MainMenu_MiscText}
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 3961 : 	{dwiRadioGroup | dwiCenterText | dwiEnd, 8, 3,     ECOModeValue},
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4013 : 	{dwiRadioGroup | dwiEnd,	20, 4,  	DDCCIValueText},
+---- mibExpansionDisable Matches (12 in 3 files) ----
+DrawOsdSubMenuItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 	//else if( menuItem->Flags & mibExpansionDisable && INPUT_IS_NATIVE_TIMING())
+DrawOsdSubMenuItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 	else if( menuItem->Flags & mibExpansionDisable && !ExpansionFlag )
+GetPrevItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 			//if( menuItem[i].Flags & mibExpansionDisable && INPUT_IS_NATIVE_TIMING())
+GetPrevItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 			if( menuItem[i].Flags & mibExpansionDisable && ( !ExpansionFlag ) )
+GetPrevItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 		//if( menuItem[i].Flags & mibExpansionDisable && INPUT_IS_NATIVE_TIMING())
+GetPrevItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 		if( menuItem[i].Flags & mibExpansionDisable && ( !ExpansionFlag ) )
+GetNextItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 			//if( menuItem[i].Flags & mibExpansionDisable && INPUT_IS_NATIVE_TIMING())
+GetNextItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 			if( menuItem[i].Flags & mibExpansionDisable && ( !ExpansionFlag ) )
+GetNextItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 		//if( menuItem[i].Flags & mibExpansionDisable && INPUT_IS_NATIVE_TIMING())
+GetNextItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 		if( menuItem[i].Flags & mibExpansionDisable && ( !ExpansionFlag ) )
+menudef.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 790 : #define mibExpansionDisable 0x10
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 1060 : 		mibSelectable | mibExpansionDisable

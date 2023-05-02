@@ -108,7 +108,7 @@ MenuItemType code MainMenuItems[] =
 			NULL, // DrawGuageType
 			DrawBrightnessTextRatioGroup, // DrawRadioGroupType
 		},
-		MenuPage7, //Font
+		NULL, //Font
 		mibSelectable  // Flags
 	},
 // 1 Image
@@ -129,7 +129,7 @@ MenuItemType code MainMenuItems[] =
 			NULL, // DrawGuageType
 			DrawImageTextRatioGroup, // DrawRadioGroupType
 		},
-		MenuPage7, //Font
+		NULL, //Font
 		mibSelectable
 		#if !Enable_Func_AdjExpansion
 		| mibDVIDisable // Flags
@@ -153,7 +153,7 @@ MenuItemType code MainMenuItems[] =
 			NULL, // DrawGuageType
 			DrawColorTextRatioGroup, // DrawRadioGroupType
 		},
-		MenuPage7, //Font
+		NULL, //Font
 		mibSelectable  // Flags
 	},
 // 3  OSD
@@ -174,7 +174,7 @@ MenuItemType code MainMenuItems[] =
 			NULL, // DrawGuageType
 			DrawOSDTextRatioGroup, // DrawRadioGroupType
 		},
-		MenuPage7, //Font
+		NULL, //Font
 		mibSelectable  // Flags
 	},
 // 4  Reset
@@ -195,7 +195,7 @@ MenuItemType code MainMenuItems[] =
 			NULL, // DrawGuageType
 			DrawResetTextRatioGroup, // DrawRadioGroupType
 		},
-		MenuPage7, //Font
+		NULL, //Font
 		mibSelectable  // Flags
 	},
 // 5  Misc
@@ -216,7 +216,7 @@ MenuItemType code MainMenuItems[] =
 			NULL, // DrawGuageType
 			DrawMiscTextRatioGroup, // DrawRadioGroupType
 		},
-		MenuPage7, //Font
+		NULL, //Font
 		mibSelectable  // Flags
 	},
 
@@ -810,107 +810,119 @@ MenuItemType code GammaMenuItems[] =
 
 
 
+
 //=========== PictureMenuItems ================================
+//----------
+RadioTextType code DrawImageTextRatio1[] =
+{
+	// Flags,					XPos,	YPos,	DisplayText
+	{dwiEnd | dwiRadioGroup | dwiCenterText,		(MAIN_MENU_H_SIZE / 2) - (MainMenuIconCloumn / 2 + 1), 		MainMenuIcon_DrawYPos + 2 * MAIN_Picture_ITEM + 1,		MainMenu_ImageText}
+};
+DrawRadioGroupType code DrawImageTextRatioGroup1[] =
+{
+	//ForeColor,				BackColor,				GetValue	RadioText
+	{NotSelectedForeAndBackColor, Color_2, NULL,		DrawImageTextRatio1}
+};
 //--------------------HPositionNumber--------------------------
 NumberType code HPositionNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{dwiEnd,       NumXposion, ( SUB_TEXT_YPOS + IconShift * Picture_HPOSITION_ITEM ), GetHPositionValue},
+	{dwiEnd,       NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * Picture_HPOSITION_ITEM + 1), GetHPositionValue},
 };
 DrawNumberType code DrawHPositionNumber[] =
 {
 	// F ForeColor, BackColor,  GetValue
-	14, Color_2,     HPositionNumber
+	NotSelectedForeAndBackColor, Color_2,     HPositionNumber
 };
 //--------------------HPositionIconGuge--------------------------
 GaugeType code HPositionGuage[] =
 {
 	// Flags, ForeColor,    BackColor,  Length,     GetValue
-	{dwiEnd,    GaugeXPosition, ( SUB_TEXT_YPOS + IconShift * Picture_HPOSITION_ITEM ),   GetHPositionValue},
+	{dwiEnd,    GaugeXPosition - 11, ( SUB_TEXT_YPOS + IconShift * Picture_HPOSITION_ITEM + 2),   GetHPositionValue},
 };
 DrawGuageType code DrawHPositionGuage[] =
 {
 	//  ForeColor,  BackColor,  Length,,    GetValue
-	6,  Color_4,    9,  HPositionGuage
+	NotSelectedForeAndBackColor,  Color_2,    9,  HPositionGuage
 };
 
 //--------------------VPositionNumber--------------------------
 NumberType code VPositionNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{dwiEnd,       NumXposion, ( SUB_TEXT_YPOS + IconShift * Picture_VPOSITION_ITEM),    GetVPositionValue},
+	{dwiEnd,       NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * Picture_VPOSITION_ITEM + 1),    GetVPositionValue},
 };
 DrawNumberType code DrawVPositionNumber[] =
 {
 	// F ForeColor, BackColor,  GetValue
-	14, Color_2,     VPositionNumber
+	NotSelectedForeAndBackColor, Color_2,     VPositionNumber
 };
 //--------------------VPositionIconGuge--------------------------
 GaugeType code VPositionGuage[] =
 {
 	// Flags, ForeColor,    BackColor,  Length,     GetValue
-	{dwiEnd,            GaugeXPosition, (SUB_TEXT_YPOS + IconShift * Picture_VPOSITION_ITEM),  GetVPositionValue},
+	{dwiEnd,            GaugeXPosition - 11, ( SUB_TEXT_YPOS + IconShift * Picture_VPOSITION_ITEM + 2),  GetVPositionValue},
 };
 DrawGuageType code DrawVPositionGuage[] =
 {
 	//  ForeColor,  BackColor,  Length,,    GetValue
-	6,  Color_4,    9,  VPositionGuage
+	NotSelectedForeAndBackColor,  Color_2,    9,  VPositionGuage
 };
 //--------------------ClockNumber--------------------------
 NumberType code ClockNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{ dwiEnd,      NumXposion, ( SUB_TEXT_YPOS + IconShift * Picture_CLOCK_ITEM),  GetClockValue},
+	{ dwiEnd,      NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * Picture_CLOCK_ITEM + 1),  GetClockValue},
 };
 DrawNumberType code DrawClockNumber[] =
 {
 	// F ForeColor, BackColor,  GetValue
-	14, Color_2,     ClockNumber
+	NotSelectedForeAndBackColor, Color_2,     ClockNumber
 };
 //--------------------ClockIconGuge--------------------------
 GaugeType code ClockGuage[] =
 {
 	// Flags, ForeColor,    BackColor,  Length,     GetValue
-	{dwiEnd,             GaugeXPosition, ( SUB_TEXT_YPOS + IconShift * Picture_CLOCK_ITEM ),   GetClockValue},
+	{dwiEnd,             GaugeXPosition - 11, ( SUB_TEXT_YPOS + IconShift * Picture_CLOCK_ITEM + 2),   GetClockValue},
 };
 DrawGuageType code DrawClockGuage[] =
 {
 	//  ForeColor,  BackColor,  Length,,    GetValue
-	6,  Color_4,    9,  ClockGuage
+	NotSelectedForeAndBackColor,  Color_2,    9,  ClockGuage
 };
 
 //--------------------FocusNumber--------------------------
 NumberType code FocusNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{dwiEnd,       NumXposion, ( SUB_TEXT_YPOS + IconShift * Picture_PHASE_ITEM ), GetFocusValue},
+	{dwiEnd,       NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * Picture_PHASE_ITEM + 1), GetFocusValue},
 };
 DrawNumberType code DrawFocusNumber[] =
 {
 	// F ForeColor, BackColor,  GetValue
-	14, Color_2,     FocusNumber
+	NotSelectedForeAndBackColor, Color_2,     FocusNumber
 };
 //--------------------FocusIconGuge--------------------------
 GaugeType code FocusGuage[] =
 {
 	// Flags, ForeColor,    BackColor,  Length,     GetValue
-	{dwiEnd,            GaugeXPosition, ( SUB_TEXT_YPOS + IconShift * Picture_PHASE_ITEM ),   GetFocusValue},
+	{dwiEnd,            GaugeXPosition - 11, ( SUB_TEXT_YPOS + IconShift * Picture_PHASE_ITEM + 2),   GetFocusValue},
 };
 DrawGuageType code DrawFocusGuage[] =
 {
 	//  ForeColor,  BackColor,  Length,,    GetValue
-	6,  Color_4,    9,  FocusGuage
+	NotSelectedForeAndBackColor,  Color_2,    9,  FocusGuage
 };
 #if Enable_Func_AdjExpansion
 RadioTextType code DrawExpansion[] =
 {
 	// Flags,            XPos,  YPos,   DisplayText
-	{dwiCenterArrowAlign | dwiEnd, SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * Picture_IMAGERATIO_ITEM ),     ExpansionValueText},
+	{dwiCenterArrowAlign | dwiEnd, SUB_TEXT_XPOS + 11, ( SUB_TEXT_YPOS + IconShift * Picture_IMAGERATIO_ITEM + 1),     ExpansionValueText},
 };
 DrawRadioGroupType code DrawExpansionText[] =
 {
 	//ForeColor,    BackColor,  GetValue    RadioText
-	{CP_UnselectItem,   Color_2, NULL, DrawExpansion}
+	{NotSelectedForeAndBackColor,   Color_2, NULL, DrawExpansion}
 };
 #endif
 
@@ -919,11 +931,32 @@ DrawRadioGroupType code DrawExpansionText[] =
 
 MenuItemType code PictureMenuItems[] =
 {
-	// 0 HPositionMenu
+	// 0 Image_Icon
 	{
-		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * Picture_HPOSITION_ITEM), // XPos, YPos;
-		CP_UnselectItem, Color_2, // ForeColor, BackColor;
-		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
+		(MAIN_MENU_H_SIZE / 2) - (MainMenuIconCloumn / 2 + 1), MainMenuIcon_DrawYPos + 2 * MAIN_BriContrast_ITEM - 1,		// XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
+		PictureMenu,///NextMenuPage;
+		DWI_Icon,// DrawMenuItemType;
+		ImageIcon, // DisplayText;
+		SubMenuKeyEvent,
+		{
+			NULL, // AdjustFunction
+			NULL, // ExecFunction
+		},
+		{
+			NULL, // DrawNumberType
+			NULL, // DrawGuageType
+			DrawImageTextRatioGroup1, // DrawRadioGroupType
+		},
+		MenuPage7, //Font
+		0 // Flags
+	},
+	// 1 HPositionMenu_Text
+	{
+		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * Picture_HPOSITION_ITEM + 2), // XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
 		HPositionMenu,///NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		HPositionText, // DisplayText;
@@ -940,11 +973,11 @@ MenuItemType code PictureMenuItems[] =
 		NULL, //Font
 		mibSelectable | mibDVIDisable // Flags
 	},
-	// 1 VPositionMenu
+	// 2 VPositionMenu_Text
 	{
-		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * Picture_VPOSITION_ITEM), // XPos, YPos;
-		CP_UnselectItem, Color_2, // ForeColor, BackColor;
-		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * Picture_VPOSITION_ITEM + 2), // XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
 		VPositionMenu,///NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		VPositionText, // DisplayText;
@@ -962,11 +995,11 @@ MenuItemType code PictureMenuItems[] =
 		mibSelectable | mibDVIDisable // Flags
 	},
 
-	// 2 ClockMenu
+	// 3 ClockMenu_Text
 	{
-		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * Picture_CLOCK_ITEM), // XPos, YPos;
-		CP_UnselectItem, Color_2, // ForeColor, BackColor;
-		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * Picture_CLOCK_ITEM + 2), // XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
 		ClockMenu,///NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		ClockText, // DisplayText;
@@ -983,11 +1016,11 @@ MenuItemType code PictureMenuItems[] =
 		NULL, //Font
 		mibSelectable | mibDVIDisable // Flags
 	},
-	// 3 FocusMenu
+	// 4 FocusMenu_Text
 	{
-		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * Picture_PHASE_ITEM), // XPos, YPos;
-		CP_UnselectItem, Color_2, // ForeColor, BackColor;
-		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * Picture_PHASE_ITEM + 2), // XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
 		FocusMenu,///NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		FocusText, // DisplayText;
@@ -1005,11 +1038,11 @@ MenuItemType code PictureMenuItems[] =
 		mibSelectable | mibDVIDisable // Flags
 	},
 	#if Enable_Func_AdjExpansion
-	// 4  Ratio
+	// 5  Ratio_Text
 	{
-		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * Picture_IMAGERATIO_ITEM), // XPos, YPos;
-		CP_UnselectItem, Color_2, // ForeColor, BackColor;
-		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * Picture_IMAGERATIO_ITEM + 2), // XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
 		ExpansionMenu,//MainMenu,///NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		ExpansionText,// DisplayText;
@@ -4414,7 +4447,7 @@ MenuPageType code tblMenus[] =
 		MainMenuItems, // MenuItems;
 		sizeof(MainMenuItems) / sizeof(MenuItemType), // MenuItemCount;
 		NULL,   // ExecFunction;
-		NULL,   // Fonts
+		MenuPage7,   // Fonts
 		mpbStay | mpbBrowse | mpbRedraw //   Flags;
 	},
 
@@ -4435,7 +4468,7 @@ MenuPageType code tblMenus[] =
 		PictureMenuItems, // MenuItems;
 		sizeof(PictureMenuItems) / sizeof(MenuItemType), // MenuItemCount;
 		NULL,   // ExecFunction;
-		NULL,   // Fonts
+		MenuPage2,   // Fonts
 		mpbStay//   Flags;
 	},
 	//9  RGBColorMenu

@@ -623,6 +623,7 @@ typedef enum
 
 typedef enum
 {
+	Picture_PICTURE_ICON_ITEM,
 	Picture_HPOSITION_ITEM,
 	Picture_VPOSITION_ITEM,
 	Picture_CLOCK_ITEM,
