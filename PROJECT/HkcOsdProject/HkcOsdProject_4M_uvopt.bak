@@ -7263,10 +7263,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>51</ColumnNumber>
+      <ColumnNumber>56</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1594</TopLine>
-      <CurrentLine>1598</CurrentLine>
+      <CurrentLine>1625</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\UI\HkcOsd\Keypad.c</PathWithFileName>
       <FilenameWithoutPath>Keypad.c</FilenameWithoutPath>
@@ -7352,8 +7352,8 @@
 
   <AlienFiles>
     <PathWithFilename>H:\JRY\LOGO\TSUM_TEXT_1\UI\HKCOSD\INC\MENUTBL.H</PathWithFilename>
-    <TopLine>4994</TopLine>
-    <CurrentLine>5000</CurrentLine>
+    <TopLine>1</TopLine>
+    <CurrentLine>16</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -8717,13 +8717,13 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>2</ActiveTab>
+      <ActiveTab>0</ActiveTab>
       <Documents>
         <Doc>
           <Name>..\..\UI\HKCOSD\INC\MENUTBL.H</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>4994</TopLine>
-          <CurrentLine>5000</CurrentLine>
+          <ColumnNumber>62</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>16</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\UI\F_LOGO\FactoryString.c</Name>
@@ -8733,9 +8733,9 @@
         </Doc>
         <Doc>
           <Name>..\..\UI\HkcOsd\Keypad.c</Name>
-          <ColumnNumber>51</ColumnNumber>
+          <ColumnNumber>56</ColumnNumber>
           <TopLine>1594</TopLine>
-          <CurrentLine>1598</CurrentLine>
+          <CurrentLine>1625</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

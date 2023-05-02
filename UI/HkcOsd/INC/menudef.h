@@ -601,6 +601,7 @@ typedef enum
 
 typedef enum
 {
+	BriContrast_BRIGHTNESS_ICON_ITEM,
 	BriContrast_BRIGHTNESS_ITEM,
 	BriContrast_CONTRAST_ITEM,
 	BriContrast_ECO_ITEM,
@@ -985,6 +986,7 @@ typedef struct
 #define DefineTransverseLine1					0x0A
 #define DefineVerticalLine						0x0B
 #define DefineTransverseLine2					0x0C
+#define DefineTransverseLine3					0x0D
 
 #define NotSelectedForeAndBackColor				0xF5
 #define SelectedForeAndBackColor				0xE5

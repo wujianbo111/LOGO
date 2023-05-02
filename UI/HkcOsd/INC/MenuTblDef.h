@@ -188,6 +188,17 @@ MenuItemActionType code NaviKeyEvent[BTN_EndBTN] =
 };
 #endif
 
+MenuItemActionType code SubMenuKeyEvent[BTN_EndBTN] =
+{
+	MIA_NextItem, 	// BTN_Plus
+	MIA_PrevItem, 	// BTN_Minus
+	MIA_Nothing, 	// BTN_Menu
+	MIA_GotoPrev, 	// BTN_Exit
+	MIA_Power, 	    // BTN_Power
+
+};
+
+
 MenuItemActionType code AdjusterKeyEvent[BTN_EndBTN] =
 {
 	#if HH_PivotKey_Enable

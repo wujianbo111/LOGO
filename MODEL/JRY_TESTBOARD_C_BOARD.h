@@ -267,6 +267,9 @@
 #define ADCKEY_B2       KEY_EXIT
 ///////////////////////////////////////////////////////////////
 /********************wujianbo define*************************/
-#define	OsdHelpKeyType		OsdHelpKey_Off
+#define	OsdHelpKeyType					OsdHelpKey_Off
+#define Enable_Gamma					0
+#define	HH_PivotKey2_Enable				0
+
 #endif
 

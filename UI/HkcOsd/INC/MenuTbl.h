@@ -246,71 +246,82 @@ MenuItemType code MainMenuItems[] =
 
 
 //=========== BriContrastMenuItems ================================
+//============================================================
+RadioTextType code DrawBrightnessTextRatio1[] =
+{
+	// Flags,					XPos,	YPos,	DisplayText
+	{dwiEnd | dwiRadioGroup | dwiCenterText,		(MAIN_MENU_H_SIZE / 2) - (MainMenuIconCloumn / 2 + 1), 		MainMenuIcon_DrawYPos + 2 * MAIN_BriContrast_ITEM + 3,		MainMenu_BrightText}
+};
+DrawRadioGroupType code DrawBrightnessTextRatioGroup1[] =
+{
+	//ForeColor,				BackColor,				GetValue	RadioText
+	{NotSelectedForeAndBackColor, Color_2, NULL,		DrawBrightnessTextRatio1}
+};
 //--------------------BrightnessNumber--------------------------
 NumberType code BrightnessNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{dwiEnd,          NumXposion, ( SUB_TEXT_YPOS + BriContrast_BRIGHTNESS_ITEM * IconShift ), GetBrightnessValue},
+	{dwiEnd,          NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * BriContrast_BRIGHTNESS_ITEM + 1 ), GetBrightnessValue},
 };
 DrawNumberType code DrawBrightnessNumber[] =
 {
 	// F ForeColor, BackColor,  GetValue
-	CP_SelectItem, Color_2,     BrightnessNumber
+	NotSelectedForeAndBackColor, Color_2,     BrightnessNumber
 };
 //--------------------BrightnessIconGuge--------------------------
 GaugeType code BrightnessGuage[] =
 {
 	// Flags, ForeColor,    BackColor,  Length,     GetValue
-	{dwiEnd,         GaugeXPosition, ( SUB_TEXT_YPOS + BriContrast_BRIGHTNESS_ITEM * IconShift ),  GetBrightnessValue},
+	{dwiEnd,         GaugeXPosition - 11, ( SUB_TEXT_YPOS + BriContrast_BRIGHTNESS_ITEM * IconShift + 2),  GetBrightnessValue},
 };
 DrawGuageType code DrawBrightnessGuage[] =
 {
 	//  ForeColor,  BackColor,  Length,,    GetValue
-	27,  Color_4,    9,  BrightnessGuage
+	NotSelectedForeAndBackColor,  Color_2,    9,  BrightnessGuage
 };
 //--------------------ContrastNumber--------------------------
 NumberType code ContrastNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{dwiEnd,          NumXposion, ( SUB_TEXT_YPOS + BriContrast_CONTRAST_ITEM * IconShift ), GetContrastValue},
+	{dwiEnd,          NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * BriContrast_CONTRAST_ITEM + 1), GetContrastValue},
 };
 DrawNumberType code DrawContrastNumber[] =
 {
 	// F ForeColor, BackColor,  GetValue
-	CP_UnselectItem, Color_2,     ContrastNumber
+	NotSelectedForeAndBackColor, Color_2,     ContrastNumber
 };
 //--------------------ContrastIconGuge--------------------------
 GaugeType code ContrastGuage[] =
 {
 	// Flags, ForeColor,    BackColor,  Length,     GetValue
-	{dwiEnd,             GaugeXPosition, ( SUB_TEXT_YPOS + BriContrast_CONTRAST_ITEM * IconShift ),  GetContrastValue},
+	{dwiEnd,             GaugeXPosition - 11, ( SUB_TEXT_YPOS + IconShift * BriContrast_CONTRAST_ITEM + 2),  GetContrastValue},
 };
 DrawGuageType code DrawContrastGuage[] =
 {
 	//  ForeColor,  BackColor,  Length,,    GetValue
-	27,  Color_4,    9,  ContrastGuage
+	NotSelectedForeAndBackColor,  Color_2,    9,  ContrastGuage
 };
 //--------------------ECOIconRatioText--------------------------
 RadioTextType code DrawECOText[] =
 {
 	// Flags,            XPos,  YPos,   DisplayText
-	{dwiCenterArrowAlign | dwiEnd, SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + BriContrast_ECO_ITEM * IconShift ),     ECOModeValue},
+	{dwiCenterArrowAlign | dwiEnd, SUB_TEXT_XPOS + 11, ( SUB_TEXT_YPOS + IconShift * BriContrast_ECO_ITEM + 1),     ECOModeValue},
 };
 DrawRadioGroupType code DrawECOIconRatioText[] =
 {
 	//ForeColor,    BackColor,  GetValue    RadioText
-	{CP_SelectItem,   Color_2, NULL,  DrawECOText}
+	{NotSelectedForeAndBackColor,   Color_2, NULL,  DrawECOText}
 };
 //--------------------DCRIconRatioText--------------------------
 RadioTextType code DrawDcr[] =
 {
 	// Flags,            XPos,  YPos,   DisplayText
-	{dwiCenterArrowAlign | dwiEnd, SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + BriContrast_DCR_ITEM * IconShift ),     DcrValueText},
+	{dwiCenterArrowAlign | dwiEnd, SUB_TEXT_XPOS + 11, ( SUB_TEXT_YPOS + IconShift * BriContrast_DCR_ITEM + 1),     DcrValueText},
 };
 DrawRadioGroupType code DrawDcrIconRatioText[] =
 {
 	//ForeColor,    BackColor,  GetValue    RadioText
-	{CP_UnselectItem,   Color_2, NULL, DrawDcr}
+	{NotSelectedForeAndBackColor,   Color_2, NULL, DrawDcr}
 };
 //--------------------OverdriveIconRatioText--------------------------
 #if ENABLE_RTE
@@ -356,11 +367,32 @@ DrawRadioGroupType code DrawGammaIconRatioText[] =
 //=========== ========================= =======================
 MenuItemType code BriContrastMenuItems[] =
 {
-	// 0 Brightness
+	// 0 Brightness_Icon
 	{
-		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * BriContrast_BRIGHTNESS_ITEM), // XPos, YPos;
-		CP_UnselectItem, Color_2, // ForeColor, BackColor;
-		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
+		(MAIN_MENU_H_SIZE / 2) - (MainMenuIconCloumn / 2 + 1), MainMenuIcon_DrawYPos + 2 * MAIN_BriContrast_ITEM - 1,		// XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
+		OSD_BriContrastMenu,///NextMenuPage;
+		DWI_Icon,// DrawMenuItemType;
+		BrightnessIcon, // DisplayText;
+		SubMenuKeyEvent,
+		{
+			NULL, // AdjustFunction
+			NULL, // ExecFunction
+		},
+		{
+			NULL, // DrawNumberType
+			NULL, // DrawGuageType
+			DrawBrightnessTextRatioGroup1, // DrawRadioGroupType
+		},
+		MenuPage7, //Font
+		0  // Flags
+	},
+	// 1 Brightness_Text
+	{
+		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * BriContrast_BRIGHTNESS_ITEM + 2 ), // XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
 		BrightnessMenu,///NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		BrightnessText, // DisplayText;
@@ -377,11 +409,11 @@ MenuItemType code BriContrastMenuItems[] =
 		NULL, //Font
 		mibSelectable | mibsRGBDisable | mibDCRDisable | mibStdEnable // Flags
 	},
-	// 1 Contrast
+	// 2 Contrast_Text
 	{
-		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * BriContrast_CONTRAST_ITEM), // XPos, YPos;
-		CP_UnselectItem, Color_2, // ForeColor, BackColor;
-		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * BriContrast_CONTRAST_ITEM + 2), // XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
 		ContrastMenu,///NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		ContrastText, // DisplayText;
@@ -399,11 +431,11 @@ MenuItemType code BriContrastMenuItems[] =
 		mibSelectable | mibsRGBDisable | mibDCRDisable | mibStdEnable
 	},
 
-	// 2 ECOModeSelect
+	// 3 ECOModeSelect_Text
 	{
-		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * BriContrast_ECO_ITEM), // XPos, YPos;
-		CP_UnselectItem, Color_2, // ForeColor, BackColor;
-		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * BriContrast_ECO_ITEM + 2), // XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
 		ECOMenu,///NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		ECOModeText, // DisplayText;
@@ -420,11 +452,11 @@ MenuItemType code BriContrastMenuItems[] =
 		NULL, //Font
 		mibSelectable | mibDCRDisable // Flags	//110304 Modify
 	},
-	// 3 DCR
+	// 4 DCR_Text
 	{
-		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * BriContrast_DCR_ITEM), // XPos, YPos;
-		CP_UnselectItem, Color_2, // ForeColor, BackColor;
-		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * BriContrast_DCR_ITEM + 2), // XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
 		DCRMenu,///NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		DCRText,  // DisplayText;
@@ -444,7 +476,7 @@ MenuItemType code BriContrastMenuItems[] =
 
 	#if !PresetMode_Enable
 	#if ENABLE_RTE
-// 4 Overdrive
+// 5 Overdrive_Text
 	{
 		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * BriContrast_Overdrive_ITEM), // XPos, YPos;
 		CP_UnselectItem, Color_2, // ForeColor, BackColor;
@@ -470,7 +502,7 @@ MenuItemType code BriContrastMenuItems[] =
 
 	#if Enable_Gamma
 	#if !PresetMode_Enable
-	// 3 Gamma
+	// 6 Gamma_Text
 	{
 		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * BriContrast_GAMMA_ITEM), // XPos, YPos;
 		CP_UnselectItem, Color_2, // ForeColor, BackColor;
@@ -4393,7 +4425,7 @@ MenuPageType code tblMenus[] =
 		BriContrastMenuItems, // MenuItems;
 		sizeof(BriContrastMenuItems) / sizeof(MenuItemType), // MenuItemCount;
 		NULL,   // ExecFunction;
-		NULL,   // Fonts
+		MenuPage1,   // Fonts
 		mpbStay//   Flags;
 	},
 	//8 PictureMenu

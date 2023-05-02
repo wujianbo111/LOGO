@@ -2006,6 +2006,7 @@ void DrawOsdMenu(void)
 			if(MenuPageIndex == MainMenu)
 			{
 				LoadCommonFont();
+				DynamicLoadFont(CurrentMenu.Fonts);
 			}
 			for (i = 0; i < MenuItemCount; i++)
 			{
@@ -2037,6 +2038,23 @@ void DrawOsdMenu(void)
 				}
 			}
 			#endif
+			if(MenuPageIndex >= MainMenu && MenuPageIndex <= OSD_BriContrastMenu)
+			{
+				DrawOsdBackGround();
+				LoadCommonFont();
+				DynamicLoadFont(CurrentMenu.Fonts);
+				for (i = 0; i < MenuItemCount; i++)
+				{
+					if(i != MenuItemIndex)
+					{
+						DrawOsdMenuItem(i, &CurrentMenu.MenuItems[i]);
+					}
+				}
+				if(MenuPageIndex != MainMenu)
+				{
+					DrawOsdSubMenu(MenuPageIndex);
+				}
+			}
 			DrawOsdMenuItem( MenuItemIndex, &CurrentMenu.MenuItems[MenuItemIndex] );
 			#if OsdHelpKeyType == OsdHelpKey_Under || OsdHelpKeyType ==	 OsdHelpKey_Right
 			UpdataHelyKeyShowInMenu();
@@ -2138,7 +2156,7 @@ void DrawOsdMenuItemText(BYTE itemIndex, MenuItemType *menuItem)
 			return ;
 		#endif
 		//printData("DWI_Icon[%d]",itemIndex);
-		if ( MenuPageIndex == MainMenu )
+		if ( MenuPageIndex >= MainMenu && MenuPageIndex <= OSD_BriContrastMenu)
 		{
 			str = menuItem->DisplayText();
 			OSD_TEXT_HI_ADDR_SET_BIT8();
@@ -2531,6 +2549,10 @@ void DrawOsdMenuItemRadioGroup(BYTE itemIndex, DrawRadioGroupType *radioItem)
 						Osd_Set256TextColor(SelectedForeAndBackColor, Color_2);
 					}
 					else
+					{
+						Osd_Set256TextColor( radioItem->ForeColor, radioItem->BackColor );
+					}
+					if(MenuPageIndex != MainMenu && itemIndex == 0)
 					{
 						Osd_Set256TextColor( radioItem->ForeColor, radioItem->BackColor );
 					}
@@ -3647,7 +3669,7 @@ BYTE GetMenuItemIndex(BYTE menuPageIndex)
 void DrawOsdBackGround(void)
 {
 	BYTE i;
-	if ( MenuPageIndex == MainMenu )
+	if ( MenuPageIndex >= MainMenu && MenuPageIndex <= OSD_BriContrastMenu)
 	{
 		//画背景
 		Osd_SetTextMonoColor(DefineBlack, DefineBlack);
@@ -3673,23 +3695,33 @@ void DrawOsdBackGround(void)
 			Osd_DrawCharDirect(0, i, DefineLeft);
 			Osd_DrawCharDirect(CurrentMenu.XSize - 1, i, DefineRight);
 		}
-		//画内部竖线
-		for(i = 0; i < CurrentMenu.YSize; i++)
+		if(MenuPageIndex == MainMenu)
 		{
-			if((i >= 2 && i < 7) || (i >= 9 && i < 0x0E) || (i >= 0x10 && i < 0x15))
+			//画内部竖线
+			for(i = 0; i < CurrentMenu.YSize; i++)
 			{
-				Osd_DrawCharDirect(CurrentMenu.XSize / 2 - 1, i, DefineVerticalLine);
+				if((i >= 2 && i < 7) || (i >= 9 && i < 0x0E) || (i >= 0x10 && i < 0x15))
+				{
+					Osd_DrawCharDirect(CurrentMenu.XSize / 2 - 1, i, DefineVerticalLine);
+				}
+			}
+			//画内部横线
+			for(i = 0; i < CurrentMenu.XSize; i++)
+			{
+				if((i >= 2 && i < 10) || (i >= 13 && i < 22))
+				{
+					Osd_DrawCharDirect(i, 0x07, DefineTransverseLine1);
+					Osd_DrawCharDirect(i, 0x08, DefineTransverseLine2);
+					Osd_DrawCharDirect(i, 0x0E, DefineTransverseLine1);
+					Osd_DrawCharDirect(i, 0x0F, DefineTransverseLine2);
+				}
 			}
 		}
-		//画内部横线
-		for(i = 0; i < CurrentMenu.XSize; i++)
+		else
 		{
-			if((i >= 2 && i < 10) || (i >= 13 && i < 22))
+			for(i = 1; i <= CurrentMenu.XSize - 2; i++)
 			{
-				Osd_DrawCharDirect(i, 0x07, DefineTransverseLine1);
-				Osd_DrawCharDirect(i, 0x08, DefineTransverseLine2);
-				Osd_DrawCharDirect(i, 0x0E, DefineTransverseLine1);
-				Osd_DrawCharDirect(i, 0x0F, DefineTransverseLine2);
+				Osd_DrawCharDirect(i, 0x07, DefineTransverseLine3);
 			}
 		}
 	}
