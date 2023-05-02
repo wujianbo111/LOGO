@@ -2038,7 +2038,7 @@ void DrawOsdMenu(void)
 				}
 			}
 			#endif
-			if(MenuPageIndex >= MainMenu && MenuPageIndex <= RGBColorMenu)
+			if(MenuPageIndex >= MainMenu && MenuPageIndex <= PictureMenu)
 			{
 				DrawOsdBackGround();
 				LoadCommonFont();
@@ -2156,7 +2156,7 @@ void DrawOsdMenuItemText(BYTE itemIndex, MenuItemType *menuItem)
 			return ;
 		#endif
 		//printData("DWI_Icon[%d]",itemIndex);
-		if ( MenuPageIndex >= MainMenu && MenuPageIndex <= RGBColorMenu)
+		if ( MenuPageIndex >= MainMenu && MenuPageIndex <= PictureMenu)
 		{
 			str = menuItem->DisplayText();
 			OSD_TEXT_HI_ADDR_SET_BIT8();
@@ -2640,7 +2640,7 @@ void DrawOsdSubMenuItem( BYTE itemIndex, MenuItemType *menuItem )
 	         && ( UserPrefColorTemp_Preset != CTEMP_USER )
          #endif
 	       )
-		Osd_Set256TextColor( SelectedForeAndBackColor, Color_2 );
+		Osd_Set256TextColor( CP_DisableItem, Color_2 );
 	#if (ENABLE_DUAL_LINK)&&(ENABLE_RTE)		//130402 Modify
 	else if( menuItem->Flags & mibODDisable && ( Disabe_Overdrive_Item ) )
 		Osd_Set256TextColor( CP_DisableItem, Color_2 );
@@ -3388,7 +3388,6 @@ BYTE GetMenuItemIndex(BYTE menuPageIndex)
 			return RGB_LowBlueLigth_Item;
 		}
 		#endif
-		return RGB_ColorTemp_Item;
 	}
 	else if( MenuPageIndex == OsdMenu )
 	{
@@ -3651,7 +3650,7 @@ BYTE GetMenuItemIndex(BYTE menuPageIndex)
 void DrawOsdBackGround(void)
 {
 	BYTE i;
-	if ( MenuPageIndex >= MainMenu && MenuPageIndex <= RGBColorMenu)
+	if ( MenuPageIndex >= MainMenu && MenuPageIndex <= PictureMenu)
 	{
 		//»­±³¾°
 		Osd_SetTextMonoColor(DefineBlack, DefineBlack);

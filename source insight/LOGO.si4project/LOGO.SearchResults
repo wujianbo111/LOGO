@@ -1,13 +1,10 @@
----- mibExpansionDisable Matches (12 in 3 files) ----
-DrawOsdSubMenuItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 	//else if( menuItem->Flags & mibExpansionDisable && INPUT_IS_NATIVE_TIMING())
-DrawOsdSubMenuItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 	else if( menuItem->Flags & mibExpansionDisable && !ExpansionFlag )
-GetPrevItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 			//if( menuItem[i].Flags & mibExpansionDisable && INPUT_IS_NATIVE_TIMING())
-GetPrevItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 			if( menuItem[i].Flags & mibExpansionDisable && ( !ExpansionFlag ) )
-GetPrevItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 		//if( menuItem[i].Flags & mibExpansionDisable && INPUT_IS_NATIVE_TIMING())
-GetPrevItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 		if( menuItem[i].Flags & mibExpansionDisable && ( !ExpansionFlag ) )
-GetNextItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 			//if( menuItem[i].Flags & mibExpansionDisable && INPUT_IS_NATIVE_TIMING())
-GetNextItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 			if( menuItem[i].Flags & mibExpansionDisable && ( !ExpansionFlag ) )
-GetNextItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 		//if( menuItem[i].Flags & mibExpansionDisable && INPUT_IS_NATIVE_TIMING())
-GetNextItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 		if( menuItem[i].Flags & mibExpansionDisable && ( !ExpansionFlag ) )
-menudef.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 790 : #define mibExpansionDisable 0x10
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 1060 : 		mibSelectable | mibExpansionDisable
+---- mibUserColor Matches (9 in 3 files) ----
+DrawOsdSubMenuItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 	else if( menuItem->Flags & mibUserColor  && ( UserPrefColorTemp != CTEMP_USER )
+GetPrevItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 			if ( menuItem[i].Flags & mibUserColor && ( UserPrefColorTemp != CTEMP_USER )
+GetPrevItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 		if (menuItem[i].Flags & mibUserColor && ( UserPrefColorTemp != CTEMP_USER )
+GetNextItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 			if (menuItem[i].Flags & mibUserColor && ( UserPrefColorTemp != CTEMP_USER )
+GetNextItem in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 		if (menuItem[i].Flags & mibUserColor && (( UserPrefColorTemp != CTEMP_USER )
+menudef.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 796 : #define mibUserColor 		0x0100
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 1416 : 		mibSelectable | mibUserColor // Flags
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 1437 : 		mibSelectable | mibUserColor // Flags
+MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 1458 : 		mibSelectable | mibUserColor // Flags

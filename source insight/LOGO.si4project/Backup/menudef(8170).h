@@ -636,7 +636,6 @@ typedef enum
 
 typedef enum
 {
-	RGB_ColorTemp_Icon_Item,
 	RGB_ColorTemp_Item,
 	RGB_Red_Item,
 	RGB_Green_Item,
