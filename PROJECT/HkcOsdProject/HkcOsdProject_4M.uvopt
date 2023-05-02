@@ -7353,7 +7353,7 @@
   <AlienFiles>
     <PathWithFilename>H:\JRY\LOGO\TSUM_TEXT_1\UI\HKCOSD\INC\MENUTBL.H</PathWithFilename>
     <TopLine>53</TopLine>
-    <CurrentLine>53</CurrentLine>
+    <CurrentLine>76</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -8721,9 +8721,9 @@
       <Documents>
         <Doc>
           <Name>..\..\UI\HKCOSD\INC\MENUTBL.H</Name>
-          <ColumnNumber>136</ColumnNumber>
+          <ColumnNumber>52</ColumnNumber>
           <TopLine>53</TopLine>
-          <CurrentLine>53</CurrentLine>
+          <CurrentLine>76</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\UI\F_LOGO\FactoryString.c</Name>

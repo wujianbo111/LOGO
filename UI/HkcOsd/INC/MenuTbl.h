@@ -1711,16 +1711,27 @@ MenuItemType code LowBlueLightMenuItems[] =
 
 
 //=========== OSDMenuItems ================================
+//----------
+RadioTextType code DrawOSDTextRatio1[] =
+{
+	// Flags,					XPos,	YPos,	DisplayText
+	{dwiEnd | dwiRadioGroup | dwiCenterText,		(MAIN_MENU_H_SIZE / 2) - (MainMenuIconCloumn / 2 + 1), MainMenuIcon_DrawYPos + 2 * MAIN_Osd_ITEM - 3,		MainMenu_OSDText}
+};
+DrawRadioGroupType code DrawOSDTextRatioGroup1[] =
+{
+	//ForeColor,				BackColor,				GetValue	RadioText
+	{NotSelectedForeAndBackColor, Color_2, NULL,		DrawOSDTextRatio1}
+};
 #if AdjustLanguageFunction
 RadioTextType code DrawLanguageText[] =
 {
 	// Flags,            XPos,  YPos,   DisplayText
-	{dwiCenterArrowAlign | dwiEnd, SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * OSD_LANGUAGE_ITEM),     LanguageStatusText},
+	{dwiCenterArrowAlign | dwiEnd, SUB_TEXT_XPOS + 11, ( SUB_TEXT_YPOS + IconShift * OSD_LANGUAGE_ITEM + 1),     LanguageStatusText},
 };
 DrawRadioGroupType code DrawLanguageIconRatioText[] =
 {
 	//ForeColor,    BackColor,  GetValue    RadioText
-	{CP_UnselectItem,   Color_2, NULL, DrawLanguageText}
+	{NotSelectedForeAndBackColor,   Color_2, NULL, DrawLanguageText}
 };
 #endif
 
@@ -1729,99 +1740,121 @@ DrawRadioGroupType code DrawLanguageIconRatioText[] =
 NumberType code OsdHPositionNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{dwiEnd,       NumXposion, ( SUB_TEXT_YPOS + IconShift * OSD_HPOSITION_ITEM), GetOSDHPositionValue},
+	{dwiEnd,       NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * OSD_HPOSITION_ITEM + 1), GetOSDHPositionValue},
 };
 DrawNumberType code DrawOsdHPositionNumber[] =
 {
 	// F ForeColor, BackColor,  GetValue
-	14, Color_2,     OsdHPositionNumber
+	NotSelectedForeAndBackColor, Color_2,     OsdHPositionNumber
 };
 //--------------------OsdHPositionIconGuge--------------------------
 GaugeType code OsdHPositionGuage[] =
 {
 	// Flags, ForeColor,    BackColor,  Length,     GetValue
-	{dwiEnd,            GaugeXPosition, ( SUB_TEXT_YPOS + IconShift * OSD_HPOSITION_ITEM),   GetOSDHPositionValue},
+	{dwiEnd,            GaugeXPosition - 11, ( SUB_TEXT_YPOS + IconShift * OSD_HPOSITION_ITEM + 2),   GetOSDHPositionValue},
 };
 DrawGuageType code DrawOsdHPositionGuage[] =
 {
 	//  ForeColor,  BackColor,  Length,,    GetValue
-	6, Color_4, 9,  OsdHPositionGuage
+	NotSelectedForeAndBackColor, Color_2, 9,  OsdHPositionGuage
 };
 //--------------------OsdVPositionNumber--------------------------
 NumberType code OsdVPositionNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{dwiEnd,       NumXposion, ( SUB_TEXT_YPOS + IconShift * OSD_VPOSITION_ITEM), GetOSDVPositionValue},
+	{dwiEnd,       NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * OSD_VPOSITION_ITEM + 1), GetOSDVPositionValue},
 };
 DrawNumberType code DrawOsdVPositionNumber[] =
 {
 	// F ForeColor, BackColor,  GetValue
-	14, Color_2,     OsdVPositionNumber
+	NotSelectedForeAndBackColor, Color_2,     OsdVPositionNumber
 };
 //--------------------OsdVPositionIconGuge--------------------------
 GaugeType code OsdVPositionGuage[] =
 {
 	// Flags, ForeColor,    BackColor,  Length,     GetValue
-	{dwiEnd,            GaugeXPosition, ( SUB_TEXT_YPOS + IconShift * OSD_VPOSITION_ITEM),   GetOSDVPositionValue},
+	{dwiEnd,            GaugeXPosition - 11, ( SUB_TEXT_YPOS + IconShift * OSD_VPOSITION_ITEM + 2),   GetOSDVPositionValue},
 };
 DrawGuageType code DrawOsdVPositionGuage[] =
 {
 	//  ForeColor,  BackColor,  Length,,    GetValue
-	6, Color_4, 9,  OsdVPositionGuage
+	NotSelectedForeAndBackColor, Color_2, 9,  OsdVPositionGuage
 };
 #endif
 //--------------------OsdTimeOutNumber--------------------------
 NumberType code OsdTimeOutNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{dwiEnd,       NumXposion, ( SUB_TEXT_YPOS + IconShift * OSD_TIMEOUT_ITEM), GetOSDTimeValue},
+	{dwiEnd,       NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * OSD_TIMEOUT_ITEM + 1), GetOSDTimeValue},
 };
 DrawNumberType code DrawOsdTimeOutNumber[] =
 {
 	// F ForeColor, BackColor,  GetValue
-	14, Color_2,     OsdTimeOutNumber
+	NotSelectedForeAndBackColor, Color_2,     OsdTimeOutNumber
 };
 //--------------------OsdTimeOutIconGuge--------------------------
 GaugeType code OsdTimeOutGuage[] =
 {
 	// Flags, ForeColor,    BackColor,  Length,     GetValue
-	{dwiEnd,            GaugeXPosition, ( SUB_TEXT_YPOS + IconShift * OSD_TIMEOUT_ITEM),   GetOSDTime100Value},
+	{dwiEnd,            GaugeXPosition - 11, ( SUB_TEXT_YPOS + IconShift * OSD_TIMEOUT_ITEM + 2),   GetOSDTime100Value},
 };
 DrawGuageType code DrawOsdTimeOutGuage[] =
 {
 	//  ForeColor,  BackColor,  Length,,    GetValue
-	6,  Color_4, 9,  OsdTimeOutGuage
+	NotSelectedForeAndBackColor,  Color_2, 9,  OsdTimeOutGuage
 };
 //--------------------TransparenceNumber--------------------------
 NumberType code TransparenceNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{dwiEnd,       NumXposion, ( SUB_TEXT_YPOS + IconShift * OSD_TRANSPARENCE_ITEM), GetOSDTransparence},
+	{dwiEnd,       NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * OSD_TRANSPARENCE_ITEM + 1), GetOSDTransparence},
 };
 DrawNumberType code DrawTransparenceNumber[] =
 {
 	// F ForeColor, BackColor,  GetValue
-	14, Color_2,     TransparenceNumber
+	NotSelectedForeAndBackColor, Color_2,     TransparenceNumber
 };
 //--------------------TransparenceIconGuge--------------------------
 GaugeType code TransparenceGuage[] =
 {
 	// Flags, ForeColor,    BackColor,  Length,     GetValue
-	{dwiEnd,            GaugeXPosition, ( SUB_TEXT_YPOS + IconShift * OSD_TRANSPARENCE_ITEM),   GetOSDTransparence},
+	{dwiEnd,            GaugeXPosition - 11, ( SUB_TEXT_YPOS + IconShift * OSD_TRANSPARENCE_ITEM + 2),   GetOSDTransparence},
 };
 DrawGuageType code DrawTransparenceGuage[] =
 {
 	//  ForeColor,  BackColor,  Length,,    GetValue
-	6, Color_4, 9,  TransparenceGuage
+	NotSelectedForeAndBackColor, Color_2, 9,  TransparenceGuage
 };
 
 MenuItemType code OSDMenuItems[] =
 {
-	#if AdjustLanguageFunction
+	// 0  OSD_Icon
 	{
-		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * OSD_LANGUAGE_ITEM), // XPos, YPos;
-		CP_UnselectItem, Color_2, // ForeColor, BackColor;
-		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
+		(MAIN_MENU_H_SIZE / 2) - (MainMenuIconCloumn / 2 + 1), MainMenuIcon_DrawYPos + 2 * MAIN_Osd_ITEM - 7,		// XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
+		OsdMenu,///NextMenuPage;
+		DWI_Icon,// DrawMenuItemType;
+		OSDIcon, // DisplayText;
+		SubMenuKeyEvent,
+		{
+			NULL, // AdjustFunction
+			NULL, // ExecFunction
+		},
+		{
+			NULL, // DrawNumberType
+			NULL, // DrawGuageType
+			DrawOSDTextRatioGroup1, // DrawRadioGroupType
+		},
+		MenuPage7, //Font
+		0  // Flags
+	},
+	#if AdjustLanguageFunction
+	// 1 Language_Text
+	{
+		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * OSD_LANGUAGE_ITEM + 2), // XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
 		LanguageMenu, 			// NextMenuPage;
 		DWI_Text,						// DrawMenuItemType;
 		LanguageText, 						// DisplayText;
@@ -1838,7 +1871,6 @@ MenuItemType code OSDMenuItems[] =
 		NULL, // Fonts
 		mibSelectable 						// Flags
 	},
-
 	#else
 	{
 		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * OSD_LANGUAGE_ITEM), // XPos, YPos;
@@ -1861,13 +1893,12 @@ MenuItemType code OSDMenuItems[] =
 		mibSelectable 						// Flags
 	},
 	#endif
-
 	#if OsdAdjustHVPos_Enable
-	// 1 OsdHPosition
+	// 2 OsdHPosition
 	{
-		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * OSD_HPOSITION_ITEM), // XPos, YPos;
-		CP_UnselectItem, Color_2, // ForeColor, BackColor;
-		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * OSD_HPOSITION_ITEM + 2), // XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
 		OsdHPositionMenu,///NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		OsdHPositionText, // DisplayText;
@@ -1884,11 +1915,11 @@ MenuItemType code OSDMenuItems[] =
 		NULL, //Font
 		mibSelectable // Flags
 	},
-	// 1 OsdVPosition
+	// 3 OsdVPosition
 	{
-		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * OSD_VPOSITION_ITEM), // XPos, YPos;
-		CP_UnselectItem, Color_2, // ForeColor, BackColor;
-		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * OSD_VPOSITION_ITEM + 2), // XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
 		OsdVPositionMenu,///NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		OsdVPositionText, // DisplayText;
@@ -1906,11 +1937,11 @@ MenuItemType code OSDMenuItems[] =
 		mibSelectable // Flags
 	},
 	#endif
-	// 2 OsdTimeOut
+	// 4 OsdTimeOut
 	{
-		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * OSD_TIMEOUT_ITEM), // XPos, YPos;
-		CP_UnselectItem, Color_2, // ForeColor, BackColor;
-		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * OSD_TIMEOUT_ITEM + 2), // XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
 		OsdTimeOutMenu,///NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		OsdTimeOutText, // DisplayText;
@@ -1928,11 +1959,11 @@ MenuItemType code OSDMenuItems[] =
 		mibSelectable // Flags
 	},
 
-	// 2 Transparence
+	// 5 Transparence
 	{
-		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * OSD_TRANSPARENCE_ITEM), // XPos, YPos;
-		CP_UnselectItem, Color_2, // ForeColor, BackColor;
-		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * OSD_TRANSPARENCE_ITEM + 2), // XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
 		TransparenceMenu,///NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		TransparenceText, // DisplayText;

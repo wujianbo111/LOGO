@@ -650,6 +650,7 @@ typedef enum
 
 typedef enum
 {
+	OSD_OSD_ICON_ITEM,
 	OSD_LANGUAGE_ITEM,
 	#if OsdAdjustHVPos_Enable
 	OSD_HPOSITION_ITEM,

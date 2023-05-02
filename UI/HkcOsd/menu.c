@@ -2038,7 +2038,7 @@ void DrawOsdMenu(void)
 				}
 			}
 			#endif
-			if(MenuPageIndex >= MainMenu && MenuPageIndex <= RGBColorMenu)
+			if(MenuPageIndex >= MainMenu && MenuPageIndex <= OsdMenu)
 			{
 				DrawOsdBackGround();
 				LoadCommonFont();
@@ -2156,7 +2156,7 @@ void DrawOsdMenuItemText(BYTE itemIndex, MenuItemType *menuItem)
 			return ;
 		#endif
 		//printData("DWI_Icon[%d]",itemIndex);
-		if ( MenuPageIndex >= MainMenu && MenuPageIndex <= RGBColorMenu)
+		if ( MenuPageIndex >= MainMenu && MenuPageIndex <= OsdMenu)
 		{
 			str = menuItem->DisplayText();
 			OSD_TEXT_HI_ADDR_SET_BIT8();
@@ -3414,6 +3414,7 @@ BYTE GetMenuItemIndex(BYTE menuPageIndex)
 		{
 			return OSD_TRANSPARENCE_ITEM;
 		}
+		return OSD_LANGUAGE_ITEM;
 	}
 	else if( MenuPageIndex == SettingMenu )
 	{
@@ -3651,7 +3652,7 @@ BYTE GetMenuItemIndex(BYTE menuPageIndex)
 void DrawOsdBackGround(void)
 {
 	BYTE i;
-	if ( MenuPageIndex >= MainMenu && MenuPageIndex <= RGBColorMenu)
+	if ( MenuPageIndex >= MainMenu && MenuPageIndex <= OsdMenu)
 	{
 		//»­±³¾°
 		Osd_SetTextMonoColor(DefineBlack, DefineBlack);
