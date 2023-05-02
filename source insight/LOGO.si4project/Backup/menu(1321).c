@@ -830,16 +830,14 @@ Bool ExecuteKeyEvent(MenuItemActionType menuAction)
 						if(CurrentMenu.Flags & mpbClrGroup)
 						{
 							// clear status Text
-							//Osd_Set256TextColor( CPC_Background << 4 | CPC_Background, Color_2);
-							//Osd_DrawContinuesChar(CurrentMenuItem.XPos + CENTER_ALIGN_STARTPOS + 1, CurrentMenuItem.YPos, SpaceFont, 11);
-							Osd_SetTextMonoColor(DefineBlack, DefineBlack);
-							Osd_DrawContinuesChar(CurrentMenuItem.XPos + 12, CurrentMenuItem.YPos, SpaceFont, 8);
+							Osd_Set256TextColor( CPC_Background << 4 | CPC_Background, Color_2);
+							Osd_DrawContinuesChar(CurrentMenuItem.XPos + CENTER_ALIGN_STARTPOS + 1, CurrentMenuItem.YPos, SpaceFont, 11);
 						}
 						if( MenuPageIndex == ECOMenu
 						        || MenuPageIndex == DCRMenu )
 						{
-							//Osd_DrawContinuesChar(CurrentMenuItem.XPos + CENTER_ALIGN_STARTPOS + 1, 0x08, SpaceFont, 11);
-							//Osd_DrawContinuesChar(CurrentMenuItem.XPos + CENTER_ALIGN_STARTPOS + 1, 0x0A, SpaceFont, 11);
+							Osd_DrawContinuesChar(CurrentMenuItem.XPos + CENTER_ALIGN_STARTPOS + 1, 0x08, SpaceFont, 11);
+							Osd_DrawContinuesChar(CurrentMenuItem.XPos + CENTER_ALIGN_STARTPOS + 1, 0x0A, SpaceFont, 11);
 							DrawOsdSubMenu( OSD_BriContrastMenu );
 						}
 						#if LowBlueLightType == LowBlueLight_SharpFunc
@@ -944,7 +942,7 @@ Bool ExecuteKeyEvent(MenuItemActionType menuAction)
 										if(MenuPageIndex == FactoryMenu)
 											Osd_SetTextMonoColor(CP_RedColor, CP_BlueColor);
 										else
-											Osd_Set256TextColor( SelectedForeAndBackColor, Color_2 );
+											Osd_Set256TextColor( CP_SelectItem, Color_2 );
 						DrawOsdMenuItemText(MenuItemIndex, &CurrentMenuItems[MenuItemIndex]);
 						DrawOsdMenuItemValue( MenuItemIndex, &CurrentMenuItem.DisplayValue );
 						Set_SaveSettingFlag();
@@ -2158,9 +2156,7 @@ void DrawOsdMenuItemText(BYTE itemIndex, MenuItemType *menuItem)
 			return ;
 		#endif
 		//printData("DWI_Icon[%d]",itemIndex);
-		if ((MenuPageIndex >= MainMenu && MenuPageIndex <= OSD_MiscMenu) ||
-			(MenuPageIndex >= BrightnessMenu && MenuPageIndex <= DCRMenu)
-			)
+		if ( MenuPageIndex >= MainMenu && MenuPageIndex <= OSD_MiscMenu)
 		{
 			str = menuItem->DisplayText();
 			OSD_TEXT_HI_ADDR_SET_BIT8();
@@ -2172,6 +2168,35 @@ void DrawOsdMenuItemText(BYTE itemIndex, MenuItemType *menuItem)
 				}
 			}
 			OSD_TEXT_HI_ADDR_CLR_TO_0();
+			#if 0
+			str = menuItem->DisplayText();
+			OSD_TEXT_HI_ADDR_SET_BIT9(); //enable bit 9
+			Osd_DrawCharDirect(menuItem->XPos, menuItem->YPos, str[0]);
+			Osd_DrawCharDirect(menuItem->XPos + 1, menuItem->YPos, str[1]);
+			Osd_DrawCharDirect(menuItem->XPos + 2, menuItem->YPos, str[2]);
+			Osd_DrawCharDirect(menuItem->XPos, menuItem->YPos + 1, str[3]);
+			Osd_DrawCharDirect(menuItem->XPos + 1, menuItem->YPos + 1, str[4]);
+			Osd_DrawCharDirect(menuItem->XPos + 2, menuItem->YPos + 1, str[5]);
+			OSD_TEXT_HI_ADDR_CLR_TO_0();
+			if(itemIndex == MenuItemIndex)
+				Osd_SetTextMonoColor(0x03, 0x03);
+			else
+				Osd_SetTextMonoColor(0x03, 0x04);
+			if(itemIndex == 5)
+			{
+				Osd_DrawCharDirect(0, 3 + 2 * itemIndex, MenuFrame_LeftSide_1);
+				Osd_DrawCharDirect(0, 4 + 2 * itemIndex, MenuFrame_LeftSide_3);
+				Osd_DrawCharDirect(4, 3 + 2 * itemIndex, MenuFrame_RightSide_1);
+				Osd_DrawCharDirect(4, 4 + 2 * itemIndex, MenuFrame_RightSide_3);
+			}
+			else if(itemIndex >= 0 && itemIndex < 5)
+			{
+				Osd_DrawCharDirect(0, 3 + 2 * itemIndex, MenuFrame_LeftSide_1);
+				Osd_DrawCharDirect(0, 4 + 2 * itemIndex, MenuFrame_LeftSide_2);
+				Osd_DrawCharDirect(4, 3 + 2 * itemIndex, MenuFrame_RightSide_1);
+				Osd_DrawCharDirect(4, 4 + 2 * itemIndex, MenuFrame_RightSide_2);
+			}
+			#endif
 		}
 		else
 		{
@@ -2621,13 +2646,13 @@ void DrawOsdSubMenuItem( BYTE itemIndex, MenuItemType *menuItem )
 		Osd_Set256TextColor( CP_DisableItem, Color_2 );
 	#endif
 	else if( menuItem->Flags & mibDCRDisable && ( UserPrefDcrMode ) )
-		Osd_Set256TextColor( SelectedForeAndBackColor, Color_2 );
+		Osd_Set256TextColor( CP_DisableItem, Color_2 );
 	else if( menuItem->Flags & mibStdEnable && ( UserPrefECOMode != ECO_Standard )
          #if PresetMode_Enable
 	         && UserPrefECOMode != ECO_Preset
          #endif
 	       )
-		Osd_Set256TextColor( SelectedForeAndBackColor, Color_2 );
+		Osd_Set256TextColor( CP_DisableItem, Color_2 );
 	#if CT_sRGB_ENABLE
 	else if( menuItem->Flags & mibsRGBDisable && ( UserPrefColorTemp == CTEMP_SRGB && UserPrefECOMode == ECO_Standard ) )
 		Osd_Set256TextColor( CP_DisableItem, Color_2 );

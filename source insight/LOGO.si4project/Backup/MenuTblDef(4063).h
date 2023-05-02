@@ -208,14 +208,15 @@ MenuItemActionType code AdjusterKeyEvent[BTN_EndBTN] =
 	MIA_IncValue,     // BTN_Minus
 	MIA_DecValue,     // BTN_Plus
 	#else
-	MIA_IncValue,     // BTN_Plus
-	MIA_DecValue,     // BTN_Minus
+	MIA_IncValue,     // BTN_Minus
+	MIA_DecValue,     // BTN_Plus
 	#endif
 	MIA_GotoNext, 	// BTN_Menu
 	MIA_GotoPrev, 	// BTN_Exit
 	MIA_Power,        // BTN_Power
 
 };
+
 
 MenuItemActionType code AdjusterKey1Event[BTN_EndBTN] =
 {
