@@ -1687,9 +1687,9 @@ MenuItemType code LowBlueLightMenuItems[] =
 MenuItemType code LowBlueLightMenuItems[] =
 {
 	{
-		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * Misc_LowBlueLigth_Item + 2), // XPos, YPos;
-		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
-		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * Misc_LowBlueLigth_Item), // XPos, YPos;
+		CP_UnselectItem, Color_2, // ForeColor, BackColor;
+		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
 		OSD_MiscMenu,//NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		LowBlueLightText, // DisplayText;
@@ -3023,9 +3023,9 @@ MenuItemType code MuteMenuItems[] =
 {
 	// 0 Volume
 	{
-		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * Misc_Mute_ITEM + 2), // XPos, YPos;
-		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
-		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * Misc_Mute_ITEM), // XPos, YPos;
+		CP_UnselectItem, Color_2, // ForeColor, BackColor;
+		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
 		OSD_MiscMenu, //NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		MuteText,// DisplayText;
@@ -3049,9 +3049,9 @@ MenuItemType code VolumeMenuItems[] =
 {
 	// 0 Volume
 	{
-		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * Misc_Volume_ITEM + 2), // XPos, YPos;
-		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
-		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * Misc_Volume_ITEM), // XPos, YPos;
+		CP_UnselectItem, Color_2, // ForeColor, BackColor;
+		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
 		OSD_MiscMenu, //NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		VolumeText,// DisplayText;
@@ -3845,12 +3845,12 @@ MenuItemType code HotCorssMenuItems[] =
 RadioTextType code DrawInputTypeAnalog[] =
 {
 	// Flags,            XPos,  YPos,   DisplayText
-	{dwiCenterArrowAlign | dwiEnd, SUB_TEXT_XPOS + 11, ( SUB_TEXT_YPOS + IconShift * Misc_InputSource_ITEM + 1),     AnalogText},
+	{dwiCenterArrowAlign | dwiEnd, SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + 0 * 2 ),     AnalogText},
 };
 DrawRadioGroupType code DrawInputTypeAnalogRationText[] =
 {
 	//ForeColor,    BackColor,  GetValue    RadioText
-	{NotSelectedForeAndBackColor,   Color_2,  NULL, DrawInputTypeAnalog}
+	{CP_UnselectItem,   Color_2,  NULL, DrawInputTypeAnalog}
 };
 #endif
 #if ENABLE_DVI_INPUT
@@ -3870,12 +3870,12 @@ DrawRadioGroupType code DrawInputTypeDigitalRationText[] =
 RadioTextType code DrawInputTypeHDMI[] =
 {
 	// Flags,            XPos,  YPos,   DisplayText
-	{dwiCenterArrowAlign | dwiEnd, SUB_TEXT_XPOS + 11, ( SUB_TEXT_YPOS + IconShift * Misc_InputSource_ITEM + 1),     HDMIText},
+	{dwiCenterArrowAlign | dwiEnd, SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + 0 * 2 ),     HDMIText},
 };
 DrawRadioGroupType code DrawInputTypeHDMIRationText[] =
 {
 	//ForeColor,    BackColor,  GetValue    RadioText
-	{NotSelectedForeAndBackColor,   Color_2,  NULL, DrawInputTypeHDMI}
+	{CP_UnselectItem,   Color_2,  NULL, DrawInputTypeHDMI}
 };
 #endif
 
@@ -3930,190 +3930,193 @@ DrawRadioGroupType code DrawInputTypeRationText[] =
 };
 #endif
 MenuItemType code InputSelectMenuItems[] =
-#if HKC_INPUTSELECT_MODE
-	{
-		{
-			SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + 0 * 2 ), // XPos, YPos;
-			CP_UnselectItem, Color_2, // ForeColor, BackColor;
-			CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
-			InputSelectMenu,// NextMenuPage;
-			DWI_Text,// DrawMenuItemType;
-			InputSelectText, // DisplayText;
-			AdjusterKeyExecAEvent,// AdjusterKeyEvent,//AdjustExecKeyEvent,
-			{
-				AdjustInputSource,//AdjustInputSource,// AdjustFunction
-				SetInputSourceChange,//SetInputToAuto,// ExecFunction
-			},
-			{
-				NULL,// DrawNumberType
-				NULL,// DrawGuageType
-				DrawInputTypeRationText,//DrawMenuRadioGroup,
-			},
-			NULL, //Font
-			mibSelectable // Flags
-		},
-	};
-#else
+    #if HKC_INPUTSELECT_MODE
 {
-    #if ENABLE_AutoDetech
 	{
 		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + 0 * 2 ), // XPos, YPos;
 		CP_UnselectItem, Color_2, // ForeColor, BackColor;
 		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
-		MainMenu,///NextMenuPage;
+		InputSelectMenu,// NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		InputSelectText, // DisplayText;
-		NaviExecKeyEvent,//AdjustExecKeyEvent,
+		AdjusterKeyExecAEvent,// AdjusterKeyEvent,//AdjustExecKeyEvent,
 		{
-			NULL,//AdjustInputSource,// AdjustFunction
-			SetInputToAuto,// ExecFunction
+			AdjustInputSource,//AdjustInputSource,// AdjustFunction
+			SetInputSourceChange,//SetInputToAuto,// ExecFunction
 		},
 		{
 			NULL,// DrawNumberType
 			NULL,// DrawGuageType
-			DrawInputTypeAutoRationText,//DrawMenuRadioGroup,
+			DrawInputTypeRationText,//DrawMenuRadioGroup,
 		},
 		NULL, //Font
 		mibSelectable // Flags
 	},
-    #endif
-	#if ENABLE_VGA_INPUT
-	{
-		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * Misc_InputSource_ITEM + 2), // XPos, YPos;
-		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
-		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
-		InputSelectMenu,///NextMenuPage;
-		DWI_Text,// DrawMenuItemType;
-		InputSelectText, // DisplayText;
-		NaviExecKeyEvent,//AdjustExecKeyEvent,
-		{
-			NULL,//AdjustInputSource,// AdjustFunction
-			#if ENABLE_AutoDetech
-			SetInputToAnalog,// ExecFunction
-			#else
-			ChangeSourceToAnalog
-			#endif
-		},
-		{
-			NULL,// DrawNumberType
-			NULL,// DrawGuageType
-			DrawInputTypeAnalogRationText,//DrawMenuRadioGroup,
-		},
-		NULL, //Font
-		mibSelectable// Flags
-	},
-	#endif
-	#if ENABLE_DVI_INPUT
-	{
-		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + 0 * 2 ), // XPos, YPos;
-		CP_UnselectItem, Color_2, // ForeColor, BackColor;
-		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
-		MainMenu,///NextMenuPage;
-		DWI_Text,// DrawMenuItemType;
-		InputSelectText, // DisplayText;
-		NaviExecKeyEvent,//AdjustExecKeyEvent,
-		{
-			NULL, // AdjustFunction
-			#if ENABLE_AutoDetech
-			SetInputToDigital,//AutoConfig// ExecFunction
-			#else
-			ChangeSourceToDigital,
-			#endif
-		},
-		{
-			NULL,// DrawNumberType
-			NULL,// DrawGuageType
-			DrawInputTypeDigitalRationText,//DrawMenuRadioGroup,
-		},
-		NULL, //Font
-		mibSelectable // Flags
-	},
-	#endif
-	#if ENABLE_HDMI_INPUT
-	{
-		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * Misc_InputSource_ITEM + 2), // XPos, YPos;
-		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
-		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
-		MainMenu,///NextMenuPage;
-		DWI_Text,// DrawMenuItemType;
-		InputSelectText, // DisplayText;
-		NaviExecKeyEvent,//AdjustExecKeyEvent,
-		{
-			NULL, // AdjustFunction
-			#if ENABLE_AutoDetech
-			SetInputToHDMI,// ExecFunction
-			#else
-			ChangeSourceToHDMI,
-			#endif
-		},
-		{
-			NULL,// DrawNumberType
-			NULL,// DrawGuageType
-			DrawInputTypeHDMIRationText,//DrawMenuRadioGroup,
-		},
-		NULL, //Font
-		mibSelectable // Flags
-
-	},
-	#if ENABLE_HDMI2ND_INPUT
-	{
-		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + 0 * 2 ), // XPos, YPos;
-		CP_UnselectItem, Color_2, // ForeColor, BackColor;
-		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
-		MainMenu,///NextMenuPage;
-		DWI_Text,// DrawMenuItemType;
-		InputSelectText, // DisplayText;
-		NaviExecKeyEvent,//AdjustExecKeyEvent,
-		{
-			NULL, // AdjustFunction
-			#if ENABLE_AutoDetech
-			SetInputToHDMI,// ExecFunction
-			#else
-			ChangeSourceToHDMI2,
-			#endif
-		},
-		{
-			NULL,// DrawNumberType
-			NULL,// DrawGuageType
-			DrawInputTypeHDMI2RationText,//DrawMenuRadioGroup,
-		},
-		NULL, //Font
-		mibSelectable // Flags
-
-	},
-	#endif
-	#endif
-	#if ENABLE_DP_INPUT
-	{
-		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + 0 * 2 ), // XPos, YPos;
-		CP_UnselectItem, Color_2, // ForeColor, BackColor;
-		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
-		MainMenu,///NextMenuPage;
-		DWI_Text,// DrawMenuItemType;
-		InputSelectText, // DisplayText;
-
-		NaviExecKeyEvent,//AdjustExecKeyEvent,
-
-		{
-			NULL, // AdjustFunction
-			#if ENABLE_AutoDetech
-			SetInputToDP,// ExecFunction
-			#else
-			ChangeSourceToDP
-			#endif
-		},
-		{
-			NULL,// DrawNumberType
-			NULL,// DrawGuageType
-			DrawInputTypeDPRationText,//DrawMenuRadioGroup,
-		},
-		NULL, //Font
-		mibSelectable // Flags
-	},
-	#endif
 };
+
+    #else
+    {
+        #if ENABLE_AutoDetech
+{
+	SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + 0 * 2 ), // XPos, YPos;
+	CP_UnselectItem, Color_2, // ForeColor, BackColor;
+	CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
+	MainMenu,///NextMenuPage;
+	DWI_Text,// DrawMenuItemType;
+	InputSelectText, // DisplayText;
+	NaviExecKeyEvent,//AdjustExecKeyEvent,
+	{
+		NULL,//AdjustInputSource,// AdjustFunction
+		SetInputToAuto,// ExecFunction
+	},
+	{
+		NULL,// DrawNumberType
+		NULL,// DrawGuageType
+		DrawInputTypeAutoRationText,//DrawMenuRadioGroup,
+	},
+	NULL, //Font
+	mibSelectable // Flags
+},
+        #endif
+#if ENABLE_VGA_INPUT
+{
+	SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + 0 * 2 ), // XPos, YPos;
+	CP_UnselectItem, Color_2, // ForeColor, BackColor;
+	CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
+	MainMenu,///NextMenuPage;
+	DWI_Text,// DrawMenuItemType;
+	InputSelectText, // DisplayText;
+	NaviExecKeyEvent,//AdjustExecKeyEvent,
+	{
+		NULL,//AdjustInputSource,// AdjustFunction
+		#if ENABLE_AutoDetech
+		SetInputToAnalog,// ExecFunction
+		#else
+		ChangeSourceToAnalog
+		#endif
+	},
+	{
+		NULL,// DrawNumberType
+		NULL,// DrawGuageType
+		DrawInputTypeAnalogRationText,//DrawMenuRadioGroup,
+	},
+	NULL, //Font
+	mibSelectable // Flags
+},
+#endif
+#if ENABLE_DVI_INPUT
+{
+	SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + 0 * 2 ), // XPos, YPos;
+	CP_UnselectItem, Color_2, // ForeColor, BackColor;
+	CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
+	MainMenu,///NextMenuPage;
+	DWI_Text,// DrawMenuItemType;
+	InputSelectText, // DisplayText;
+	NaviExecKeyEvent,//AdjustExecKeyEvent,
+	{
+		NULL, // AdjustFunction
+		#if ENABLE_AutoDetech
+		SetInputToDigital,//AutoConfig// ExecFunction
+		#else
+		ChangeSourceToDigital,
+		#endif
+	},
+	{
+		NULL,// DrawNumberType
+		NULL,// DrawGuageType
+		DrawInputTypeDigitalRationText,//DrawMenuRadioGroup,
+	},
+	NULL, //Font
+	mibSelectable // Flags
+},
+#endif
+#if ENABLE_HDMI_INPUT
+{
+	SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + 0 * 2 ), // XPos, YPos;
+	CP_UnselectItem, Color_2, // ForeColor, BackColor;
+	CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
+	MainMenu,///NextMenuPage;
+	DWI_Text,// DrawMenuItemType;
+	InputSelectText, // DisplayText;
+	NaviExecKeyEvent,//AdjustExecKeyEvent,
+	{
+		NULL, // AdjustFunction
+		#if ENABLE_AutoDetech
+		SetInputToHDMI,// ExecFunction
+		#else
+		ChangeSourceToHDMI,
+		#endif
+	},
+	{
+		NULL,// DrawNumberType
+		NULL,// DrawGuageType
+		DrawInputTypeHDMIRationText,//DrawMenuRadioGroup,
+	},
+	NULL, //Font
+	mibSelectable // Flags
+
+},
+#if ENABLE_HDMI2ND_INPUT
+{
+	SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + 0 * 2 ), // XPos, YPos;
+	CP_UnselectItem, Color_2, // ForeColor, BackColor;
+	CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
+	MainMenu,///NextMenuPage;
+	DWI_Text,// DrawMenuItemType;
+	InputSelectText, // DisplayText;
+	NaviExecKeyEvent,//AdjustExecKeyEvent,
+	{
+		NULL, // AdjustFunction
+		#if ENABLE_AutoDetech
+		SetInputToHDMI,// ExecFunction
+		#else
+		ChangeSourceToHDMI2,
+		#endif
+	},
+	{
+		NULL,// DrawNumberType
+		NULL,// DrawGuageType
+		DrawInputTypeHDMI2RationText,//DrawMenuRadioGroup,
+	},
+	NULL, //Font
+	mibSelectable // Flags
+
+},
 #endif
 #endif
+#if ENABLE_DP_INPUT
+{
+	SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + 0 * 2 ), // XPos, YPos;
+	CP_UnselectItem, Color_2, // ForeColor, BackColor;
+	CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
+	MainMenu,///NextMenuPage;
+	DWI_Text,// DrawMenuItemType;
+	InputSelectText, // DisplayText;
+
+	NaviExecKeyEvent,//AdjustExecKeyEvent,
+
+	{
+		NULL, // AdjustFunction
+		#if ENABLE_AutoDetech
+		SetInputToDP,// ExecFunction
+		#else
+		ChangeSourceToDP
+		#endif
+	},
+	{
+		NULL,// DrawNumberType
+		NULL,// DrawGuageType
+		DrawInputTypeDPRationText,//DrawMenuRadioGroup,
+	},
+	NULL, //Font
+	mibSelectable // Flags
+},
+#endif
+    };
+    #endif
+#endif
+
+
 
 
 MenuItemType code ExitMenuItems[] =
@@ -4930,12 +4933,12 @@ MenuPageType code tblMenus[] =
 		InputSelectMenuItems, // MenuItems;
 		sizeof( InputSelectMenuItems ) / sizeof( MenuItemType ), // MenuItemCount;
 		NULL, // ExecFunction;
-		MenuPage6, // Fonts
+		NULL, // Fonts
 		mpbStay | mpbClrGroup //   Flags;
 	},
 	#endif
 	#if  AudioFunc
-	//45 MuteMenu,
+	//45 Mute,
 	#if EANBLE_MUTE_ON_OFF
 	{
 		MAIN_MENU_H_SIZE/*29*/, MAIN_MENU_V_SIZE, //  XSize, YSize;
@@ -4943,7 +4946,7 @@ MenuPageType code tblMenus[] =
 		MuteMenuItems, // MenuItems;
 		sizeof( MuteMenuItems ) / sizeof( MenuItemType ), // MenuItemCount;
 		NULL, // ExecFunction;
-		MenuPage6, // Fonts
+		NULL, // Fonts
 		mpbStay | mpbClrGroup //   Flags;
 	},
 	#endif
@@ -4954,7 +4957,7 @@ MenuPageType code tblMenus[] =
 		VolumeMenuItems, // MenuItems;
 		sizeof( VolumeMenuItems ) / sizeof( MenuItemType ), // MenuItemCount;
 		NULL, // ExecFunction;
-		MenuPage6, // Fonts
+		NULL, // Fonts
 		mpbStay //   Flags;
 	},
 	#endif

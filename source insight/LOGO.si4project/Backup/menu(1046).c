@@ -830,12 +830,16 @@ Bool ExecuteKeyEvent(MenuItemActionType menuAction)
 						if(CurrentMenu.Flags & mpbClrGroup)
 						{
 							// clear status Text
+							//Osd_Set256TextColor( CPC_Background << 4 | CPC_Background, Color_2);
+							//Osd_DrawContinuesChar(CurrentMenuItem.XPos + CENTER_ALIGN_STARTPOS + 1, CurrentMenuItem.YPos, SpaceFont, 11);
 							Osd_SetTextMonoColor(DefineBlack, DefineBlack);
 							Osd_DrawContinuesChar(CurrentMenuItem.XPos + 12, CurrentMenuItem.YPos, SpaceFont, 8);
 						}
 						if( MenuPageIndex == ECOMenu
 						        || MenuPageIndex == DCRMenu )
 						{
+							//Osd_DrawContinuesChar(CurrentMenuItem.XPos + CENTER_ALIGN_STARTPOS + 1, 0x08, SpaceFont, 11);
+							//Osd_DrawContinuesChar(CurrentMenuItem.XPos + CENTER_ALIGN_STARTPOS + 1, 0x0A, SpaceFont, 11);
 							DrawOsdSubMenu( OSD_BriContrastMenu );
 						}
 						#if LowBlueLightType == LowBlueLight_SharpFunc
@@ -852,13 +856,12 @@ Bool ExecuteKeyEvent(MenuItemActionType menuAction)
 						{
 							DrawOsdSubMenu( RGBColorMenu );
 						}
-						#elif LowBlueLightType == LowBlueLight_Misc_Group
-						else if(MenuPageIndex == LowBlueLightMenu)
-						{
-							DrawOsdSubMenu(LowBlueLightMenu);
-						}
 						#else
-						else if( MenuPageIndex == ColorTempMenu )
+						else if( MenuPageIndex == ColorTempMenu
+					         #if ( LowBlueLightType==LowBlueLight_ColorTemp)
+						         || MenuPageIndex == LowBlueLightMenu
+					         #endif
+						       )
 						{
 							DrawOsdSubMenu( RGBColorMenu );
 						}
@@ -913,13 +916,9 @@ Bool ExecuteKeyEvent(MenuItemActionType menuAction)
 						#if AudioFunc
 						if((MenuPageIndex == VolumeMenu) && (CurrentMenuItemFunc.AdjustFunction == AdjustVolume))
 						{
-							//DrawOsdSubMenu( OSD_MiscMenu );
+							DrawOsdSubMenu( MuteMenu );
 						}
 						#endif
-						if(MenuPageIndex == ColorTempMenu)
-						{
-							DrawOsdSubMenu(RGBColorMenu);
-						}
 						#if AudioFunc && ENABLE_OSD_HotKeyVolume
 						if(MenuPageIndex == HotKeyVolMenu)
 							Osd_Set256TextColor( CP_UnselectItem, Color_2 );
@@ -1014,8 +1013,8 @@ Bool ExecuteKeyEvent(MenuItemActionType menuAction)
 					if (MenuPageIndex == InputSelectMenu)
 					{
 						// clear status Text
-						Osd_SetTextMonoColor(DefineBlack, DefineBlack);
-						Osd_DrawContinuesChar(CurrentMenuItem.XPos + 12, CurrentMenuItem.YPos, SpaceFont, 8);
+						Osd_Set256TextColor( CPC_Background << 4 | CPC_Background, Color_2);
+						Osd_DrawContinuesChar( CurrentMenuItem.XPos + CENTER_ALIGN_STARTPOS + 1, CurrentMenuItem.YPos, MonoSpace, 11);
 					}
 					#endif
 					DrawOsdMenuItem(MenuItemIndex, &CurrentMenuItem);
@@ -1153,8 +1152,8 @@ Bool ExecuteKeyEvent(MenuItemActionType menuAction)
 				else if (PrevPage == InputSelectMenu && MenuPageIndex == OSD_MiscMenu)
 				{
 					// clear status Text
-					//Osd_SetTextMonoColor(DefineBlack, DefineBlack);
-					//Osd_DrawContinuesChar(CurrentMenuItem.XPos + 12, CurrentMenuItem.YPos, SpaceFont, 8);
+					Osd_Set256TextColor( CPC_Background << 4 | CPC_Background, Color_2);
+					Osd_DrawContinuesChar( 0x19, 0x04, MonoSpace, 10);
 					MenuItemIndex = GetMenuItemIndex(PrevPage);
 				}
 				#endif
@@ -2039,7 +2038,7 @@ void DrawOsdMenu(void)
 				}
 			}
 			#endif
-			if((MenuPageIndex >= MainMenu && MenuPageIndex <= OSD_MiscMenu))
+			if(MenuPageIndex >= MainMenu && MenuPageIndex <= OSD_MiscMenu)
 			{
 				DrawOsdBackGround();
 				LoadCommonFont();
@@ -2160,7 +2159,7 @@ void DrawOsdMenuItemText(BYTE itemIndex, MenuItemType *menuItem)
 		if ((MenuPageIndex >= MainMenu && MenuPageIndex <= OSD_MiscMenu) ||
 			(MenuPageIndex >= BrightnessMenu && MenuPageIndex <= DCRMenu) ||
 			(MenuPageIndex >= ColorTempMenu && MenuPageIndex <= BlueMenu) ||
-			(MenuPageIndex == LanguageMenu || MenuPageIndex == LowBlueLightMenu)
+			(MenuPageIndex == LanguageMenu)
 			)
 		{
 			str = menuItem->DisplayText();
@@ -2565,6 +2564,7 @@ void DrawOsdMenuItemRadioGroup(BYTE itemIndex, DrawRadioGroupType *radioItem)
 					else if( drawItem->Flags & dwiCenterText )
 					{
 						tmplength = *( drawItem->DisplayText() + 1 );
+						//xPos = (HOT_MENU_H_SIZE - tmplength + 1) / 2;
 						xPos = drawItem->XPos + (MainMenuIconCloumn / 2) - (tmplength / 2);
 					}
 					Osd_DrawPropStr( xPos, drawItem->YPos, drawItem->DisplayText() );
@@ -3628,7 +3628,7 @@ BYTE GetMenuItemIndex(BYTE menuPageIndex)
 void DrawOsdBackGround(void)
 {
 	BYTE i;
-	if ((MenuPageIndex >= MainMenu && MenuPageIndex <= OSD_MiscMenu) || (MenuPageIndex == LowBlueLightMenu))
+	if ( MenuPageIndex >= MainMenu && MenuPageIndex <= OSD_MiscMenu)
 	{
 		//»­±³¾°
 		Osd_SetTextMonoColor(DefineBlack, DefineBlack);

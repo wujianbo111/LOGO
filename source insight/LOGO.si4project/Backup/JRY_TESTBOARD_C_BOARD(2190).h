@@ -271,6 +271,5 @@
 #define Enable_Gamma					0
 #define	HH_PivotKey2_Enable				0
 
-
 #endif
 
