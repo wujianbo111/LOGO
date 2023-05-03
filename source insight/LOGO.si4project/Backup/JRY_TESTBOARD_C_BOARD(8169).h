@@ -206,7 +206,6 @@
 
 #define Hot_Corss_FY_ColorSelect				0
 #define	Hotkey_ECO_Enable						0
-#define Hotkey_Standard_Enable					1
 #define AdjustLanguageFunction            	1
 
 #define LowBlueLightType						LowBlueLight_Misc_Group
@@ -222,7 +221,7 @@
 #define	ENABLE_FREESYNC						0
 #define FreeSyncMenu_Enable       				0
 
-#define	OSD_NoHotKeyFunc						0
+#define	OSD_NoHotKeyFunc						1
 /////////////////////////brightness///////////////////////////////////
 #define BRI_PRO_MIN_VALUE			0x00
 #define BRI_PRO_DEF_VALUE			0x55

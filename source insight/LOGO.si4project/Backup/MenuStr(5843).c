@@ -92,57 +92,72 @@
 	 0}
 };
 
-#define StM(x)	(_2ColorHotIconStart + x * Icon2Color_AddrShift)
- BYTE code strStandardIcon[4][7]=
+#if 0
+BYTE code strBrightnessIcon[7] =
 {
-	{	 StM(0x00), StM(0x01), StM(0x01), StM(0x01), StM(0x01), StM(0x02), 
-	 0},
-	{	 StM(0x03), StM(0x04), StM(0x04), StM(0x04), StM(0x04), StM(0x05), 
-	 0},
-	{	 StM(0x03), StM(0x04), StM(0x06), StM(0x07), StM(0x08), StM(0x09), 
-	 0},
-	{	 StM(0x0A), StM(0x0B), StM(0x0C), StM(0x0D), StM(0x0E), StM(0x0F), 
-	 0}
+	_8ColorMainIconStart + 0 * Icon8Color_AddrShift,
+	_8ColorMainIconStart + 1 * Icon8Color_AddrShift,
+	_8ColorMainIconStart + 2 * Icon8Color_AddrShift,
+	_8ColorMainIconStart + 3 * Icon8Color_AddrShift,
+	_8ColorMainIconStart + 4 * Icon8Color_AddrShift,
+	_8ColorMainIconStart + 5 * Icon8Color_AddrShift,
+	'\0'
+};
+BYTE code strImageIcon[7] =
+{
+	_4ColorMainIconStart + 0 * Icon4Color_AddrShift,
+	_4ColorMainIconStart + 1 * Icon4Color_AddrShift,
+	_4ColorMainIconStart + 2 * Icon4Color_AddrShift,
+	_4ColorMainIconStart + 3 * Icon4Color_AddrShift,
+	_4ColorMainIconStart + 4 * Icon4Color_AddrShift,
+	_4ColorMainIconStart + 5 * Icon4Color_AddrShift,
+	'\0'
 };
 
-#define ieM(x)	(_2ColorHotIconStart + x * Icon2Color_AddrShift)
- BYTE code strIEIcon[4][7]=
+BYTE code strColorTempIcon[7] =
 {
-	{	 ieM(0x00), ieM(0x01), ieM(0x02), ieM(0x03), ieM(0x04), ieM(0x05), 
-	 0},
-	{	 ieM(0x00), ieM(0x06), ieM(0x07), ieM(0x08), ieM(0x09), ieM(0x00), 
-	 0},
-	{	 ieM(0x0A), ieM(0x0B), ieM(0x0C), ieM(0x0D), ieM(0x0E), ieM(0x00), 
-	 0},
-	{	 ieM(0x0F), ieM(0x10), ieM(0x11), ieM(0x12), ieM(0x00), ieM(0x00), 
-	 0}
+	_8ColorMainIconStart + 6 * Icon8Color_AddrShift,
+	_8ColorMainIconStart + 7 * Icon8Color_AddrShift,
+	_8ColorMainIconStart + 8 * Icon8Color_AddrShift,
+	_8ColorMainIconStart + 9 * Icon8Color_AddrShift,
+	_8ColorMainIconStart + 10 * Icon8Color_AddrShift,
+	_8ColorMainIconStart + 11 * Icon8Color_AddrShift,
+	'\0'
 };
 
-#define GaM(x)	(_2ColorHotIconStart + x * Icon2Color_AddrShift)
- BYTE code strGameIcon[4][7]=
+BYTE code strOSDIcon[7] =
 {
-	{	 GaM(0x00), GaM(0x00), GaM(0x00), GaM(0x00), GaM(0x00), GaM(0x00), 
-	 0},
-	{	 GaM(0x01), GaM(0x02), GaM(0x03), GaM(0x04), GaM(0x05), GaM(0x06), 
-	 0},
-	{	 GaM(0x07), GaM(0x08), GaM(0x09), GaM(0x0A), GaM(0x0B), GaM(0x0C), 
-	 0},
-	{	 GaM(0x0D), GaM(0x0E), GaM(0x00), GaM(0x00), GaM(0x0F), GaM(0x10), 
-	 0}
+	_8ColorMainIconStart + 12 * Icon8Color_AddrShift,
+	_8ColorMainIconStart + 13 * Icon8Color_AddrShift,
+	_8ColorMainIconStart + 14 * Icon8Color_AddrShift,
+	_8ColorMainIconStart + 15 * Icon8Color_AddrShift,
+	_8ColorMainIconStart + 16 * Icon8Color_AddrShift,
+	_8ColorMainIconStart + 17 * Icon8Color_AddrShift,
+	'\0'
 };
 
-#define MoM(x)	(_2ColorHotIconStart + x * Icon2Color_AddrShift)
- BYTE code strMovieIcon[4][7]=
+BYTE code strResetIcon[7] =
 {
-	{	 MoM(0x00), MoM(0x01), MoM(0x01), MoM(0x01), MoM(0x01), MoM(0x01), 
-	 0},
-	{	 MoM(0x02), MoM(0x03), MoM(0x04), MoM(0x05), MoM(0x06), MoM(0x07), 
-	 0},
-	{	 MoM(0x08), MoM(0x09), MoM(0x0A), MoM(0x0B), MoM(0x0C), MoM(0x0D), 
-	 0},
-	{	 MoM(0x0E), MoM(0x0F), MoM(0x0F), MoM(0x0F), MoM(0x0F), MoM(0x0F), 
-	 0}
+	_4ColorMainIconStart + 6 * Icon4Color_AddrShift,
+	_4ColorMainIconStart + 7 * Icon4Color_AddrShift,
+	_4ColorMainIconStart + 8 * Icon4Color_AddrShift,
+	_4ColorMainIconStart + 9 * Icon4Color_AddrShift,
+	_4ColorMainIconStart + 10 * Icon4Color_AddrShift,
+	_4ColorMainIconStart + 11 * Icon4Color_AddrShift,
+	'\0'
 };
+
+BYTE code strMiscIcon[7] =
+{
+	_4ColorMainIconStart + 12 * Icon4Color_AddrShift,
+	_4ColorMainIconStart + 13 * Icon4Color_AddrShift,
+	_4ColorMainIconStart + 14 * Icon4Color_AddrShift,
+	_4ColorMainIconStart + 15 * Icon4Color_AddrShift,
+	_4ColorMainIconStart + 16 * Icon4Color_AddrShift,
+	_4ColorMainIconStart + 17 * Icon4Color_AddrShift,
+	'\0'
+};
+#endif
 
 BYTE* BrightnessIcon(void)
 {
@@ -167,22 +182,6 @@ BYTE* ResetIcon(void)
 BYTE* MiscIcon(void)
 {
 	return strMiscIcon;
-}
-BYTE* StandardIcon(void)
-{
-	return strStandardIcon;
-}
-BYTE* IEIcon(void)
-{
-	return strIEIcon;
-}
-BYTE* GameIcon(void)
-{
-	return strGameIcon;
-}
-BYTE* MovieIcon(void)
-{
-	return strMovieIcon;
 }
 
 

@@ -4472,33 +4472,7 @@ MenuItemType code OffPowerWarningMenuItems[] =
 };
 #endif
 
-#if Hotkey_Standard_Enable
-MenuItemType code HotKeyStandardMenuItems[] =
-{
-	//0 HotKeyStandard_Icon
-	{
-		(HOT_MENU_H_SIZE / 2) - (HotKeyMenuIconColumn / 2), 2, // 8, // XPos, YPos;
-		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
-		NotSelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
-		RootMenu, //NextMenuPage;
-		DWI_Icon, // DrawMenuItemType;
-		StandardIcon, // DisplayText;
-		HotKeyStandardKeyEvent,// KeyEvent
-		{
-			HotKeyAdjustECOMode, // AdjustFunction
-			NULL	// ExecFunction
-		},// *DisplayValue;
-		{
-			NULL, // DrawNumberType
-			NULL, // DrawGuageType
-			NULL	// DrawRadioGroupType
-		},
-		NULL, //Font
-		mibSelectable // Flags
-	}
-};
 
-#endif
 
 
 //==============================================================================================
@@ -5261,17 +5235,12 @@ MenuPageType code tblMenus[] =
 	},
 	#endif
 
-	#if Hotkey_Standard_Enable
-	// HotKeyStandardMenu,
-		{
-		HOT_MENU_H_SIZE, HOT_MENU_V_SIZE, //  XSize, YSize;
-		RootMenu,// PrevMenuPage;
-		HotKeyStandardMenuItems, // MenuItems;
-		sizeof( HotKeyStandardMenuItems ) / sizeof( MenuItemType ), // MenuItemCount;
-		NULL, // ExecFunction;
-		NULL, // Fonts
-		mpbStay | mpbCenter | mpbRedraw //   Flags;	//110408 Modify
-	},
-	#endif
+
 };
-	
+
+
+
+
+
+
+

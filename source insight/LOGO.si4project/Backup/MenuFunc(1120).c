@@ -3759,36 +3759,6 @@ Bool AdjustECOMode(MenuItemActionType action)
 	SetECO();
 	return TRUE;
 }
-
-#if Hotkey_Standard_Enable
-Bool HotKeyAdjustECOMode(MenuItemActionType action)
-{
-	UserPrefDcrMode = 0;
-	msDCROnOff(UserPrefDcrMode, MAIN_WINDOW);
-	ICE_MAIN_CTRL(0);				//120204 Modify
-	ICE_SUB_CTRL(0);				//120204 Modify
-	if(action == MIA_IncValue)
-	{
-		switch(MenuPageIndex)
-		{
-			case HotKeyStandardMenu:
-				UserPrefECOMode = ECO_Standard;
-				break;
-			default:
-				break;
-		}
-	}
-	#if !USEFLASH
-	NVRam_WriteByte(nvrMonitorAddr(ECOMode), UserPrefECOMode);
-	NVRam_WriteByte(nvrMonitorAddr(DcrMode), UserPrefDcrMode);
-	#else
-	UserPref_EnableFlashSaveBit(bFlashSaveMonitorBit);
-	#endif
-	SetECO();
-	return TRUE;
-}
-#endif
-
 #endif
 #if Enable_Gamma
 Bool AdjustGamaMode(MenuItemActionType action)
@@ -5005,4 +4975,8 @@ Bool AdjustSharpness( MenuItemActionType action )
 	return TRUE;
 }
 #endif
+
+
+
+
 

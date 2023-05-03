@@ -31,10 +31,6 @@ extern BYTE* ColorTempIcon(void);
 extern BYTE* OSDIcon(void);
 extern BYTE* ResetIcon(void);
 extern BYTE* MiscIcon(void);
-extern BYTE* StandardIcon(void);
-extern BYTE* IEIcon(void);
-extern BYTE* GameIcon(void);
-extern BYTE* MovieIcon(void);
 extern BYTE *Main_FText(void);
 
 

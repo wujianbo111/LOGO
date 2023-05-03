@@ -6486,10 +6486,10 @@
       <FileType>1</FileType>
       <tvExp>1</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>83</ColumnNumber>
+      <ColumnNumber>80</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>533</TopLine>
-      <CurrentLine>549</CurrentLine>
+      <TopLine>2671</TopLine>
+      <CurrentLine>2701</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\UI\HkcOsd\menu.c</PathWithFileName>
       <FilenameWithoutPath>menu.c</FilenameWithoutPath>
@@ -7353,7 +7353,7 @@
   <AlienFiles>
     <PathWithFilename>H:\JRY\LOGO\TSUM_TEXT_1\UI\HKCOSD\INC\MENUTBL.H</PathWithFilename>
     <TopLine>71</TopLine>
-    <CurrentLine>97</CurrentLine>
+    <CurrentLine>91</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -8717,13 +8717,13 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>0</ActiveTab>
+      <ActiveTab>3</ActiveTab>
       <Documents>
         <Doc>
           <Name>..\..\UI\HKCOSD\INC\MENUTBL.H</Name>
-          <ColumnNumber>78</ColumnNumber>
+          <ColumnNumber>69</ColumnNumber>
           <TopLine>71</TopLine>
-          <CurrentLine>97</CurrentLine>
+          <CurrentLine>91</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\UI\F_LOGO\FactoryString.c</Name>
@@ -8736,6 +8736,12 @@
           <ColumnNumber>56</ColumnNumber>
           <TopLine>1594</TopLine>
           <CurrentLine>1625</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\UI\HkcOsd\menu.c</Name>
+          <ColumnNumber>80</ColumnNumber>
+          <TopLine>2671</TopLine>
+          <CurrentLine>2701</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

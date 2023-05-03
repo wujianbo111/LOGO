@@ -942,8 +942,6 @@ Bool ExecuteKeyEvent(MenuItemActionType menuAction)
 								#endif
 										if(MenuPageIndex == FactoryMenu)
 											Osd_SetTextMonoColor(CP_RedColor, CP_BlueColor);
-										else if(MenuPageIndex == HotKeyStandardMenu)
-											Osd_Set256TextColor( NotSelectedForeAndBackColor, Color_2 );
 										else
 											Osd_Set256TextColor( SelectedForeAndBackColor, Color_2 );
 						DrawOsdMenuItemText(MenuItemIndex, &CurrentMenuItems[MenuItemIndex]);
@@ -1501,19 +1499,6 @@ Bool ExecuteKeyEvent(MenuItemActionType menuAction)
 				processEvent = TRUE;
 				break;
 				#endif
-				#if Hotkey_Standard_Enable
-			case MIA_Standard:
-				if (FreeRunModeFlag )
-				{
-					break;
-				}
-				menuAction = MIA_RedrawMenu;
-				MenuPageIndex = HotKeyStandardMenu;
-				MenuItemIndex = 0;
-				processEvent = TRUE;
-				KeypadButton = BTN_Repeat;
-				break;
-				#endif
 				#if DDCCI_ENABLE && DDCCCIMenu_Enable&&0
 			case MIA_DDC:
 				if (FreeRunModeFlag )
@@ -2019,13 +2004,10 @@ void DrawOsdMenu(void)
 				DrawOsdMenuItem(0, &CurrentMenu.MenuItems[0]);
 			else
 			#endif
-			if(MenuPageIndex == MainMenu || MenuPageIndex == HotKeyStandardMenu)
+			if(MenuPageIndex == MainMenu)
 			{
 				LoadCommonFont();
-				if(MenuPageIndex == MainMenu)
-				{
-					DynamicLoadFont(CurrentMenu.Fonts);
-				}
+				DynamicLoadFont(CurrentMenu.Fonts);
 			}
 			for (i = 0; i < MenuItemCount; i++)
 			{
@@ -2182,9 +2164,7 @@ void DrawOsdMenuItemText(BYTE itemIndex, MenuItemType *menuItem)
 		if ((MenuPageIndex >= MainMenu && MenuPageIndex <= OSD_MiscMenu) ||
 			(MenuPageIndex >= BrightnessMenu && MenuPageIndex <= DCRMenu) ||
 			(MenuPageIndex >= ColorTempMenu && MenuPageIndex <= BlueMenu) ||
-			(MenuPageIndex == LanguageMenu) || 
-			(MenuPageIndex == LowBlueLightMenu) ||
-			(MenuPageIndex == HotKeyStandardMenu)
+			(MenuPageIndex == LanguageMenu || MenuPageIndex == LowBlueLightMenu)
 			)
 		{
 			str = menuItem->DisplayText();
@@ -3652,10 +3632,7 @@ BYTE GetMenuItemIndex(BYTE menuPageIndex)
 void DrawOsdBackGround(void)
 {
 	BYTE i;
-	if ((MenuPageIndex >= MainMenu && MenuPageIndex <= OSD_MiscMenu) || 
-		(MenuPageIndex == LowBlueLightMenu) ||
-		(MenuPageIndex == HotKeyStandardMenu)
-		)
+	if ((MenuPageIndex >= MainMenu && MenuPageIndex <= OSD_MiscMenu) || (MenuPageIndex == LowBlueLightMenu))
 	{
 		//»­±³¾°
 		Osd_SetTextMonoColor(DefineBlack, DefineBlack);
@@ -3703,7 +3680,7 @@ void DrawOsdBackGround(void)
 				}
 			}
 		}
-		else if(MenuPageIndex != HotKeyStandardMenu)
+		else
 		{
 			for(i = 1; i <= CurrentMenu.XSize - 2; i++)
 			{
@@ -3751,4 +3728,13 @@ void DrawOsdBackGround(void)
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
 

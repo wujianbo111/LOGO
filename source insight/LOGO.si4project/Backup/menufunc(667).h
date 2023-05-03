@@ -110,9 +110,6 @@ extern Bool SetMute(void);
 #endif
 #if ECO
 extern Bool AdjustECOMode(MenuItemActionType action);
-#if Hotkey_Standard_Enable
-extern Bool HotKeyAdjustECOMode(MenuItemActionType action);
-#endif
 #endif
 extern Bool AdjustGamaMode(MenuItemActionType action);
 extern Bool AdjustDcrMode(MenuItemActionType action);

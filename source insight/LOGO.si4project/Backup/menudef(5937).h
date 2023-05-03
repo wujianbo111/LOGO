@@ -68,6 +68,7 @@ typedef enum
 	#if ENABLE_RTE
 	OverdriveMenu,
 	#endif
+
 	#if Enable_Gamma
 	GammaMenu,          // 12
 	#endif
@@ -80,6 +81,7 @@ typedef enum
 	ExpansionMenu,
 	#endif
 //-----------------------------------------------
+
 	ColorTempMenu, RedMenu, GreenMenu, BlueMenu,    // 21,22,23,24
 	#if ENABLE_OSD_LowBlueLight
 	LowBlueLightMenu,
@@ -108,6 +110,7 @@ typedef enum
 	#if Enable_Adjust_SharpnessMenu
 	SharpnessMenu,
 	#endif
+
 	#if  DDCCI_ENABLE && DDCCCIMenu_Enable
 	DDCCIMenu,
 	#endif
@@ -115,10 +118,14 @@ typedef enum
 	FreeSyncMenu,
 	#endif
 //-----------------------------------------------
+
+
+
 	HotKeyECOMenu, // 54
 	#if Hotkey_DCR_Enable
 	HotKeyDCRMenu, // 54
 	#endif
+
 	#if HotExpansionAdjust
 	HotExpansionMenu,
 	#endif
@@ -131,35 +138,39 @@ typedef enum
 	#if Hotkey_Con_Enable
 	HotKeyConMenu,
 	#endif
+
 	#if HotInputSelect
 	HotInputSelectMenu,
 	#endif
+
 	#if Hot_Corss_ColorSelect || Hot_Corss_FY_ColorSelect || Hot_Corss_FND_Select
 	HotCorssMenu,
 	#endif
+
 
 	AutoMenu,//57
 
 	#if AboutDSUBFunc_Enable
 	AutoColorMenu,	//59
 	#endif
-	
 	BurninMenu,//60
+
 	FactoryMenu,//	61
+
 	LogoMenu, 	//62
+
 	InputInfoMenu, // 63
 
 	#if DDCCI_ENABLE && DDCCCIMenu_Enable
 	DdcciInfoMenu, // 65
 	#endif
+
 	// user definition end
 	#ifdef OffPower
 	OffPowerWarningMenu,
 	#endif
-	#if Hotkey_Standard_Enable
-	HotKeyStandardMenu,
-	#endif
-	
+
+
 	MaxMenu
 } MenuPageIndexType;
 
@@ -338,10 +349,7 @@ typedef enum
 	MIA_HotCorssMenu,
 	#endif
 	MIA_DCR,
-	#if Hotkey_Standard_Enable
-	MIA_Standard,
-	#endif
-	
+
 	MIA_DDC,
 	MIA_SourceSel, //2006-02-22
 	MIA_Power, // power control
@@ -443,7 +451,7 @@ typedef enum
 #define _2ColorResetIconStart           _2ColorOSDIconStart + 23//0x5F
 #define _2ColorExtraIconStart           _2ColorResetIconStart + 21//0x74
 
-#define _2ColorHotIconStart       _2ColorFontStart + 19//0x13
+#define _2ColorHotIconStart       _2ColorFontStart
 
 #define _4ColorHotIconStart       _4ColorFontStart
 
@@ -492,7 +500,7 @@ typedef enum
 
 
 #define HOT_MENU_H_SIZE            0x18
-#define HOT_MENU_V_SIZE            8
+#define HOT_MENU_V_SIZE            7
 
 #define IconXPos    4
 #define IconFristXPos    IconXPos	// Jun 20130730
@@ -990,7 +998,6 @@ typedef struct
 
 #define MainMenuIconLine						4
 #define MainMenuIconCloumn						6
-#define HotKeyMenuIconColumn					6
 
 #define TimingInfoForeAndBackColor				0x25
 #endif

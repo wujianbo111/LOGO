@@ -11,8 +11,6 @@
 #define MIA_HotKeyMinus	MIA_VOL
 #elif Hotkey_ECO_Enable
 #define MIA_HotKeyMinus MIA_ECO		//120119 Modify
-#elif Hotkey_Standard_Enable
-#define MIA_HotKeyMinus MIA_Standard
 #else
 #define MIA_HotKeyMinus	MIA_Nothing
 #endif
@@ -483,16 +481,7 @@ MenuItemActionType code OffPowerWarningKeyEvent[BTN_EndBTN] =
 };
 #endif
 
-#if Hotkey_Standard_Enable
-MenuItemActionType code HotKeyStandardKeyEvent[BTN_EndBTN] = 
-{
-	MIA_Nothing, // BTN_Plus 
-	MIA_Nothing, // BTN_Minus
-	MIA_IncValue, // BTN_Menu
-	MIA_GotoPrev, // BTN_Exit  
-	MIA_Power, // BTN_Power
-};
-#endif
+
 //============================================================
 //============================================================
 MenuItemType code PowerOffMenuItems[] =
