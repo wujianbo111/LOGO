@@ -4526,6 +4526,31 @@ MenuItemType code HotKeyIEMenuItems[] =
 };
 #endif
 
+MenuItemType code HotKeyGameMenuItems[] =
+{
+	//0 HotKeyGame_Icon
+	{
+		(HOT_MENU_H_SIZE / 2) - (HotKeyMenuIconColumn / 2), 2, // 8, // XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		NotSelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
+		RootMenu, //NextMenuPage;
+		DWI_Icon, // DrawMenuItemType;
+		GameIcon, // DisplayText;
+		HotKeyKeyEvent,// KeyEvent
+		{
+			HotKeyAdjustECOMode, // AdjustFunction
+			NULL	// ExecFunction
+		},// *DisplayValue;
+		{
+			NULL, // DrawNumberType
+			NULL, // DrawGuageType
+			NULL	// DrawRadioGroupType
+		},
+		NULL, //Font
+		mibSelectable // Flags
+	}
+};
+
 //==============================================================================================
 MenuPageType code tblMenus[] =
 {
@@ -5311,5 +5336,17 @@ MenuPageType code tblMenus[] =
 		mpbStay | mpbCenter | mpbRedraw //   Flags;	//110408 Modify
 	},
 	#endif
+
+	// HotKeyGameMenu,
+	{
+		HOT_MENU_H_SIZE, HOT_MENU_V_SIZE, //  XSize, YSize;
+		RootMenu,// PrevMenuPage;
+		HotKeyGameMenuItems, // MenuItems;
+		sizeof( HotKeyGameMenuItems ) / sizeof( MenuItemType ), // MenuItemCount;
+		NULL, // ExecFunction;
+		NULL, // Fonts
+		mpbStay | mpbCenter | mpbRedraw //   Flags;	//110408 Modify
+	},
+
 };
 	

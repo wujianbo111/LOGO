@@ -6486,10 +6486,10 @@
       <FileType>1</FileType>
       <tvExp>1</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>66</ColumnNumber>
+      <ColumnNumber>179</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>2671</TopLine>
-      <CurrentLine>2694</CurrentLine>
+      <CurrentLine>2679</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\UI\HkcOsd\menu.c</PathWithFileName>
       <FilenameWithoutPath>menu.c</FilenameWithoutPath>
@@ -8739,9 +8739,9 @@
         </Doc>
         <Doc>
           <Name>..\..\UI\HkcOsd\menu.c</Name>
-          <ColumnNumber>66</ColumnNumber>
+          <ColumnNumber>179</ColumnNumber>
           <TopLine>2671</TopLine>
-          <CurrentLine>2694</CurrentLine>
+          <CurrentLine>2679</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

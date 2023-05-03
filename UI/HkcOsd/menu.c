@@ -943,7 +943,8 @@ Bool ExecuteKeyEvent(MenuItemActionType menuAction)
 										if(MenuPageIndex == FactoryMenu)
 											Osd_SetTextMonoColor(CP_RedColor, CP_BlueColor);
 										else if(MenuPageIndex == HotKeyStandardMenu || 
-											    MenuPageIndex == HotKeyIEMenu
+											    MenuPageIndex == HotKeyIEMenu ||
+											    MenuPageIndex == HotKeyGameMenu
 											   )
 											Osd_Set256TextColor( NotSelectedForeAndBackColor, Color_2 );
 										else
@@ -1529,6 +1530,17 @@ Bool ExecuteKeyEvent(MenuItemActionType menuAction)
 				KeypadButton = BTN_Repeat;
 				break;
 				#endif
+			case MIA_Game:
+				if (FreeRunModeFlag )
+				{
+					break;
+				}
+				menuAction = MIA_RedrawMenu;
+				MenuPageIndex = HotKeyGameMenu;
+				MenuItemIndex = 0;
+				processEvent = TRUE;
+				KeypadButton = BTN_Repeat;
+				break;
 				#if DDCCI_ENABLE && DDCCCIMenu_Enable&&0
 			case MIA_DDC:
 				if (FreeRunModeFlag )
@@ -2036,7 +2048,8 @@ void DrawOsdMenu(void)
 			#endif
 			if((MenuPageIndex == MainMenu) || 
 			  (MenuPageIndex == HotKeyStandardMenu) ||
-			  (MenuPageIndex == HotKeyIEMenu)
+			  (MenuPageIndex == HotKeyIEMenu) ||
+			  (MenuPageIndex == HotKeyGameMenu)
 			  )
 			{
 				LoadCommonFont();
@@ -2203,7 +2216,8 @@ void DrawOsdMenuItemText(BYTE itemIndex, MenuItemType *menuItem)
 			(MenuPageIndex == LanguageMenu) || 
 			(MenuPageIndex == LowBlueLightMenu) ||
 			(MenuPageIndex == HotKeyStandardMenu) ||
-			(MenuPageIndex == HotKeyIEMenu)
+			(MenuPageIndex == HotKeyIEMenu) ||
+			(MenuPageIndex == HotKeyGameMenu)
 			)
 		{
 			str = menuItem->DisplayText();
@@ -3674,7 +3688,8 @@ void DrawOsdBackGround(void)
 	if ((MenuPageIndex >= MainMenu && MenuPageIndex <= OSD_MiscMenu) || 
 		(MenuPageIndex == LowBlueLightMenu) ||
 		(MenuPageIndex == HotKeyStandardMenu) ||
-		(MenuPageIndex == HotKeyIEMenu)
+		(MenuPageIndex == HotKeyIEMenu) ||
+		(MenuPageIndex == HotKeyGameMenu)
 		)
 	{
 		//»­±³¾°
@@ -3724,7 +3739,8 @@ void DrawOsdBackGround(void)
 			}
 		}
 		else if((MenuPageIndex != HotKeyStandardMenu) && 
-			    (MenuPageIndex != HotKeyIEMenu)
+			    (MenuPageIndex != HotKeyIEMenu) &&
+			    (MenuPageIndex != HotKeyGameMenu)
 			   )
 		{
 			for(i = 1; i <= CurrentMenu.XSize - 2; i++)

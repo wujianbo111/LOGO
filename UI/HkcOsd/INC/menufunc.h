@@ -110,7 +110,7 @@ extern Bool SetMute(void);
 #endif
 #if ECO
 extern Bool AdjustECOMode(MenuItemActionType action);
-#if Hotkey_Standard_Enable
+#if Hotkey_Standard_Enable || Hotkey_IE_Enable
 extern Bool HotKeyAdjustECOMode(MenuItemActionType action);
 #endif
 #endif

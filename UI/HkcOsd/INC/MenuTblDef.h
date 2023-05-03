@@ -45,7 +45,7 @@
 */
 
 #ifndef  MIA_HotKeyExit
-#define	MIA_HotKeyExit		MIA_SourceSel
+#define	MIA_HotKeyExit		MIA_Game//MIA_SourceSel
 #endif
 
 

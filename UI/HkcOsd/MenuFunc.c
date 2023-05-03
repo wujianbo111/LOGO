@@ -3760,7 +3760,7 @@ Bool AdjustECOMode(MenuItemActionType action)
 	return TRUE;
 }
 
-#if Hotkey_Standard_Enable
+#if Hotkey_Standard_Enable || Hotkey_IE_Enable
 Bool HotKeyAdjustECOMode(MenuItemActionType action)
 {
 	UserPrefDcrMode = 0;
@@ -3776,6 +3776,9 @@ Bool HotKeyAdjustECOMode(MenuItemActionType action)
 				break;
 			case HotKeyIEMenu:
 				UserPrefECOMode = ECO_Internet;
+				break;
+			case HotKeyGameMenu:
+				UserPrefECOMode = ECO_Game;
 				break;
 			default:
 				break;
