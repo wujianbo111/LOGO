@@ -998,4 +998,6 @@ typedef struct
 
 #define MainMenuIconLine						4
 #define MainMenuIconCloumn						6
+
+#define TimingInfoForeAndBackColor				0x25
 #endif

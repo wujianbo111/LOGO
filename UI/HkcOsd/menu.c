@@ -2055,6 +2055,10 @@ void DrawOsdMenu(void)
 				{
 					DrawOsdSubMenu(MenuPageIndex);
 				}
+				if(MenuPageIndex == OSD_MiscMenu)
+				{
+					DrawTimingInfo();
+				}
 			}
 			DrawOsdMenuItem( MenuItemIndex, &CurrentMenu.MenuItems[MenuItemIndex] );
 			#if OsdHelpKeyType == OsdHelpKey_Under || OsdHelpKeyType ==	 OsdHelpKey_Right
@@ -2677,7 +2681,7 @@ Bool DrawTimingInfo(void)
 	BYTE xdata TempPropData[5];
 	BYTE xdata number, i, j, Vnumber;
 	WORD xdata FontWide = 0;
-	Osd_Set256TextColor( CP_UnselectItem, Color_2 );
+	Osd_Set256TextColor( TimingInfoForeAndBackColor, Color_2 );
 	OSD_FONT_HI_ADDR_SET_BIT8();//0x100~0x1FF
 	Osd_DynamicLoadFont(ResoulationAddress, ResolutionProp, 27); //20180109  修改分辨率切换到1152x864 60hz 会出现乱码
 	OSD_FONT_HI_ADDR_CLR_TO_0();
@@ -2880,7 +2884,7 @@ Bool DrawTimingInfo(void)
 	ResolutionProp[0] = ResoulationAddress;
 	ResolutionProp[1] = FontWide - 1;
 	OSD_TEXT_HI_ADDR_SET_BIT8(); //enable bit 8
-	Osd_DrawPropStr(18, TimingInfoYpos, ResolutionProp);
+	Osd_DrawPropStr(7, TimingInfoYpos + 4, ResolutionProp);
 	OSD_TEXT_HI_ADDR_CLR_TO_0();
 	return TRUE;
 }
