@@ -159,6 +159,9 @@ typedef enum
 	#if Hotkey_Standard_Enable
 	HotKeyStandardMenu,
 	#endif
+	#if Hotkey_IE_Enable
+	HotKeyIEMenu,
+	#endif
 	
 	MaxMenu
 } MenuPageIndexType;
@@ -340,6 +343,9 @@ typedef enum
 	MIA_DCR,
 	#if Hotkey_Standard_Enable
 	MIA_Standard,
+	#endif
+	#if Hotkey_IE_Enable
+	MIA_IE,
 	#endif
 	
 	MIA_DDC,

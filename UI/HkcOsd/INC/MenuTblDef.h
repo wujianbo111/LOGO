@@ -26,8 +26,10 @@
 #define MIA_HotKeyPlus	MIA_HotCorssMenu
 #elif Hot_Corss_FND_Select
 #define MIA_HotKeyPlus	MIA_HotCorssMenu
-#elif Enable_Func_AdjExpansion
+#elif !Enable_Func_AdjExpansion
 #define MIA_HotKeyPlus	MIA_Expansion//MIA_HotCorssMenu
+#elif Hotkey_IE_Enable
+#define MIA_HotKeyPlus	MIA_IE
 #else
 #define MIA_HotKeyPlus	MIA_Nothing
 #endif
@@ -483,8 +485,8 @@ MenuItemActionType code OffPowerWarningKeyEvent[BTN_EndBTN] =
 };
 #endif
 
-#if Hotkey_Standard_Enable
-MenuItemActionType code HotKeyStandardKeyEvent[BTN_EndBTN] = 
+#if Hotkey_Standard_Enable || Hotkey_IE_Enable
+MenuItemActionType code HotKeyKeyEvent[BTN_EndBTN] = 
 {
 	MIA_Nothing, // BTN_Plus 
 	MIA_Nothing, // BTN_Minus

@@ -559,6 +559,10 @@ void LoadCommonFont(void)
 	{
 		mStar_LoadCompressedFont( GET_FONT_RAM_ADDR(_2ColorHotIconStart), tMonoStandard, 0 );
 	}
+	else if(MenuPageIndex == HotKeyIEMenu)
+	{
+		mStar_LoadCompressedFont( GET_FONT_RAM_ADDR(_2ColorHotIconStart), tMonoIE, 0 );
+	}
 	#else
 	mStar_LoadCompressedFont( MonoGuageFontStar, tMonoGauge, 0 );
 	#endif

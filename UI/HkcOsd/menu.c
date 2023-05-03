@@ -942,7 +942,9 @@ Bool ExecuteKeyEvent(MenuItemActionType menuAction)
 								#endif
 										if(MenuPageIndex == FactoryMenu)
 											Osd_SetTextMonoColor(CP_RedColor, CP_BlueColor);
-										else if(MenuPageIndex == HotKeyStandardMenu)
+										else if(MenuPageIndex == HotKeyStandardMenu || 
+											    MenuPageIndex == HotKeyIEMenu
+											   )
 											Osd_Set256TextColor( NotSelectedForeAndBackColor, Color_2 );
 										else
 											Osd_Set256TextColor( SelectedForeAndBackColor, Color_2 );
@@ -1514,6 +1516,19 @@ Bool ExecuteKeyEvent(MenuItemActionType menuAction)
 				KeypadButton = BTN_Repeat;
 				break;
 				#endif
+				#if Hotkey_IE_Enable
+			case MIA_IE:
+				if (FreeRunModeFlag )
+				{
+					break;
+				}
+				menuAction = MIA_RedrawMenu;
+				MenuPageIndex = HotKeyIEMenu;
+				MenuItemIndex = 0;
+				processEvent = TRUE;
+				KeypadButton = BTN_Repeat;
+				break;
+				#endif
 				#if DDCCI_ENABLE && DDCCCIMenu_Enable&&0
 			case MIA_DDC:
 				if (FreeRunModeFlag )
@@ -2019,7 +2034,10 @@ void DrawOsdMenu(void)
 				DrawOsdMenuItem(0, &CurrentMenu.MenuItems[0]);
 			else
 			#endif
-			if(MenuPageIndex == MainMenu || MenuPageIndex == HotKeyStandardMenu)
+			if((MenuPageIndex == MainMenu) || 
+			  (MenuPageIndex == HotKeyStandardMenu) ||
+			  (MenuPageIndex == HotKeyIEMenu)
+			  )
 			{
 				LoadCommonFont();
 				if(MenuPageIndex == MainMenu)
@@ -2184,7 +2202,8 @@ void DrawOsdMenuItemText(BYTE itemIndex, MenuItemType *menuItem)
 			(MenuPageIndex >= ColorTempMenu && MenuPageIndex <= BlueMenu) ||
 			(MenuPageIndex == LanguageMenu) || 
 			(MenuPageIndex == LowBlueLightMenu) ||
-			(MenuPageIndex == HotKeyStandardMenu)
+			(MenuPageIndex == HotKeyStandardMenu) ||
+			(MenuPageIndex == HotKeyIEMenu)
 			)
 		{
 			str = menuItem->DisplayText();
@@ -3654,7 +3673,8 @@ void DrawOsdBackGround(void)
 	BYTE i;
 	if ((MenuPageIndex >= MainMenu && MenuPageIndex <= OSD_MiscMenu) || 
 		(MenuPageIndex == LowBlueLightMenu) ||
-		(MenuPageIndex == HotKeyStandardMenu)
+		(MenuPageIndex == HotKeyStandardMenu) ||
+		(MenuPageIndex == HotKeyIEMenu)
 		)
 	{
 		//»­±³¾°
@@ -3703,51 +3723,14 @@ void DrawOsdBackGround(void)
 				}
 			}
 		}
-		else if(MenuPageIndex != HotKeyStandardMenu)
+		else if((MenuPageIndex != HotKeyStandardMenu) && 
+			    (MenuPageIndex != HotKeyIEMenu)
+			   )
 		{
 			for(i = 1; i <= CurrentMenu.XSize - 2; i++)
 			{
 				Osd_DrawCharDirect(i, 0x07, DefineTransverseLine3);
 			}
-		}
-	}
-	else if ( (MenuPageIndex >= HotKeyECOMenu && MenuPageIndex <= AutoMenu)
-	          || MenuPageIndex == InputInfoMenu
-          #ifdef OffPower
-	          || MenuPageIndex == OffPowerWarningMenu//20110310-98
-          #endif
-	          || MenuPageIndex < RootMenu )
-	{
-		Osd_SetTextMonoColor(0x00, 0x0E);
-		for (i = 0; i <= OsdWindowHeight - 1; i++)
-		{
-			Osd_DrawContinuesChar( 0, i, SpaceFont, OsdWindowWidth);
-		}
-		Osd_SetTextMonoColor(0x06, CPC_TranColor);
-		Osd_DrawCharDirect( 0, 0, MonoFrame_LT );
-		Osd_DrawCharDirect( OsdWindowWidth - 1, 0, MonoFrame_RT );
-		Osd_DrawCharDirect( 0, OsdWindowHeight - 1, MonoFrame_LD );
-		Osd_DrawCharDirect( OsdWindowWidth - 1, OsdWindowHeight - 1, MonoFrame_RD );
-		Osd_SetTextMonoColor(0, 2);
-		for(i = 1; i <= CurrentMenu.XSize - 2; i++)
-		{
-			Osd_DrawCharDirect(i, 0, SpaceFont);
-			Osd_DrawCharDirect(i, CurrentMenu.YSize - 1, SpaceFont);
-		}
-		Osd_SetTextMonoColor(1, 7);
-		Osd_DrawCharDirect(0, 1, AutoMenuFrameLeftSide_1);
-		Osd_DrawCharDirect(0, CurrentMenu.YSize - 2, AutoMenuFrameLeftSide_3);
-		Osd_DrawCharDirect(CurrentMenu.XSize - 1, 1, AutoMenuFrameRightSide_1);
-		Osd_DrawCharDirect(CurrentMenu.XSize - 1, CurrentMenu.YSize - 2, AutoMenuFrameRightSide_3);
-		for(i = 2; i <= CurrentMenu.YSize - 3; i++)
-		{
-			Osd_DrawCharDirect(0, i, AutoMenuFrameLeftSide_2);
-			Osd_DrawCharDirect(CurrentMenu.XSize - 1, i, AutoMenuFrameRightSide_2);
-		}
-		for(i = 1; i <= CurrentMenu.XSize - 2; i++)
-		{
-			Osd_DrawCharDirect(i, 1, AutoMenuFrameMide_Top);
-			Osd_DrawCharDirect(i, CurrentMenu.YSize - 2, AutoMenuFrameMide_Bottom);
 		}
 	}
 }

@@ -207,6 +207,8 @@
 #define Hot_Corss_FY_ColorSelect				0
 #define	Hotkey_ECO_Enable						0
 #define Hotkey_Standard_Enable					1
+#define Hotkey_IE_Enable						1
+
 #define AdjustLanguageFunction            	1
 
 #define LowBlueLightType						LowBlueLight_Misc_Group

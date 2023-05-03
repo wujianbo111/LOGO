@@ -3774,6 +3774,9 @@ Bool HotKeyAdjustECOMode(MenuItemActionType action)
 			case HotKeyStandardMenu:
 				UserPrefECOMode = ECO_Standard;
 				break;
+			case HotKeyIEMenu:
+				UserPrefECOMode = ECO_Internet;
+				break;
 			default:
 				break;
 		}
