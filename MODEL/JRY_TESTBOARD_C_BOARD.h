@@ -208,6 +208,7 @@
 #define	Hotkey_ECO_Enable						0
 #define Hotkey_Standard_Enable					1
 #define Hotkey_IE_Enable						1
+#define Hotkey_Movie_Enable						1
 
 #define AdjustLanguageFunction            	1
 
@@ -262,7 +263,7 @@
 
 
 #define ADCKEY_A0       KEY_MENU
-#define ADCKEY_A1       KEY_NOTHING
+#define ADCKEY_A1       KEY_MOVIE//KEY_NOTHING
 #define ADCKEY_A2       KEY_NOTHING
 
 #define ADCKEY_B0       KEY_PLUS

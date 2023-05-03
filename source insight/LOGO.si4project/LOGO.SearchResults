@@ -1,17 +1,5 @@
----- dwiRadioGroup Matches (16 in 3 files) ----
-DrawOsdMenuItemRadioGroup in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 				if( drawItem->Flags & dwiRadioGroup )
-menudef.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 822 : #define dwiRadioGroup   0x04
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 28 : 	{dwiEnd | dwiRadioGroup | dwiCenterText,		MainMenuIcon_DrawXPos + 0x02, 		MainMenuIcon_DrawYPos + 2 * MAIN_BriContrast_ITEM + 3,		MainMenu_BrightText}
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 39 : 	{dwiEnd | dwiRadioGroup | dwiCenterText,		MainMenuIcon_DrawXPos + 0x0E, 		MainMenuIcon_DrawYPos + 2 * MAIN_Picture_ITEM + 1,		MainMenu_ImageText}
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 50 : 	{dwiEnd | dwiRadioGroup | dwiCenterText,		MainMenuIcon_DrawXPos + 0x02,		 MainMenuIcon_DrawYPos + 2 * MAIN_RGBColor_ITEM + 6,		MainMenu_ColorText}
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 61 : 	{dwiEnd | dwiRadioGroup | dwiCenterText,		MainMenuIcon_DrawXPos + 0x0E,		 MainMenuIcon_DrawYPos + 2 * MAIN_Osd_ITEM + 4,		MainMenu_OSDText}
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 72 : 	{dwiEnd | dwiRadioGroup | dwiCenterText,		MainMenuIcon_DrawXPos + 0x02, 		MainMenuIcon_DrawYPos + 2 * MAIN_Setting_ITEM + 9,		MainMenu_ResetText}
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 83 : 	{dwiEnd | dwiRadioGroup | dwiCenterText,		MainMenuIcon_DrawXPos + 0x0E, 		MainMenuIcon_DrawYPos + 2 * MAIN_Misc_ITEM + 7,		MainMenu_MiscText}
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 253 : 	{dwiEnd | dwiRadioGroup | dwiCenterText,		(MAIN_MENU_H_SIZE / 2) - (MainMenuIconCloumn / 2 + 1), 		MainMenuIcon_DrawYPos + 2 * MAIN_BriContrast_ITEM + 3,		MainMenu_BrightText}
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 819 : 	{dwiEnd | dwiRadioGroup | dwiCenterText,		(MAIN_MENU_H_SIZE / 2) - (MainMenuIconCloumn / 2 + 1), 		MainMenuIcon_DrawYPos + 2 * MAIN_Picture_ITEM + 1,		MainMenu_ImageText}
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 1203 : 	{dwiEnd | dwiRadioGroup | dwiCenterText,		(MAIN_MENU_H_SIZE / 2) - (MainMenuIconCloumn / 2 + 1), 		MainMenuIcon_DrawYPos + 2 * MAIN_RGBColor_ITEM - 1,		MainMenu_ColorText}
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 1718 : 	{dwiEnd | dwiRadioGroup | dwiCenterText,		(MAIN_MENU_H_SIZE / 2) - (MainMenuIconCloumn / 2 + 1), MainMenuIcon_DrawYPos + 2 * MAIN_Osd_ITEM - 3,		MainMenu_OSDText}
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 1743 : 	{dwiEnd | dwiRadioGroup | dwiCenterText,		(MAIN_MENU_H_SIZE / 2) - (MainMenuIconCloumn / 2 + 1), MainMenuIcon_DrawYPos + 2 * MAIN_Setting_ITEM - 5,		MainMenu_ResetText}
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 2635 : 	{dwiEnd | dwiRadioGroup | dwiCenterText,		(MAIN_MENU_H_SIZE / 2) - (MainMenuIconCloumn / 2 + 1), MainMenuIcon_DrawYPos + 2 * MAIN_Misc_ITEM - 7,		MainMenu_MiscText}
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4148 : 	{dwiRadioGroup | dwiCenterText | dwiEnd, 8, 3,     ECOModeValue},
-MenuTbl.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 4200 : 	{dwiRadioGroup | dwiEnd,	20, 4,  	DDCCIValueText},
+---- Key_ScanKeypad Matches (4 in 4 files) ----
+Keypad.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) line 1430 : BOOL Key_ScanKeypad(void)
+Keypad.h (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd\INC) line 6 : extern BOOL Key_ScanKeypad(void);
+Menu_OsdHandler in menu.c (H:\JRY\LOGO\TSUM_TEXT_1\UI\HkcOsd) : 		Key_ScanKeypad();
+msPM_GetPMStatus in Ms_PM.c (H:\JRY\LOGO\TSUM_TEXT_1\KERNEL\SCALER) : 		Key_ScanKeypad();

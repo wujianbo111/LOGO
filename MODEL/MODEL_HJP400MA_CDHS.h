@@ -219,7 +219,7 @@
 
 
 #define ADCKEY_A0       KEY_MENU
-#define ADCKEY_A1       KEY_NOTHING
+#define ADCKEY_A1       KEY_MOVIE//KEY_NOTHING
 #define ADCKEY_A2       KEY_NOTHING
 
 #define ADCKEY_B0       KEY_PLUS

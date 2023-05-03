@@ -6486,10 +6486,10 @@
       <FileType>1</FileType>
       <tvExp>1</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>95</ColumnNumber>
+      <ColumnNumber>158</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>2671</TopLine>
-      <CurrentLine>2688</CurrentLine>
+      <TopLine>3698</TopLine>
+      <CurrentLine>3698</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\UI\HkcOsd\menu.c</PathWithFileName>
       <FilenameWithoutPath>menu.c</FilenameWithoutPath>
@@ -7263,7 +7263,7 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>56</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1594</TopLine>
       <CurrentLine>1625</CurrentLine>
@@ -8733,15 +8733,15 @@
         </Doc>
         <Doc>
           <Name>..\..\UI\HkcOsd\Keypad.c</Name>
-          <ColumnNumber>56</ColumnNumber>
+          <ColumnNumber>0</ColumnNumber>
           <TopLine>1594</TopLine>
           <CurrentLine>1625</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\UI\HkcOsd\menu.c</Name>
-          <ColumnNumber>95</ColumnNumber>
-          <TopLine>2671</TopLine>
-          <CurrentLine>2688</CurrentLine>
+          <ColumnNumber>158</ColumnNumber>
+          <TopLine>3698</TopLine>
+          <CurrentLine>3698</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

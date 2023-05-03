@@ -567,6 +567,10 @@ void LoadCommonFont(void)
 	{
 		mStar_LoadCompressedFont( GET_FONT_RAM_ADDR(_2ColorHotIconStart), tMonoGame, 0 );
 	}
+	else if(MenuPageIndex == HotKeyMovieMenu)
+	{
+		mStar_LoadCompressedFont( GET_FONT_RAM_ADDR(_2ColorHotIconStart), tMonoMovie, 0 );
+	}
 	#else
 	mStar_LoadCompressedFont( MonoGuageFontStar, tMonoGauge, 0 );
 	#endif

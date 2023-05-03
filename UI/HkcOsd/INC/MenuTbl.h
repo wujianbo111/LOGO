@@ -4551,6 +4551,32 @@ MenuItemType code HotKeyGameMenuItems[] =
 	}
 };
 
+#if Hotkey_Movie_Enable
+MenuItemType code HotKeyMovieMenuItems[] =
+{
+	//0 HotKeyMovie_Icon
+	{
+		(HOT_MENU_H_SIZE / 2) - (HotKeyMenuIconColumn / 2), 2, // 8, // XPos, YPos;
+		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
+		NotSelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
+		RootMenu, //NextMenuPage;
+		DWI_Icon, // DrawMenuItemType;
+		MovieIcon, // DisplayText;
+		HotKeyKeyEvent,// KeyEvent
+		{
+			HotKeyAdjustECOMode, // AdjustFunction
+			NULL	// ExecFunction
+		},// *DisplayValue;
+		{
+			NULL, // DrawNumberType
+			NULL, // DrawGuageType
+			NULL	// DrawRadioGroupType
+		},
+		NULL, //Font
+		mibSelectable // Flags
+	}
+};
+#endif
 //==============================================================================================
 MenuPageType code tblMenus[] =
 {
@@ -5348,5 +5374,17 @@ MenuPageType code tblMenus[] =
 		mpbStay | mpbCenter | mpbRedraw //   Flags;	//110408 Modify
 	},
 
+	#if Hotkey_Movie_Enable
+	// HotKeyMovieMenu,
+		{
+		HOT_MENU_H_SIZE, HOT_MENU_V_SIZE, //  XSize, YSize;
+		RootMenu,// PrevMenuPage;
+		HotKeyMovieMenuItems, // MenuItems;
+		sizeof( HotKeyMovieMenuItems ) / sizeof( MenuItemType ), // MenuItemCount;
+		NULL, // ExecFunction;
+		NULL, // Fonts
+		mpbStay | mpbCenter | mpbRedraw //   Flags;	//110408 Modify
+	},
+	#endif
 };
 	

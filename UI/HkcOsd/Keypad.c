@@ -70,7 +70,7 @@ xdata BYTE KeypadButton = BTN_Nothing;
 #if (ModelName==JRY_TESTBOARD_C_BOARD)
 BYTE Key_GetKeypadStatus( void )
 {
-	BYTE u8Keypad = 0xFF;
+	WORD u8Keypad = 0xFF;
 	BYTE u8Temp = 0;
 	BYTE u8Temp1 = 0;
 	BYTE retry_Key = 5;
@@ -1545,6 +1545,19 @@ BOOL Key_ScanKeypad(void)
 					}
 					else
 						KeypadButton = BTN_Power;
+				}
+				else if(keypadStatus == KEY_MOVIE)
+				{
+					if (MenuPageIndex == RootMenu ) 	//120425 Modify
+					{
+						if (KeypadButton == BIN_Movie || KeypadButton == BTN_Repeat)
+							KeypadButton = BTN_Repeat;
+						else
+							KeypadButton = BIN_Movie;
+						Delay1ms(100);
+					}
+					else
+						KeypadButton = BIN_Movie;
 				}
 				else
 				{

@@ -417,6 +417,8 @@ void Menu_OsdHandler(void)
 			KeypadButton = BTN_Plus;
 		else if(KeyDebug == KEY_POWER)
 			KeypadButton = BTN_Power;
+		else if(KeyDebug == KEY_MOVIE)
+			KeypadButton = BIN_Movie;
 		#endif
 		#if Enable_ButtonKeyLongPressFunction
 		#if Enable_Exit_LongPressKeyFunction
@@ -944,7 +946,8 @@ Bool ExecuteKeyEvent(MenuItemActionType menuAction)
 											Osd_SetTextMonoColor(CP_RedColor, CP_BlueColor);
 										else if(MenuPageIndex == HotKeyStandardMenu || 
 											    MenuPageIndex == HotKeyIEMenu ||
-											    MenuPageIndex == HotKeyGameMenu
+											    MenuPageIndex == HotKeyGameMenu ||
+											    MenuPageIndex == HotKeyMovieMenu
 											   )
 											Osd_Set256TextColor( NotSelectedForeAndBackColor, Color_2 );
 										else
@@ -1541,6 +1544,19 @@ Bool ExecuteKeyEvent(MenuItemActionType menuAction)
 				processEvent = TRUE;
 				KeypadButton = BTN_Repeat;
 				break;
+				#if Hotkey_Movie_Enable
+			case MIA_Movie:
+				if (FreeRunModeFlag )
+				{
+					break;
+				}
+				menuAction = MIA_RedrawMenu;
+				MenuPageIndex = HotKeyMovieMenu;
+				MenuItemIndex = 0;
+				processEvent = TRUE;
+				KeypadButton = BTN_Repeat;
+				break;
+				#endif
 				#if DDCCI_ENABLE && DDCCCIMenu_Enable&&0
 			case MIA_DDC:
 				if (FreeRunModeFlag )
@@ -2049,7 +2065,8 @@ void DrawOsdMenu(void)
 			if((MenuPageIndex == MainMenu) || 
 			  (MenuPageIndex == HotKeyStandardMenu) ||
 			  (MenuPageIndex == HotKeyIEMenu) ||
-			  (MenuPageIndex == HotKeyGameMenu)
+			  (MenuPageIndex == HotKeyGameMenu) ||
+			  (MenuPageIndex == HotKeyMovieMenu)
 			  )
 			{
 				LoadCommonFont();
@@ -2217,7 +2234,8 @@ void DrawOsdMenuItemText(BYTE itemIndex, MenuItemType *menuItem)
 			(MenuPageIndex == LowBlueLightMenu) ||
 			(MenuPageIndex == HotKeyStandardMenu) ||
 			(MenuPageIndex == HotKeyIEMenu) ||
-			(MenuPageIndex == HotKeyGameMenu)
+			(MenuPageIndex == HotKeyGameMenu) ||
+			(MenuPageIndex == HotKeyMovieMenu)
 			)
 		{
 			str = menuItem->DisplayText();
@@ -3689,7 +3707,8 @@ void DrawOsdBackGround(void)
 		(MenuPageIndex == LowBlueLightMenu) ||
 		(MenuPageIndex == HotKeyStandardMenu) ||
 		(MenuPageIndex == HotKeyIEMenu) ||
-		(MenuPageIndex == HotKeyGameMenu)
+		(MenuPageIndex == HotKeyGameMenu) ||
+		(MenuPageIndex == HotKeyMovieMenu)
 		)
 	{
 		//»­±³¾°
@@ -3740,7 +3759,8 @@ void DrawOsdBackGround(void)
 		}
 		else if((MenuPageIndex != HotKeyStandardMenu) && 
 			    (MenuPageIndex != HotKeyIEMenu) &&
-			    (MenuPageIndex != HotKeyGameMenu)
+			    (MenuPageIndex != HotKeyGameMenu) &&
+			    (MenuPageIndex != HotKeyMovieMenu)
 			   )
 		{
 			for(i = 1; i <= CurrentMenu.XSize - 2; i++)

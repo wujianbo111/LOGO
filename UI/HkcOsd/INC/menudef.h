@@ -163,6 +163,9 @@ typedef enum
 	HotKeyIEMenu,
 	#endif
 	HotKeyGameMenu,
+	#if Hotkey_Movie_Enable
+	HotKeyMovieMenu,
+	#endif
 	
 	MaxMenu
 } MenuPageIndexType;
@@ -349,6 +352,9 @@ typedef enum
 	MIA_IE,
 	#endif
 	MIA_Game,
+	#if Hotkey_Movie_Enable
+	MIA_Movie,
+	#endif
 	
 	MIA_DDC,
 	MIA_SourceSel, //2006-02-22

@@ -48,7 +48,9 @@
 #define	MIA_HotKeyExit		MIA_Game//MIA_SourceSel
 #endif
 
-
+#if Hotkey_Movie_Enable
+#define MIA_HotKeyMovie		MIA_Movie
+#endif
 //======DcrHotKey=========
 
 #if HKC_INPUTSELECT_MODE
@@ -403,8 +405,8 @@ MenuItemActionType code RootKeyEvent[BTN_EndBTN] =
 	MIA_HotKeyMinus,	//BTN_Minus
 	MIA_HotKeyMenu, 	//BTN_Menu
 	MIA_HotKeyExit,		//BTN_Exit
-	MIA_Power,		// BTN_Power
-
+	MIA_Power,			//BTN_Power
+	MIA_HotKeyMovie,	//BIN_Movie
 };
 
 //============================================================
