@@ -869,15 +869,17 @@ Bool ExecuteKeyEvent(MenuItemActionType menuAction)
 						#if AdjustLanguageFunction
 						else if( MenuPageIndex == LanguageMenu )
 						{
-							Osd_SetTextMonoColor(DefineBlack, DefineBlack);
-							Osd_DrawContinuesChar((MAIN_MENU_H_SIZE / 2 - 1) - (MainMenuIconCloumn / 2) - 7, MainMenuIcon_DrawYPos + 2 * MAIN_Osd_ITEM - 3, SpaceFont, 18);
-							Osd_DrawContinuesChar(CurrentMenuItem.XPos + 8, CurrentMenuItem.YPos, SpaceFont, 13);
-							for(tempValue = SUB_TEXT_YPOS + 4; tempValue <= 0x10; tempValue += 2)
-							{
-								Osd_DrawContinuesChar(SUB_TEXT_XPOS - 5, tempValue, SpaceFont, 9);
-							}
-							LoadCommonFont();
+							for(tempValue = SUB_TEXT_YPOS; tempValue < 0x0F; tempValue += 2)
+								Osd_DrawContinuesChar( SUB_TEXT_XPOS, tempValue, SpaceFont, 0x27 - SUB_TEXT_XPOS);
+							Osd_SetTextMonoColor(0x00, 0x06);
+							Osd_DrawContinuesChar( 2, 1, SpaceFont, 0x27);
+							LoadLanguageStatusPropfont();
+							MenuPageIndex = MainMenu;
+							MenuItemIndex = MAIN_Osd_ITEM;
+							DrawOsdMenuItemRadioGroup(MAIN_Osd_ITEM, CurrentMenuItems[MAIN_Osd_ITEM].DisplayValue.DrawRadioGroup);
 							DrawOsdSubMenu( OsdMenu );
+							MenuPageIndex = LanguageMenu;
+							MenuItemIndex = 0 ;
 						}
 						#endif
 						#if FreeSyncMenu_Enable
@@ -2157,9 +2159,7 @@ void DrawOsdMenuItemText(BYTE itemIndex, MenuItemType *menuItem)
 		#endif
 		//printData("DWI_Icon[%d]",itemIndex);
 		if ((MenuPageIndex >= MainMenu && MenuPageIndex <= OSD_MiscMenu) ||
-			(MenuPageIndex >= BrightnessMenu && MenuPageIndex <= DCRMenu) ||
-			(MenuPageIndex >= ColorTempMenu && MenuPageIndex <= BlueMenu) ||
-			(MenuPageIndex == LanguageMenu)
+			(MenuPageIndex >= BrightnessMenu && MenuPageIndex <= DCRMenu)
 			)
 		{
 			str = menuItem->DisplayText();
@@ -2553,8 +2553,8 @@ void DrawOsdMenuItemRadioGroup(BYTE itemIndex, DrawRadioGroupType *radioItem)
 					if( drawItem->Flags & dwiCenterArrowAlign )
 					{
 						tmplength = *( drawItem->DisplayText() + 1 );
-						xPos = (drawItem->XPos + CENTER_ALIGN_STARTPOS) + (CENTER_ALIGN_LEN - tmplength + 1) / 2 + 1;
-						Osd_DrawCharDirect( drawItem->XPos + CENTER_ALIGN_STARTPOS + 2, drawItem->YPos, MonoMark_Left);
+						xPos = (drawItem->XPos + CENTER_ALIGN_STARTPOS) + (CENTER_ALIGN_LEN - tmplength + 1) / 2;
+						Osd_DrawCharDirect( drawItem->XPos + CENTER_ALIGN_STARTPOS, drawItem->YPos, MonoMark_Left);
 						Osd_DrawCharDirect( drawItem->XPos + CENTER_ALIGN_ENDPOS, drawItem->YPos, MonoMark_Right);
 						#if ENABLE_OVER_SCAN//1//Eson20130116
 						if ( drawItem->DisplayText == ExpansionValueText)

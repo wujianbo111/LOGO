@@ -261,7 +261,7 @@ DrawRadioGroupType code DrawBrightnessTextRatioGroup1[] =
 NumberType code BrightnessNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{dwiEnd,          NumXposion + 2, ( SUB_TEXT_YPOS + IconShift * BriContrast_BRIGHTNESS_ITEM + 1 ), GetBrightnessValue},
+	{dwiEnd,          NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * BriContrast_BRIGHTNESS_ITEM + 1 ), GetBrightnessValue},
 };
 DrawNumberType code DrawBrightnessNumber[] =
 {
@@ -272,7 +272,7 @@ DrawNumberType code DrawBrightnessNumber[] =
 GaugeType code BrightnessGuage[] =
 {
 	// Flags, ForeColor,    BackColor,  Length,     GetValue
-	{dwiEnd,         GaugeXPosition - 10, ( SUB_TEXT_YPOS + BriContrast_BRIGHTNESS_ITEM * IconShift + 2),  GetBrightnessValue},
+	{dwiEnd,         GaugeXPosition - 11, ( SUB_TEXT_YPOS + BriContrast_BRIGHTNESS_ITEM * IconShift + 2),  GetBrightnessValue},
 };
 DrawGuageType code DrawBrightnessGuage[] =
 {
@@ -283,7 +283,7 @@ DrawGuageType code DrawBrightnessGuage[] =
 NumberType code ContrastNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{dwiEnd,          NumXposion + 2, ( SUB_TEXT_YPOS + IconShift * BriContrast_CONTRAST_ITEM + 1), GetContrastValue},
+	{dwiEnd,          NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * BriContrast_CONTRAST_ITEM + 1), GetContrastValue},
 };
 DrawNumberType code DrawContrastNumber[] =
 {
@@ -294,7 +294,7 @@ DrawNumberType code DrawContrastNumber[] =
 GaugeType code ContrastGuage[] =
 {
 	// Flags, ForeColor,    BackColor,  Length,     GetValue
-	{dwiEnd,             GaugeXPosition - 10, ( SUB_TEXT_YPOS + IconShift * BriContrast_CONTRAST_ITEM + 2),  GetContrastValue},
+	{dwiEnd,             GaugeXPosition - 11, ( SUB_TEXT_YPOS + IconShift * BriContrast_CONTRAST_ITEM + 2),  GetContrastValue},
 };
 DrawGuageType code DrawContrastGuage[] =
 {
@@ -827,7 +827,7 @@ DrawRadioGroupType code DrawImageTextRatioGroup1[] =
 NumberType code HPositionNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{dwiEnd,       NumXposion + 2, ( SUB_TEXT_YPOS + IconShift * Picture_HPOSITION_ITEM + 1), GetHPositionValue},
+	{dwiEnd,       NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * Picture_HPOSITION_ITEM + 1), GetHPositionValue},
 };
 DrawNumberType code DrawHPositionNumber[] =
 {
@@ -838,7 +838,7 @@ DrawNumberType code DrawHPositionNumber[] =
 GaugeType code HPositionGuage[] =
 {
 	// Flags, ForeColor,    BackColor,  Length,     GetValue
-	{dwiEnd,    GaugeXPosition - 10, ( SUB_TEXT_YPOS + IconShift * Picture_HPOSITION_ITEM + 2),   GetHPositionValue},
+	{dwiEnd,    GaugeXPosition - 11, ( SUB_TEXT_YPOS + IconShift * Picture_HPOSITION_ITEM + 2),   GetHPositionValue},
 };
 DrawGuageType code DrawHPositionGuage[] =
 {
@@ -850,7 +850,7 @@ DrawGuageType code DrawHPositionGuage[] =
 NumberType code VPositionNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{dwiEnd,       NumXposion + 2, ( SUB_TEXT_YPOS + IconShift * Picture_VPOSITION_ITEM + 1),    GetVPositionValue},
+	{dwiEnd,       NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * Picture_VPOSITION_ITEM + 1),    GetVPositionValue},
 };
 DrawNumberType code DrawVPositionNumber[] =
 {
@@ -861,7 +861,7 @@ DrawNumberType code DrawVPositionNumber[] =
 GaugeType code VPositionGuage[] =
 {
 	// Flags, ForeColor,    BackColor,  Length,     GetValue
-	{dwiEnd,            GaugeXPosition - 10, ( SUB_TEXT_YPOS + IconShift * Picture_VPOSITION_ITEM + 2),  GetVPositionValue},
+	{dwiEnd,            GaugeXPosition - 11, ( SUB_TEXT_YPOS + IconShift * Picture_VPOSITION_ITEM + 2),  GetVPositionValue},
 };
 DrawGuageType code DrawVPositionGuage[] =
 {
@@ -872,7 +872,7 @@ DrawGuageType code DrawVPositionGuage[] =
 NumberType code ClockNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{ dwiEnd,      NumXposion + 2, ( SUB_TEXT_YPOS + IconShift * Picture_CLOCK_ITEM + 1),  GetClockValue},
+	{ dwiEnd,      NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * Picture_CLOCK_ITEM + 1),  GetClockValue},
 };
 DrawNumberType code DrawClockNumber[] =
 {
@@ -883,7 +883,7 @@ DrawNumberType code DrawClockNumber[] =
 GaugeType code ClockGuage[] =
 {
 	// Flags, ForeColor,    BackColor,  Length,     GetValue
-	{dwiEnd,             GaugeXPosition - 10, ( SUB_TEXT_YPOS + IconShift * Picture_CLOCK_ITEM + 2),   GetClockValue},
+	{dwiEnd,             GaugeXPosition - 11, ( SUB_TEXT_YPOS + IconShift * Picture_CLOCK_ITEM + 2),   GetClockValue},
 };
 DrawGuageType code DrawClockGuage[] =
 {
@@ -895,7 +895,7 @@ DrawGuageType code DrawClockGuage[] =
 NumberType code FocusNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{dwiEnd,       NumXposion + 2, ( SUB_TEXT_YPOS + IconShift * Picture_PHASE_ITEM + 1), GetFocusValue},
+	{dwiEnd,       NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * Picture_PHASE_ITEM + 1), GetFocusValue},
 };
 DrawNumberType code DrawFocusNumber[] =
 {
@@ -906,7 +906,7 @@ DrawNumberType code DrawFocusNumber[] =
 GaugeType code FocusGuage[] =
 {
 	// Flags, ForeColor,    BackColor,  Length,     GetValue
-	{dwiEnd,            GaugeXPosition - 10, ( SUB_TEXT_YPOS + IconShift * Picture_PHASE_ITEM + 2),   GetFocusValue},
+	{dwiEnd,            GaugeXPosition - 11, ( SUB_TEXT_YPOS + IconShift * Picture_PHASE_ITEM + 2),   GetFocusValue},
 };
 DrawGuageType code DrawFocusGuage[] =
 {
@@ -1223,7 +1223,7 @@ DrawRadioGroupType code DrawColorTempSelectIconRatioText[] =
 NumberType code UserColorRedNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{dwiEnd,          NumXposion + 2, ( SUB_TEXT_YPOS + IconShift * RGB_Red_Item + 1),  GetRedColorValue},
+	{dwiEnd,          NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * RGB_Red_Item + 1),  GetRedColorValue},
 };
 DrawNumberType code DrawUserColorRedNumber[] =
 {
@@ -1234,7 +1234,7 @@ DrawNumberType code DrawUserColorRedNumber[] =
 GaugeType code UserColorRedGuage[] =
 {
 	// Flags, ForeColor,    BackColor,  Length,     GetValue
-	{dwiEnd,             GaugeXPosition - 10, ( SUB_TEXT_YPOS + IconShift * RGB_Red_Item + 2),   GetRedColorValue},
+	{dwiEnd,             GaugeXPosition - 11, ( SUB_TEXT_YPOS + IconShift * RGB_Red_Item + 2),   GetRedColorValue},
 };
 DrawGuageType code DrawUserColorRedGuage[] =
 {
@@ -1246,7 +1246,7 @@ DrawGuageType code DrawUserColorRedGuage[] =
 NumberType code UserColorGreenNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{dwiEnd,          NumXposion + 2, ( SUB_TEXT_YPOS + IconShift * RGB_Green_Item + 1),  GetGreenColorValue},
+	{dwiEnd,          NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * RGB_Green_Item + 1),  GetGreenColorValue},
 };
 DrawNumberType code DrawUserColorGreenNumber[] =
 {
@@ -1257,7 +1257,7 @@ DrawNumberType code DrawUserColorGreenNumber[] =
 GaugeType code UserColorGreenGuage[] =
 {
 	// Flags, ForeColor,    BackColor,  Length,     GetValue
-	{dwiEnd,             GaugeXPosition - 10, ( SUB_TEXT_YPOS + IconShift * RGB_Green_Item + 2),   GetGreenColorValue},
+	{dwiEnd,             GaugeXPosition - 11, ( SUB_TEXT_YPOS + IconShift * RGB_Green_Item + 2),   GetGreenColorValue},
 };
 DrawGuageType code DrawUserColorGreenGuage[] =
 {
@@ -1269,7 +1269,7 @@ DrawGuageType code DrawUserColorGreenGuage[] =
 NumberType code UserColorBlueNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{dwiEnd,          NumXposion + 2, ( SUB_TEXT_YPOS + IconShift * RGB_Blue_Item + 1), GetBlueColorValue},
+	{dwiEnd,          NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * RGB_Blue_Item + 1), GetBlueColorValue},
 };
 DrawNumberType code DrawUserColorBlueNumber[] =
 {
@@ -1280,7 +1280,7 @@ DrawNumberType code DrawUserColorBlueNumber[] =
 GaugeType code UserColorBlueGuage[] =
 {
 	// Flags, ForeColor,    BackColor,  Length,     GetValue
-	{dwiEnd,             GaugeXPosition - 10, ( SUB_TEXT_YPOS + IconShift * RGB_Blue_Item + 2),  GetBlueColorValue},
+	{dwiEnd,             GaugeXPosition - 11, ( SUB_TEXT_YPOS + IconShift * RGB_Blue_Item + 2),  GetBlueColorValue},
 };
 DrawGuageType code DrawUserColorBlueGuage[] =
 {
@@ -1510,9 +1510,9 @@ MenuItemType code ColorTempSelectMenuItems[] =
 {
 	// 0 ColorTempSelect
 	{
-		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * RGB_ColorTemp_Item + 2), // XPos, YPos;
-		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
-		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * RGB_ColorTemp_Item), // XPos, YPos;
+		CP_UnselectItem, Color_2, // ForeColor, BackColor;
+		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
 		RGBColorMenu,                                  //NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		ColorTempText, // DisplayText;
@@ -1752,7 +1752,7 @@ DrawRadioGroupType code DrawResetTextRatioGroup1[] =
 NumberType code OsdHPositionNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{dwiEnd,       NumXposion + 2, ( SUB_TEXT_YPOS + IconShift * OSD_HPOSITION_ITEM + 1), GetOSDHPositionValue},
+	{dwiEnd,       NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * OSD_HPOSITION_ITEM + 1), GetOSDHPositionValue},
 };
 DrawNumberType code DrawOsdHPositionNumber[] =
 {
@@ -1763,7 +1763,7 @@ DrawNumberType code DrawOsdHPositionNumber[] =
 GaugeType code OsdHPositionGuage[] =
 {
 	// Flags, ForeColor,    BackColor,  Length,     GetValue
-	{dwiEnd,            GaugeXPosition - 10, ( SUB_TEXT_YPOS + IconShift * OSD_HPOSITION_ITEM + 2),   GetOSDHPositionValue},
+	{dwiEnd,            GaugeXPosition - 11, ( SUB_TEXT_YPOS + IconShift * OSD_HPOSITION_ITEM + 2),   GetOSDHPositionValue},
 };
 DrawGuageType code DrawOsdHPositionGuage[] =
 {
@@ -1774,7 +1774,7 @@ DrawGuageType code DrawOsdHPositionGuage[] =
 NumberType code OsdVPositionNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{dwiEnd,       NumXposion + 2, ( SUB_TEXT_YPOS + IconShift * OSD_VPOSITION_ITEM + 1), GetOSDVPositionValue},
+	{dwiEnd,       NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * OSD_VPOSITION_ITEM + 1), GetOSDVPositionValue},
 };
 DrawNumberType code DrawOsdVPositionNumber[] =
 {
@@ -1785,7 +1785,7 @@ DrawNumberType code DrawOsdVPositionNumber[] =
 GaugeType code OsdVPositionGuage[] =
 {
 	// Flags, ForeColor,    BackColor,  Length,     GetValue
-	{dwiEnd,            GaugeXPosition - 10, ( SUB_TEXT_YPOS + IconShift * OSD_VPOSITION_ITEM + 2),   GetOSDVPositionValue},
+	{dwiEnd,            GaugeXPosition - 11, ( SUB_TEXT_YPOS + IconShift * OSD_VPOSITION_ITEM + 2),   GetOSDVPositionValue},
 };
 DrawGuageType code DrawOsdVPositionGuage[] =
 {
@@ -1797,7 +1797,7 @@ DrawGuageType code DrawOsdVPositionGuage[] =
 NumberType code OsdTimeOutNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{dwiEnd,       NumXposion + 2, ( SUB_TEXT_YPOS + IconShift * OSD_TIMEOUT_ITEM + 1), GetOSDTimeValue},
+	{dwiEnd,       NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * OSD_TIMEOUT_ITEM + 1), GetOSDTimeValue},
 };
 DrawNumberType code DrawOsdTimeOutNumber[] =
 {
@@ -1808,7 +1808,7 @@ DrawNumberType code DrawOsdTimeOutNumber[] =
 GaugeType code OsdTimeOutGuage[] =
 {
 	// Flags, ForeColor,    BackColor,  Length,     GetValue
-	{dwiEnd,            GaugeXPosition - 10, ( SUB_TEXT_YPOS + IconShift * OSD_TIMEOUT_ITEM + 2),   GetOSDTime100Value},
+	{dwiEnd,            GaugeXPosition - 11, ( SUB_TEXT_YPOS + IconShift * OSD_TIMEOUT_ITEM + 2),   GetOSDTime100Value},
 };
 DrawGuageType code DrawOsdTimeOutGuage[] =
 {
@@ -1819,7 +1819,7 @@ DrawGuageType code DrawOsdTimeOutGuage[] =
 NumberType code TransparenceNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{dwiEnd,       NumXposion + 2, ( SUB_TEXT_YPOS + IconShift * OSD_TRANSPARENCE_ITEM + 1), GetOSDTransparence},
+	{dwiEnd,       NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * OSD_TRANSPARENCE_ITEM + 1), GetOSDTransparence},
 };
 DrawNumberType code DrawTransparenceNumber[] =
 {
@@ -1830,7 +1830,7 @@ DrawNumberType code DrawTransparenceNumber[] =
 GaugeType code TransparenceGuage[] =
 {
 	// Flags, ForeColor,    BackColor,  Length,     GetValue
-	{dwiEnd,            GaugeXPosition - 10, ( SUB_TEXT_YPOS + IconShift * OSD_TRANSPARENCE_ITEM + 2),   GetOSDTransparence},
+	{dwiEnd,            GaugeXPosition - 11, ( SUB_TEXT_YPOS + IconShift * OSD_TRANSPARENCE_ITEM + 2),   GetOSDTransparence},
 };
 DrawGuageType code DrawTransparenceGuage[] =
 {
@@ -2356,9 +2356,9 @@ MenuItemType code OsdHPositionMenuItems[] =
 {
 	// 0 OsdHPosition
 	{
-		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * OSD_HPOSITION_ITEM + 2), // XPos, YPos;
-		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
-		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * OSD_HPOSITION_ITEM), // XPos, YPos;
+		CP_UnselectItem, Color_2, // ForeColor, BackColor;
+		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
 		OsdMenu,///NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		OsdHPositionText, // DisplayText;
@@ -2382,9 +2382,9 @@ MenuItemType code OsdVPositionMenuItems[] =
 {
 	// 0 OsdVPosition
 	{
-		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * OSD_VPOSITION_ITEM + 2), // XPos, YPos;
-		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
-		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * OSD_VPOSITION_ITEM), // XPos, YPos;
+		CP_UnselectItem, Color_2, // ForeColor, BackColor;
+		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
 		OsdMenu,///NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		OsdVPositionText, // DisplayText;
@@ -2408,9 +2408,9 @@ MenuItemType code OsdTimeOutMenuItems[] =
 {
 	// 0 OsdTimeOutPosition
 	{
-		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * OSD_TIMEOUT_ITEM + 2), // XPos, YPos;
-		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
-		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * OSD_TIMEOUT_ITEM), // XPos, YPos;
+		CP_UnselectItem, Color_2, // ForeColor, BackColor;
+		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
 		OsdMenu,///NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		OsdTimeOutText, // DisplayText;
@@ -2434,9 +2434,9 @@ MenuItemType code TransparenceMenuItems[] =
 {
 	// TransparenceMemu
 	{
-		SUB_TEXT_XPOS - 5, ( SUB_TEXT_YPOS + IconShift * OSD_TRANSPARENCE_ITEM + 2), // XPos, YPos;
-		NotSelectedForeAndBackColor, Color_2, // ForeColor, BackColor;
-		SelectedForeAndBackColor, Color_2, // SelForeColor, SelBackColor;
+		SUB_TEXT_XPOS, ( SUB_TEXT_YPOS + IconShift * OSD_TRANSPARENCE_ITEM), // XPos, YPos;
+		CP_UnselectItem, Color_2, // ForeColor, BackColor;
+		CP_SelectItem, Color_2, // SelForeColor, SelBackColor;
 		OsdMenu,///NextMenuPage;
 		DWI_Text,// DrawMenuItemType;
 		TransparenceText, // DisplayText;
@@ -2676,7 +2676,7 @@ DrawRadioGroupType code DrawMuteRatioText[] =
 NumberType code VolumeNumber[] =
 {
 	// Flags,   XPos,   YPos,   GetValue
-	{dwiEnd,        NumXposion + 2, ( SUB_TEXT_YPOS + IconShift * Misc_Volume_ITEM + 1), GetVolumeValue},
+	{dwiEnd,        NumXposion + 1, ( SUB_TEXT_YPOS + IconShift * Misc_Volume_ITEM + 1), GetVolumeValue},
 };
 DrawNumberType code DrawVolumeNumber[] =
 {
@@ -2687,7 +2687,7 @@ DrawNumberType code DrawVolumeNumber[] =
 GaugeType code VolumeGuage[] =
 {
 	// Flags    XPos,   YPos,   GetValue
-	{dwiEnd,   GaugeXPosition - 10, ( SUB_TEXT_YPOS + IconShift * Misc_Volume_ITEM + 2),      GetVolumeValue},
+	{dwiEnd,   GaugeXPosition - 11, ( SUB_TEXT_YPOS + IconShift * Misc_Volume_ITEM + 2),      GetVolumeValue},
 };
 DrawGuageType code DrawVolumeGuage[] =
 {
@@ -4789,7 +4789,7 @@ MenuPageType code tblMenus[] =
 		ColorTempSelectMenuItems, // MenuItems;
 		sizeof( ColorTempSelectMenuItems ) / sizeof( MenuItemType ), // MenuItemCount;
 		NULL, // ExecFunction;
-		MenuPage3, // Fonts
+		NULL, // Fonts
 		mpbStay | mpbClrGroup //   Flags;
 	},
 	//22 RedMenu,
@@ -4799,7 +4799,7 @@ MenuPageType code tblMenus[] =
 		UserColorRedMenuItems, // MenuItems;
 		sizeof( UserColorRedMenuItems ) / sizeof( MenuItemType ), // MenuItemCount;
 		NULL, // ExecFunction;
-		MenuPage3, // Fonts
+		NULL, // Fonts
 		mpbStay  //   Flags;
 	},
 	//23 GreenMenu,
@@ -4809,7 +4809,7 @@ MenuPageType code tblMenus[] =
 		UserColorGreenMenuItems, // MenuItems;
 		sizeof( UserColorGreenMenuItems ) / sizeof( MenuItemType ), // MenuItemCount;
 		NULL, // ExecFunction;
-		MenuPage3, // Fonts
+		NULL, // Fonts
 		mpbStay  //   Flags;
 	},
 	//24 BlueMenu,
@@ -4819,7 +4819,7 @@ MenuPageType code tblMenus[] =
 		UserColorBlueMenuItems, // MenuItems;
 		sizeof( UserColorBlueMenuItems ) / sizeof( MenuItemType ), // MenuItemCount;
 		NULL, // ExecFunction;
-		MenuPage3, // Fonts
+		NULL, // Fonts
 		mpbStay  //   Flags;
 	},
 	#if ENABLE_OSD_LowBlueLight
